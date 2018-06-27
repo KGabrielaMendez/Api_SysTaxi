@@ -1,0 +1,73 @@
+<html>
+<head>
+	
+	<link href="css/cuadroContenedor.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+		input[type=email] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+    width: 960px;
+    height: 800px;
+display: inline-block;
+}
+
+div#general{
+	text-align: center;
+	margin: auto;
+	margin-top: 50px;
+    width: 960px;
+    height: 800px;
+
+}
+div#captcha{
+
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+	</style>
+
+	<meta charset="UTF-8">
+	<title>Recuperación de contraseña</title>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body> 
+ <div id=general>
+	<form class="modal-content animate" action="confirmacion.php" method="post">
+  
+       <h3 align="center"> Recuperación de contraseña</h3>	  
+	  <label for="email"><b>Ingrese e-mail</b></label>
+      <input type="email" placeholder="Ingrese su e-mail" name="email" required>
+		<!--Captcha -->
+       <div class="g-recaptcha" data-sitekey="6Lfi8VwUAAAAAKNU16J7J3aEz997QJ9raMclFzCD"></div>
+<br/>
+<br/>
+      <button type="submit" >Aceptar </button>
+      </form>
+    </div>
+  
+
+
+
+</body>
+</html>
