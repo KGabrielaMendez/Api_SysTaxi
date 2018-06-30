@@ -54,16 +54,16 @@ if(isset($_SESSION['incorrecto'])){
   <input type="hidden" name="opcion" value="crear_login"  required="true">
     <div class="container">
       <label for="uname"><b>Usuario</b></label>
-      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" required>
+      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" pattern="^[a-zA-Z0-9_.-]*$" minlength="3" required>
 
 	  <label for="email"><b>E-mail</b></label>
       <input type="email" placeholder="Ingrese su e-mail" name="email" required>
 
 	  <label for="psw"><b>Ingrese contraseña</b></label>
-      <input type="password" placeholder="Ingrese contraseña" name="psw1" required>	  
+      <input type="password" placeholder="Ingrese contraseña" name="psw1"  minlength="8" required>	  
 
       <label for="psw"><b>Repita la contraseña</b></label>
-      <input type="password" placeholder="Repita su contraseña" name="psw2" required>	
+      <input type="password" placeholder="Repita su contraseña" name="psw2" minlength="8" required>	
       <button type="submit" name="submit">Regístrate</button>
   
     </div>
@@ -79,10 +79,10 @@ if(isset($_SESSION['incorrecto'])){
 
     <div class="container">
       <label for="uname"><b>Usuario</b></label>
-      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" required>
+      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" pattern="^[a-zA-Z0-9_.-]*$" minlength="3" required>
 
       <label for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Ingrese su contraseña" name="psw" required>
+      <input type="password" placeholder="Ingrese su contraseña" name="psw" minlength="8" required>
       <b> </b><span class="psw"><a href="../login/confirmacion.php">Olvidó su contraseña</a></span>  
 
       <button type="submit">Iniciar Sesión</button>
