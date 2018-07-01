@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-session_start();
-if($_SESSION['rolUsuario']=="2"){
+//session_start();
+//if($_SESSION['rolUsuario']=="2"){
 ?>
 <html>
     <head>
@@ -48,7 +48,7 @@ button:hover {
                 <tr style="width: 175px;">
                     <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
                             <?php
-                            $username=$_SESSION['username'];
+//                            $username=$_SESSION['username'];
                             ?>
                             <input type="hidden" name="username" value="<?php echo $username;?>">
                             <input type="hidden" value="perfil" name="opcion">
@@ -77,8 +77,9 @@ button:hover {
     </body>
 </html>
 <?php
-} 
-else{
-    header("Location: ../login/login.php");
-    exit();
-} ?>
+//} 
+//else{
+//    header("Location: ../login/login.php");
+//    exit();
+//} 
+?>
