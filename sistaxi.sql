@@ -3,7 +3,6 @@
 /* Created on:     27/06/2018 7:55:41                           */
 /*==============================================================*/
 
-/*comentario2*/
 drop table if exists CAT_CARRERA;
 
 drop table if exists CAT_COOPERATIVAS;
