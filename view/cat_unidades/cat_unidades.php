@@ -5,7 +5,7 @@ switch($opt)
 {
 case 'view':
 $id = isset($_REQUEST['ID_UNI']) ? $_REQUEST['ID_UNI'] : '';
-$sqlV = 'SELECT ID_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades WHERE ID_UNI="'.$id.'"';
+$sqlV = 'SELECT co.NOMBRE_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades u, cat_cooperativas co WHERE ID_UNI="'.$id.'"';
 $qryV = mysql_query($sqlV) or die('Error: ' . mysql_error());
 $qryVResult = mysql_fetch_assoc($qryV) or die('Error: ' . mysql_error());
 include 'templates/cat_unidades_view.php';
@@ -13,7 +13,7 @@ break;
 case 'edit':
 $msg = isset($msg) ? $msg : '';
 $id = isset($_REQUEST['ID_UNI']) ? $_REQUEST['ID_UNI'] : '';
-$sqlE = 'SELECT ID_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades WHERE ID_UNI="'.$id.'"';
+$sqlE = 'SELECT co.NOMBRE_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades u, cat_cooperativas co WHERE ID_UNI="'.$id.'"';
 $qryE = mysql_query($sqlE) or die('Error: ' . mysql_error());
 $qryEResult = mysql_fetch_assoc($qryE) or die('Error: ' . mysql_error());
 @extract($qryEResult);
@@ -133,7 +133,7 @@ if(isset($_SESSION['msg'])) {
 $msg = $_SESSION['msg'];
 unset($_SESSION['msg']);}
 include '../library/paginator.class.php';
-$sqlL = 'SELECT ID_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades';
+$sqlL = 'SELECT co.NOMBRE_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades u, cat_cooperativas co';
 $pag = new Paginator($sqlL, 10);
 $link1 = $pag->getCount('Item %d of %d - %d');
 $link2 = $pag->getLinks(5);

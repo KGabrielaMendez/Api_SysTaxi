@@ -5,8 +5,8 @@ echo $msg;
 ?>
 <?php include "inc/inc_head.php"; ?>
 <ul class="breadcrumb">
-<li><a href="cat_unidades.php">Inicio</a></li>
-<li class="active">Library</li>
+<li><a href="cat_unidades.php">Listado</a></li>
+ <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -15,7 +15,7 @@ echo $msg;
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID COOP</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COOPERATIVA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">PLACA UNI</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO UNI</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">MARCA UNI</th>
@@ -29,7 +29,7 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
-<td><?php echo $result[$key]['ID_COOP']?></td>
+<td><?php echo $result[$key]['NOMBRE_COOP']?></td>
 <td><?php echo $result[$key]['PLACA_UNI']?></td>
 <td><?php echo $result[$key]['TIPO_UNI']?></td>
 <td><?php echo $result[$key]['MARCA_UNI']?></td>

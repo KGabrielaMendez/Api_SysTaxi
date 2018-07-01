@@ -6,7 +6,7 @@ $mconductores = new ModelClientes();
 $opcion = $_REQUEST['opcion'];
 switch ($opcion) {
         case "perfil":
-        $username = $_GET['username'];
+        $username = $_SESSION['username'];
         //Buscamos los datos
         $conductor = $mconductores->getCliente($username);
         //guardamos los datos
@@ -18,6 +18,12 @@ switch ($opcion) {
         case "qsomos":
             header('Location: ../view/infoQuienSomos.php');
             break;
+        
+        case "cerrarSesion":
+            session_destroy();
+            header("Location: ../login/login.php");
+            break;
+        
     default:
         header('Location:../view/mainCliente.php');
 }

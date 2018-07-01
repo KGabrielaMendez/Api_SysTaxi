@@ -22,9 +22,11 @@
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">USERNAME</label>
 <div class="form-group">
-<input type="text" name="USERNAME" class="form-control" value="<?php echo $USERNAME?>" />
+<input type="text" name="USERNAME" class="form-control" value="<?php echo $USERNAME?>" readonly="readonly"/>
 </div>
-
+<div class="form-group">
+<input type="hidden" name="PASSWORD" class="form-control" value="<?php echo $PASSWORD?>" readonly="readonly"/>
+</div>
 
 <input type="hidden" name="option" value="update">
 <input type="submit" name="btnUpdate" class="btn btn-primary" value="Actualizar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restaurar">

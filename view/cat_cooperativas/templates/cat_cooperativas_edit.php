@@ -1,7 +1,7 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_cooperativas.php">Inicio</a></li>
-<li class="active">Library</li>
+<li><a href="cat_cooperativas.php">Listado</a></li>
+<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -23,11 +23,11 @@
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">NUNIDADES COOP</label>
 <div class="form-group">
-<input type="text" name="NUNIDADES_COOP" class="form-control" value="<?php echo $NUNIDADES_COOP?>" />
+<input type="text" name="NUNIDADES_COOP" class="form-control" value="<?php echo $NUNIDADES_COOP?>" readonly="readonly"/>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHAREGISTRO COOP</label>
 <div class="form-group">
-<input type="text" name="FECHAREGISTRO_COOP" class="form-control" value="<?php echo $FECHAREGISTRO_COOP?>" />
+    <input type="text" name="FECHAREGISTRO_COOP" class="form-control" value="<?php echo $FECHAREGISTRO_COOP?>" readonly="readonly"/>
 </div>
 
 <input type="hidden" name="option" value="update">

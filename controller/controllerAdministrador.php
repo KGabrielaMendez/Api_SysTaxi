@@ -25,6 +25,11 @@ switch ($opcion) {
     case "nuevoAdmin":
         header('Location: ../view/login/login.php');
         break;
+    
+    case "cerrarSesion":
+            session_destroy();
+            header("Location: ../login/login.php");
+            break;
 
     default:
         header('Location:../view/mainAdministrador.php');

@@ -1,8 +1,9 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_cooperativas.php">Inicio</a></li>
-<li class="active">Library</li>
+<li><a href="cat_cooperativas.php">Listado</a></li>
+<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
 </ul>
+<h1>Nueva Cooperativa</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmAdd" id="frmAdd" action="" class="form-group" method="post" enctype="multipart/form-data">
@@ -23,11 +24,11 @@
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">NUNIDADES COOP</label>
 <div class="form-group">
-<input type="text" name="NUNIDADES_COOP" class="form-control" value="<?php echo isset($_REQUEST["NUNIDADES_COOP"]) ? $_REQUEST["NUNIDADES_COOP"] : ''; ?>" />
+<input type="text" name="NUNIDADES_COOP" class="form-control" value="0" readonly="readonly" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHAREGISTRO COOP</label>
 <div class="form-group">
-<input type="text" name="FECHAREGISTRO_COOP" class="form-control" value="<?php echo isset($_REQUEST["FECHAREGISTRO_COOP"]) ? $_REQUEST["FECHAREGISTRO_COOP"] : ''; ?>" />
+<input type="text" name="FECHAREGISTRO_COOP" class="form-control" value="<?php echo date('Y-m-d G:i:s')?>" readonly="readonly"/>
 </div>
 <input type="hidden" name="option" value="insert">
 <input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">

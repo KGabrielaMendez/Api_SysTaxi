@@ -81,7 +81,14 @@ td, th, table{
                 <div id="wrapper">
     <div id="header">  
         <h1>Taxi Encomienda</h1>
+        <div >   
+                        <form  action="../controller/controllerAdministrador.php">
+                        <input type="hidden" value="cerrarSesion" name="opcion">
+                        <input type=submit value="cerrar Sesion" name="cerrarSesion"/>
+                    </form>
+                </div>
     </div>
+                    
         <div id="content">
             
             <div id="leftbar">  </div>

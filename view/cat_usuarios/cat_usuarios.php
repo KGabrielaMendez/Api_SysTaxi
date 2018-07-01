@@ -96,7 +96,7 @@ if(isset($_SESSION['msg'])) {
 $msg = $_SESSION['msg'];
 unset($_SESSION['msg']);}
 include '../library/paginator.class.php';
-$sqlL = 'SELECT ID_LOG, NOMBRE_US, APELLIDO_US, FECHANAC_US, CIUDAD_US, TELEFONO_US, GENERO_US, DIRECCION_US, FECHAREGISTRO_US, EMAIL_US, ID_US FROM cat_usuarios';
+$sqlL = 'SELECT u.ID_LOG, NOMBRE_US, APELLIDO_US, FECHANAC_US, CIUDAD_US, TELEFONO_US, GENERO_US, DIRECCION_US, FECHAREGISTRO_US, EMAIL_US, ID_US FROM cat_usuarios u, login l WHERE l.ID_ROL =2 AND l.ID_LOG=u.ID_LOG';
 $pag = new Paginator($sqlL, 10);
 $link1 = $pag->getCount('Item %d of %d - %d');
 $link2 = $pag->getLinks(5);

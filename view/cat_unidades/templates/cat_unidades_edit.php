@@ -1,7 +1,7 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_unidades.php">Inicio</a></li>
-<li class="active">Library</li>
+<li><a href="cat_unidades.php">Listado</a></li>
+ <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -11,7 +11,19 @@
 <br/>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID COOP</label>
 <div class="form-group">
-<input type="text" name="ID_COOP" class="form-control" value="<?php echo $ID_COOP?>" />
+<select value="ID_COOP" style="width:100%; height: 40px">
+                <?php
+                $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
+                $consulta = "SELECT NOMBRE_COOP, c.ID_COOP from cat_cooperativas c, cat_unidades u where c.ID_COOP=u.ID_COOP";
+                if($res = mysqli_query($mysqli, $consulta)){
+                while($fila = mysqli_fetch_row($res)){
+                ?>
+                <option id="<?php echo $fila[1]; ?>"><?php echo $fila[0]; ?></option>
+                
+                <?php
+                }
+                }
+                ?>"  </select>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">PLACA UNI</label>
 <div class="form-group">
