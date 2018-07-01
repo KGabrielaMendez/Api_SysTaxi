@@ -18,20 +18,20 @@ if($row = mysql_fetch_array($result)){
 
 		if($row['ID_ROL'] == '1'){
 		session_start();
-		$_SESSION['administrador'] = '1';
+		$_SESSION['rolUsuario'] = '1';
                 $_SESSION['username']=$usuario;
 		header("Location: ../view/mainAdministrador.php");
 	}
 	else {
 		if($row['ID_ROL'] == '2'){
 		session_start();
-		$_SESSION['cliente'] = "2";
+		$_SESSION['rolUsuario'] = "2";
                 $_SESSION['username']=$usuario;
 		header("Location: ../view/mainCliente.php");
 	}	else{
 		if($row['ID_ROL'] == '3'){
 		session_start();
-		$_SESSION['conductor'] = "3";
+		$_SESSION['rolUsuario'] = "3";
                 $_SESSION['username']=$usuario;
 		header("Location: ../view/mainConductor.php");
 		}

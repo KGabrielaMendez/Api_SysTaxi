@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if($_SESSION['cliente']=="2"){
+if($_SESSION['rolUsuario']=="2"){
 ?>
 <html>
     <head>
@@ -36,7 +36,13 @@ button:hover {
         <title></title>
     </head>
     <body>
-       
+               <div id="wrapper">
+    <div id="header">   </div>
+        <div id="content">
+            <div id="leftbar">  </div>
+            <div id="rightbar"> </div>
+        </div>
+</div>
         <table border="0" class="normal" align="center">
             <tbody>
                 <tr style="width: 175px;">
@@ -48,7 +54,8 @@ button:hover {
                             <input type="hidden" value="perfil" name="opcion">
                             <button type="submit" value="Perfil" >Perfil </button>
                         </form></td>
-                    <td style="width: 175px;"><form  action="">
+                    <td style="width: 175px;">
+                        <form  action="">
                             <button type="submit" value="Servicios" >Servicios </button>
                         </form></td>
                 </tr>
@@ -72,6 +79,6 @@ button:hover {
 <?php
 } 
 else{
-    header("Location: index.html");
+    header("Location: ../login/login.php");
     exit();
 } ?>

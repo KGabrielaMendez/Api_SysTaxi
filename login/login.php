@@ -60,10 +60,11 @@ if(isset($_SESSION['incorrecto'])){
       <input type="email" placeholder="Ingrese su e-mail" name="email" required>
 
 	  <label for="psw"><b>Ingrese contraseña</b></label>
-      <input type="password" placeholder="Ingrese contraseña" name="psw1"  minlength="8" required>	  
+          <input type="password" placeholder="Ingrese contraseña" name="psw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                required>	  
 
       <label for="psw"><b>Repita la contraseña</b></label>
-      <input type="password" placeholder="Repita su contraseña" name="psw2" minlength="8" required>	
+      <input type="password" placeholder="Repita su contraseña" name="psw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>	
       <button type="submit" name="submit">Regístrate</button>
   
     </div>

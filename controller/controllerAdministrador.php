@@ -7,43 +7,21 @@ $opcion = $_REQUEST['opcion'];
 switch ($opcion) {
     
     case "clientes":
-        //obtenemos la lista cliente
-        $listado = $madmin->getClientes();
-        //y los guardamos en sesion:
-        $_SESSION['listado'] = serialize($listado);
-        //redireccionamos a la pagina index para visualizar:
-        header('Location: ../view/administrador/tableClientes.php');
+        header('Location: ../view/cat_usuarios/cat_usuarios.php');
         break;
     
     case "conductores":
-        //obtenemos la lista cliente
-        $listado = $madmin->getConductores();
-        //y los guardamos en sesion:
-        $_SESSION['listado'] = serialize($listado);
-        //redireccionamos a la pagina index para visualizar:
-        header('Location: ../view/administrador/tableConductores.php');
+        header('Location: ../view/conductor/conductor.php');
         break;
     
-    case "eliminar":
+    case "unidades":
+        header('Location: ../view/cat_unidades/cat_unidades.php');
+        break;
+    
+    case "cooperativas":
+        header('Location: ../view/cat_cooperativas/cat_cooperativas.php');
+        break;
 
-            $id=$_REQUEST['id'];
-            $madmin->eliminarCliente($id);
-            $listado = $madmin->getClientes();
-            //y los guardamos en sesion:
-               $_SESSION['listado'] = serialize($listado);
-            header('Location: ../view/administrador/tableClientes.php');
-        break;
-    
-    case "eliminar_con":
-
-            $id=$_REQUEST['id'];
-            $madmin->eliminarCliente($id);
-            $listado = $madmin->getClientes();
-            //y los guardamos en sesion:
-               $_SESSION['listado'] = serialize($listado);
-            header('Location: ../view/administrador/tableConductores.php');
-        break;
-    
     default:
         header('Location:../view/mainAdministrador.php');
 }

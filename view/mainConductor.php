@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+ <?php
+         session_start();
+         if($_SESSION['rolUsuario']=="3"){
+         $username=$_SESSION['username'];
+                            ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
-         <?php
-         $username=$_SESSION['username'];
-                            ?>
+<!--        <div id="wrapper">
+    <div id="header">   </div>
+        <div id="content">
+            <div id="leftbar">  </div>
+            <div id="rightbar"> </div>
+        </div>
+</div>-->
+<div id="footer">  </div> 
+        
         <table border="1">
             <tbody>
                 <tr>
@@ -31,7 +37,11 @@ and open the template in the editor.
             </tbody>
         </table>
         <?php
-        // put your code here
+         }
+         else{
+              header("Location: ../login/login.php");
+    exit();
+         }
         ?>
     </body>
 </html>

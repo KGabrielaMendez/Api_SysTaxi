@@ -13,7 +13,7 @@ switch ($opcion) {
 
 			$usuario=$_REQUEST['uname'];
             $correo=$_REQUEST['email'];
-            $rol=1;
+            $rol=2;
            
             if($_REQUEST['psw1']!=$_REQUEST['psw2']){
                 
@@ -34,19 +34,21 @@ switch ($opcion) {
             
             ?>
              <script type="text/javascript">
-                    alert("CREADO EXITOSAMENTE, POR FAVOR TERMINE SU REGISTRO");
-                </script>
-
-                <?php
+                    alert("CREADO EXITOSAMENTE, POR FAVOR TERMINE SU REGISTRO"){
+                        <?php
             //redireccionamos a una nueva pagina para visualizar:
                  header('Location: ../view/completarRegistro.php');
-            }
+            } ?>
+                    }
+                </script>
+<?php
+                
         break;
         
         case "crear_usuario":
             date_default_timezone_set('America/Guayaquil');
             //obtenemos los parametros del formulario:
-            session_start();
+            
             if(isset($_SESSION['email']) && isset($_SESSION['username'])){
                         $username=$_SESSION['username'];
 			$usuario=$_REQUEST['uname'];
@@ -62,20 +64,27 @@ switch ($opcion) {
                     
                         $correo =$_SESSION['email'];
                     
-            
+            $LoginModel->RecuperarIDLOG($username);
+                          $idLog=$_SESSION['idLog'];
             //creamos el nuevo registro:
-            $LoginModel->crearUsuario($username,$usuario, $apellido, $fechaNac, $ciudad, 
+            $LoginModel->crearUsuario($idLog,$usuario, $apellido, $fechaNac, $ciudad, 
                     $telefono, $genero, $direccion, $fecha_reg,$correo);
+            
             $_SESSION['cliente']="si";
             ?>
              <script type="text/javascript">
-                    alert("CREADO EXITOSAMENTE, POR FAVOR INICIE SESION");
+                    alert("CREADO EXITOSAMENTE, POR FAVOR INICIE SESION"){
+                    <?php
+                     header('Location: ../login/login.php');
+            
+                    ?>
+                        }
                 </script>
 
                 <?php
             //redireccionamos a una nueva pagina para visualizar:
-                 header('Location: ../login/login.php');
-            }else{
+            }
+            else{
                  header('Location: ../login/login.php');
             }
             
