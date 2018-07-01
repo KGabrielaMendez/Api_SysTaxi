@@ -120,6 +120,12 @@ td, th, table{
                             <input type="submit" value="Tarifas" />
                         </form>
                     </td>
+                     <td style="width: 175px;">
+                        <form  action="../controller/controllerAdministrador.php">
+                            <input type="hidden" value="nuevoAdmin" name="opcion" />
+                            <input type="submit" value="Añadir nuevos Administradores" />
+                        </form>
+                    </td>
                         
                 </tr>
             </tbody>

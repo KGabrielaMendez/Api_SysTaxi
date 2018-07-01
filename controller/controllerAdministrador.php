@@ -21,6 +21,10 @@ switch ($opcion) {
     case "cooperativas":
         header('Location: ../view/cat_cooperativas/cat_cooperativas.php');
         break;
+    
+    case "nuevoAdmin":
+        header('Location: ../view/login/login.php');
+        break;
 
     default:
         header('Location:../view/mainAdministrador.php');
