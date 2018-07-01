@@ -60,11 +60,11 @@ if(isset($_SESSION['incorrecto'])){
       <input type="email" placeholder="Ingrese su e-mail" name="email" required>
 
 	  <label for="psw"><b>Ingrese contraseña</b></label>
-          <input type="password" placeholder="Ingrese contraseña" name="psw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+          <input type="password" placeholder="Ingrese contraseña" name="psw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8"
                 required>	  
 
       <label for="psw"><b>Repita la contraseña</b></label>
-      <input type="password" placeholder="Repita su contraseña" name="psw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>	
+      <input type="password" placeholder="Repita su contraseña" name="psw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" required>	
       <button type="submit" name="submit">Regístrate</button>
   
     </div>
@@ -83,7 +83,7 @@ if(isset($_SESSION['incorrecto'])){
       <input type="text" placeholder="Ingrese nombre de usuario" name="uname" pattern="^[a-zA-Z0-9_.-]*$" minlength="3" required>
 
       <label for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Ingrese su contraseña" name="psw" minlength="8" required>
+      <input type="password" placeholder="Ingrese su contraseña" name="psw" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" required>
       <b> </b><span class="psw"><a href="../login/confirmacion.php">Olvidó su contraseña</a></span>  
 
       <button type="submit">Iniciar Sesión</button>

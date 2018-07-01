@@ -24,7 +24,7 @@ class LoginModel {
     
     
     public function RecuperarIDLOG($username){
-        mysql_connect('localhost','root','') or die("Error al conectar " . mysql_error());
+        mysql_connect('127.0.0.1','root','') or die("Error al conectar " . mysql_error());
 mysql_select_db('systaxi') or die ("Error al seleccionar la Base de datos: " . mysql_error());
 
         $result = mysql_query("SELECT ID_LOG from login where USERNAME='" . $username. "'");
