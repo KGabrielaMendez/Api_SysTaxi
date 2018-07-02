@@ -53,9 +53,11 @@ if ($_SESSION['rolUsuario'] == "2") {
                             <input type="hidden" name="username" value="<?php echo $username;?>">
                             <input type="hidden" value="perfil" name="opcion">
                             <button type="submit" value="Perfil" >Perfil </button>
+                            
                         </form></td>
                     <td style="width: 175px;">
-                        <form  action="">
+                        <form  action="../controller/controllerClientes.php">
+                            <input type="hidden" value="servicios" name="opcion">
                             <button type="submit" value="Servicios" >Servicios </button>
                         </form></td>
                 </tr>
