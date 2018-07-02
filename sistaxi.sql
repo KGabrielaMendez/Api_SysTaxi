@@ -1,7 +1,8 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     27/06/2018 7:55:41                           */
+/* Created on:     01/07/2018 20:24:55                          */
 /*==============================================================*/
+
 
 drop table if exists CAT_CARRERA;
 
@@ -29,6 +30,7 @@ drop table if exists TIPO_ENCOMIENDA;
 create table CAT_CARRERA
 (
    ID_CARRERA           int not null auto_increment,
+   ID_PEDIDO            int,
    DESCRIPCION_CAR      varchar(1000) comment 'Puede incluir nr de casa',
    DISTANCIA_CAR        int,
    TIEMPOESPERAMIN_CAR  int,
@@ -60,6 +62,7 @@ create table CAT_ENCOMIENDA
 (
    ID_ENCOMIENDA        int not null auto_increment,
    IDTIPOENCOM          int,
+   ID_PEDIDO            int,
    DESCRIPCION_ENC      varchar(1000),
    DISTANCIAMIN_ENC     int,
    TIEMPOESPERAMIN_ENC  int,
@@ -71,7 +74,7 @@ create table CAT_ENCOMIENDA
    primary key (ID_ENCOMIENDA)
 );
 
-alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMA�O ENCOMIENDA';
+alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMAÑO ENCOMIENDA';
 
 /*==============================================================*/
 /* Table: CAT_PEDIDOS                                           */
@@ -79,8 +82,6 @@ alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMA�O ENCOMIENDA';
 create table CAT_PEDIDOS
 (
    ID_PEDIDO            int not null auto_increment,
-   ID_ENCOMIENDA        int,
-   ID_CARRERA           int,
    IDCONDUCTOR          int,
    ID_US                int,
    FECHA                datetime,
@@ -120,7 +121,6 @@ create table CAT_USUARIOS
 (
    ID_US                int not null auto_increment,
    ID_LOG               INT not null,
-   CEDULA_US            varchar(20),
    NOMBRE_US            varchar(70),
    APELLIDO_US          varchar(70),
    FECHANAC_US          date,
@@ -168,14 +168,14 @@ create table TIPO_ENCOMIENDA
 
 alter table TIPO_ENCOMIENDA comment 'tabla q contiene el tipo de encomiendas';
 
+alter table CAT_CARRERA add constraint FK_PEDIDO_CARR foreign key (ID_PEDIDO)
+      references CAT_PEDIDOS (ID_PEDIDO) on delete restrict on update restrict;
+
+alter table CAT_ENCOMIENDA add constraint FK_PEDIDO_ENCOMIEN foreign key (ID_PEDIDO)
+      references CAT_PEDIDOS (ID_PEDIDO) on delete restrict on update restrict;
+
 alter table CAT_ENCOMIENDA add constraint FK_TIPOENCOMIENDA_ENCOMIEND foreign key (IDTIPOENCOM)
       references TIPO_ENCOMIENDA (IDTIPOENCOM) on delete restrict on update restrict;
-
-alter table CAT_PEDIDOS add constraint FK_CARR_PEDIDO foreign key (ID_CARRERA)
-      references CAT_CARRERA (ID_CARRERA) on delete restrict on update restrict;
-
-alter table CAT_PEDIDOS add constraint FK_ENCOMIEN_PEDIDO foreign key (ID_ENCOMIENDA)
-      references CAT_ENCOMIENDA (ID_ENCOMIENDA) on delete restrict on update restrict;
 
 alter table CAT_PEDIDOS add constraint FK_ROLUSER_PEDIDO foreign key (IDCONDUCTOR)
       references CONDUCTOR (IDCONDUCTOR) on delete restrict on update restrict;
