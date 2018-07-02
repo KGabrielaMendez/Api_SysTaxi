@@ -21,6 +21,16 @@ class LoginModel {
         Database::disconnect();
     }
 
+    public function cambioContraseña($contra, $email) {      
+        $pdo = Database::connect();
+       
+        $idLog = $_SESSION['idLog'];
+       $sql = " update login set PASSWORD ='".$contra."' WHERE ID_LOG =".$idLog."";
+       $consult = $pdo->prepare($sql);
+       $consult->execute(array($valor));
+//                 echo print_r($consult)  ;                
+       Database::disconnect();
+    }
     public function RecuperarIDLOG($username) {
         $mysqli = new mysqli('localhost', 'root', '', 'systaxi');
         $mysqli->set_charset("utf8");

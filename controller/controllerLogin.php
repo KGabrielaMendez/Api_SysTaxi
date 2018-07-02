@@ -1,6 +1,6 @@
 <?php
 require_once '../model/LoginModel.php';
-
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 $LoginModel = new LoginModel();
 $opcion = $_REQUEST['opcion'];
@@ -20,8 +20,7 @@ switch ($opcion) {
                  ?>
              <script type="text/javascript">
                     alert("LA CONTRASEÑA NO ES LA MISMA");
-                </script>
-                    
+                </script>                   
                 <?php
                  header('Location: ../login/login.php');
             }else{ 
@@ -91,9 +90,34 @@ switch ($opcion) {
             
         break;
 	
+        case "cambio_contra":
+            $correo = $_REQUEST['email'];
+
+             if($_POST['psw1']!=$_POST['psw2']){
+                
+                 ?>
+             <script type="text/javascript">
+                    alert("LA CONTRASEÑA NO ES LA MISMA");
+                </script>
+                <?php
+                
+                 header('Location: ../login/confirmacion.php');
+            }else{ 
+                $contra=md5($_POST['psw1']);
+                $LoginModel->cambioContraseña($contra, $correo);
+                
+                 ?>
+                <script type="text/javascript">
+                    alert("SU CONTRASEÑA A SIDO CAMBIADA");
+                                    </script>
+                        <?php
+            //redireccionamos a una nueva pagina para visualizar:
+                 header('Location: ../login/login.php');
+            }  
+        break;
+    
 	default:
 		# code...
 		break;
 
 }
-?>
