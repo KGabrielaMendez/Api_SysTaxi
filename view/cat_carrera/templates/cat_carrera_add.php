@@ -1,7 +1,7 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_carrera.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_carrera.php">Inicio</a></li>
+<li class="active">Library</li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -9,6 +9,16 @@
 <?php echo $msg; ?>
 <br/>
 <br/>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</label>
+<div class="form-group">
+<select name="ID_PEDIDO"  class="locationMultiple form-control">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION CAR</label>
 <div class="form-group">
 <input type="text" name="DESCRIPCION_CAR" class="form-control" value="<?php echo isset($_REQUEST["DESCRIPCION_CAR"]) ? $_REQUEST["DESCRIPCION_CAR"] : ''; ?>" />

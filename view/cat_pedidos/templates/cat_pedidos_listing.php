@@ -5,8 +5,8 @@ echo $msg;
 ?>
 <?php include "inc/inc_head.php"; ?>
 <ul class="breadcrumb">
-<li><a href="cat_pedidos.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_pedidos.php">Inicio</a></li>
+<li class="active">Library</li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -15,8 +15,6 @@ echo $msg;
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID ENCOMIENDA</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID CARRERA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA</th>
@@ -27,8 +25,6 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
-<td><?php echo $result[$key]['ID_ENCOMIENDA']?></td>
-<td><?php echo $result[$key]['ID_CARRERA']?></td>
 <td><?php echo $result[$key]['IDCONDUCTOR']?></td>
 <td><?php echo $result[$key]['ID_US']?></td>
 <td><?php echo $result[$key]['FECHA']?></td>

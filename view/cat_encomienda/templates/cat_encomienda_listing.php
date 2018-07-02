@@ -5,8 +5,7 @@ echo $msg;
 ?>
 <?php include "inc/inc_head.php"; ?>
 <ul class="breadcrumb">
-<li><a href="cat_encomienda.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_encomienda.php">Inicio</a></li>
 <li class="active">Library</li>
 </ul>
 <br/>
@@ -17,6 +16,7 @@ echo $msg;
 <thead>
 <tr>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">IDTIPOENCOM</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN ENC</th>
@@ -33,6 +33,7 @@ echo $msg;
 foreach($result as $key => $value){?>
 <tr>
 <td><?php echo $result[$key]['IDTIPOENCOM']?></td>
+<td><?php echo $result[$key]['ID_PEDIDO']?></td>
 <td><?php echo $result[$key]['DESCRIPCION_ENC']?></td>
 <td><?php echo $result[$key]['DISTANCIAMIN_ENC']?></td>
 <td><?php echo $result[$key]['TIEMPOESPERAMIN_ENC']?></td>

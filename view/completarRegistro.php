@@ -86,16 +86,16 @@ button:hover {
   <input type="hidden" name="opcion" value="crear_usuario"  required="true">
     <div class="container">
       <label for="uname"><b>Nombres</b></label>
-      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" pattern="[a-zA-Z]+" required>
+      <input type="text" placeholder="Ingrese nombre de usuario" name="uname" pattern="^[a-zA-Z_.-]*$" minlength="3" required>
 
 	  <label for="uape"><b>Apellidos</b></label>
-          <input type="text" placeholder="Ingrese su apellido" name="uape" pattern="[a-zA-Z]+" required>
+          <input type="text" placeholder="Ingrese su apellido" name="uape"  pattern="^[a-zA-Z_.-]*$" minlength="3"  required>
 
 	  <label for="fdn"><b>Fecha Nacimiento</b></label>
           <input type="date" placeholder="Ingrese contraseña" name="fdn" max="2003-01-01" required>	  
 
       <label for="ciudad"><b>Ciudad de Residencia</b></label>
-      <input type="text" placeholder="Ingrese Ciudad de Residencia" name="ciudad" pattern="[a-zA-Z]+" required>	  
+      <input type="text" placeholder="Ingrese Ciudad de Residencia" name="ciudad"  pattern="^[a-zA-Z_.-]*$" minlength="5" required>	  
 
       <label for="telf"><b>Telefono</b></label>
       <input type="text" placeholder="Ingrese Telefono" name="telf" pattern="([0-9])+(?:-?\d){4,}" required>	
@@ -109,7 +109,7 @@ button:hover {
       <br>
       </label>
       <label for="dir"><b>Dirección</b></label>
-      <input type="text" placeholder="Ingrese las calles de su domicilio y numero de casa" name="dir" pattern="[a-zA-Z0-9]+" required>	
+      <input type="text" placeholder="Ingrese las calles de su domicilio y numero de casa" name="dir" pattern="[a-zA-Z0-9]+" minlength="5" required>	
       
       
       <button type="submit" name="submit">Completar Registro</button>

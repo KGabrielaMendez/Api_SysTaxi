@@ -1,19 +1,11 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_pedidos.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_pedidos.php">Inicio</a></li>
+<li class="active">Library</li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
 <table class="table table-bordered">
-<tr>
-<th style="text-transform: capitalize; width: 150px;">ID ENCOMIENDA</th>
-<td><?php echo $qryVResult['ID_ENCOMIENDA']?></td>
-</tr>
-<tr>
-<th style="text-transform: capitalize; width: 150px;">ID CARRERA</th>
-<td><?php echo $qryVResult['ID_CARRERA']?></td>
-</tr>
 <tr>
 <th style="text-transform: capitalize; width: 150px;">IDCONDUCTOR</th>
 <td><?php echo $qryVResult['IDCONDUCTOR']?></td>

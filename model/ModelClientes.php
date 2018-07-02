@@ -15,10 +15,10 @@ class ModelClientes {
         $pdo = Database::connect();
         $sql = "SELECT C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, B.DIRECCION_US, B.FECHANAC_US
                 FROM cat_rol A,cat_usuarios B,login C
-                WHERE B.USERNAME = C.USERNAME
-                AND C.ID_ROL = A.ID_ROL
+                WHERE C.ID_ROL = A.ID_ROL
+                AND B.ID_LOG = C.ID_LOG
                 AND A.ID_ROL = 2
-                AND c.USERNAME = ?";
+                AND C.USERNAME = ".$username;
         $consulta = $pdo->prepare($sql);
         $consulta->execute(array($username));
         //obtenemos el registro especifico:

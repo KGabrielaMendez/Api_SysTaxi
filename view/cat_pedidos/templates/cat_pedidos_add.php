@@ -1,7 +1,7 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_pedidos.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_pedidos.php">Inicio</a></li>
+<li class="active">Library</li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -9,25 +9,29 @@
 <?php echo $msg; ?>
 <br/>
 <br/>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID ENCOMIENDA</label>
-<div class="form-group">
-<input type="text" name="ID_ENCOMIENDA" class="form-control" value="<?php echo isset($_REQUEST["ID_ENCOMIENDA"]) ? $_REQUEST["ID_ENCOMIENDA"] : ''; ?>" />
-</div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID CARRERA</label>
-<div class="form-group">
-<input type="text" name="ID_CARRERA" class="form-control" value="<?php echo isset($_REQUEST["ID_CARRERA"]) ? $_REQUEST["ID_CARRERA"] : ''; ?>" />
-</div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</label>
 <div class="form-group">
-<input type="text" name="IDCONDUCTOR" class="form-control" value="<?php echo isset($_REQUEST["IDCONDUCTOR"]) ? $_REQUEST["IDCONDUCTOR"] : ''; ?>" />
+<select name="IDCONDUCTOR"  class="locationMultiple form-control">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</label>
 <div class="form-group">
-<input type="text" name="ID_US" class="form-control" value="<?php echo isset($_REQUEST["ID_US"]) ? $_REQUEST["ID_US"] : ''; ?>" />
+<select name="ID_US"  class="locationMultiple form-control">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA</label>
 <div class="form-group">
-<input type="text" name="FECHA" class="form-control" value="<?php echo isset($_REQUEST["FECHA"]) ? $_REQUEST["FECHA"] : ''; ?>" />
+<input type="date" class="form-control" id="datepicker" name="FECHA" />
 </div>
 <input type="hidden" name="option" value="insert">
 <input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">

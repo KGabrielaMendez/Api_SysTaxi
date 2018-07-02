@@ -9,10 +9,11 @@ switch ($opcion) {
         $username = $_SESSION['username'];
         //Buscamos los datos
         $conductor = $mconductores->getCliente($username);
+        print_r($conductor);
         //guardamos los datos
         $_SESSION['cliente'] = $conductor;
         //redirigimos la navegación al formulario de edicion:
-        header('Location: ../view/cliente/perfilCliente.php');
+//        header('Location: ../view/cliente/perfilCliente.php');
         break;
 
         case "qsomos":
@@ -25,5 +26,5 @@ switch ($opcion) {
             break;
         
     default:
-        header('Location:../view/mainCliente.php');
+//        header('Location:../view/mainCliente.php');
 }

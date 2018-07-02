@@ -1,7 +1,7 @@
 <?php include"inc/inc_head.php";?>
 <ul class="breadcrumb">
-<li><a href="cat_encomienda.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
+<li><a href="cat_encomienda.php">Inicio</a></li>
+<li class="active">Library</li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
@@ -9,6 +9,10 @@
 <tr>
 <th style="text-transform: capitalize; width: 150px;">IDTIPOENCOM</th>
 <td><?php echo $qryVResult['IDTIPOENCOM']?></td>
+</tr>
+<tr>
+<th style="text-transform: capitalize; width: 150px;">ID PEDIDO</th>
+<td><?php echo $qryVResult['ID_PEDIDO']?></td>
 </tr>
 <tr>
 <th style="text-transform: capitalize; width: 150px;">DESCRIPCION ENC</th>

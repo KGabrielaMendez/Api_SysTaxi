@@ -32,60 +32,48 @@ if ($_SESSION['rolUsuario'] == "2") {
                     opacity: 0.8;
                 }
 
-            </style>
-            <title></title>
-        </head>
-        <body>
-            <div >
-                <div >   
-                        <form  action="../controller/controllerAdministrador.php">
-                        <input type="hidden" value="cerrarSesion" name="opcion">
-                        <input type=submit value="cerrar Sesion" name="cerrarSesion"/>
-                    </form>
-                </div>
-                <div id="content">
-                    <div id="leftbar">  </div>
-                    <div id="rightbar"> </div>
-                </div>
-            </div>
-            <table border="0" class="normal" align="center">
-                <tbody>
-                    <tr style="width: 175px;">
-                        <td style="width: 175px;">
-                            <form  action="../controller/controllerClientes.php">
-                                <?php
-                                $username = $_SESSION['username'];
-                                ?>
-                                <input type="hidden" name="username" value="<?php echo $username; ?>">
-                                <input type="hidden" value="perfil" name="opcion">
-                                <button type="submit" value="Perfil" >Perfil </button>
-                            </form>
-                        </td>
-                        <td style="width: 175px;">
-                            <form  action="">
-                                <button type="submit" value="Servicios" >Servicios </button>
-                            </form></td>
-                    </tr>
-                    <tr style="width: 175px;">
-                        <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
-                                <input type="hidden" value="qsomos" name="opcion">
-                                <button type="submit" value="Quienes Somos">Quienes Somos</button>
-                            </form></td>
-                        <td><form  action="">
-                                <button type="submit" value="Tarifas" >TARIFAS</button>
-                            </form></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <?php
-            // put your code here
-            ?>
-        </body>
-    </html>
+        </style>
+        <title></title>
+    </head>
+    <body>
+               <div id="wrapper">
+    <div id="header">   </div>
+        <div id="content">
+            <div id="leftbar">  </div>
+            <div id="rightbar"> </div>
+        </div>
+</div>
+        <table border="0" class="normal" align="center">
+            <tbody>
+                <tr style="width: 175px;">
+                    <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
+                            <?php
+//                            $username=$_SESSION['username'];
+                            ?>
+                            <input type="hidden" name="username" value="<?php echo $username;?>">
+                            <input type="hidden" value="perfil" name="opcion">
+                            <button type="submit" value="Perfil" >Perfil </button>
+                        </form></td>
+                    <td style="width: 175px;">
+                        <form  action="">
+                            <button type="submit" value="Servicios" >Servicios </button>
+                        </form></td>
+                </tr>
+                <tr style="width: 175px;">
+                    <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
+                            <input type="hidden" value="qsomos" name="opcion">
+                            <button type="submit" value="Quienes Somos">Quienes Somos</button>
+                        </form></td>
+                    <td><form  action="">
+                            <button type="submit" value="Tarifas" >TARIFAS</button>
+                        </form></td>
+                </tr>
+            </tbody>
+        </table>
     <?php
 } else {
     header("Location: ../login/login.php");
     exit();
 }
 ?>
+

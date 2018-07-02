@@ -3,7 +3,6 @@
 /* Created on:     27/06/2018 7:55:41                           */
 /*==============================================================*/
 
-
 drop table if exists CAT_CARRERA;
 
 drop table if exists CAT_COOPERATIVAS;
@@ -72,7 +71,7 @@ create table CAT_ENCOMIENDA
    primary key (ID_ENCOMIENDA)
 );
 
-alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMAÑO ENCOMIENDA';
+alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMAï¿½O ENCOMIENDA';
 
 /*==============================================================*/
 /* Table: CAT_PEDIDOS                                           */
