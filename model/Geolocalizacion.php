@@ -32,10 +32,11 @@ function ViewError (error) {
 echo $x."hola";
 $long="<label id='long'></label>";
 $lat="<label id='latitud'></label>";
-echo "esto es: ".$long."si";
-echo "esto es: ".$lat."si";
+echo "longitud: ".$long."si";
+echo "Latitud: ".$lat."si";
 $_SESSION['longitud']=$long;
 $_SESSION['latitud']=$lat;
+
          ?>
     ------------------<br>
 <!--<label id="long"></label> <br/>
