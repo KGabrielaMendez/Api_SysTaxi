@@ -10,11 +10,24 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form  action="../cat_carrera/cat_carrera.php">
-            <input type="submit" value="Carrera" />
-        </form>
-        <form  action="../cat_encomienda/cat_encomienda.php">
-            <input type="submit" value="Encomiendas"/>
-        </form>
+        <center><table border="0">
+            
+            <tbody>
+                <tr>
+                    <td><form  action="../../controller/controllerClientes.php">
+                            <input type="hidden" value="carrera" name="opcion"/>
+                            <input type="image" value="Carrera" src="../img/carrera.jpg" alt="Carrera" width="70%" />
+                        </form></td>
+                </tr>
+                <tr>
+                    <td><form  action="../cat_encomienda/cat_encomienda.php">
+                            <input type="image" value="Encomiendas" src="../img/encomienda.jpg" alt="encomienda" width="70%"/>
+                        </form></td>
+                </tr>
+            </tbody>
+            </table></center>
+
+
+
     </body>
 </html>

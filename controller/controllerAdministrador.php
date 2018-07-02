@@ -32,5 +32,6 @@ switch ($opcion) {
             break;
 
     default:
+        session_destroy();
         header('Location:../view/mainAdministrador.php');
 }

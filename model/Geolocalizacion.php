@@ -26,10 +26,7 @@ function ViewError (error) {
 <body onload="loadLocation();">
      <?php 
  session_start();
- $_SESSION['long']='<script>document.write(lon)</script>';
 
- $x=$_SESSION['long'];
-echo $x."hola";
 $long="<label id='long'></label>";
 $lat="<label id='latitud'></label>";
 echo "longitud: ".$long;

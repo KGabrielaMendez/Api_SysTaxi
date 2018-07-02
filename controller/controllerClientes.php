@@ -16,6 +16,13 @@ switch ($opcion) {
         case "servicios":
             header('Location: ../view/cat_cliente/servicios.php');
             break;
+        case "carrera":
+            header('Location: ../view/cat_carrera/cat_carrera.php?option=add');
+            
+            
+            break;
+        
     default:
+        session_destroy();
         header('Location:../view/mainCliente.php');
 }

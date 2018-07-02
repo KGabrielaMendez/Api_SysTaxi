@@ -34,5 +34,27 @@ class ModelClientes {
         //retornamos el listado resultante:
         return $cliente;
     }
+    
+    
+     public function RecuperarIDLOG($username) {
+        $mysqli = new mysqli('localhost', 'root', '', 'systaxi');
+        $mysqli->set_charset("utf8");
+        $res = $mysqli->query("SELECT ID_LOG from login where USERNAME='" . $username . "'");
+        $row = mysql_fetch_array($res);
+        $idLog = $row['ID_LOG'];
+        $_SESSION['idLog'] = $idLog;
+    }
+
+    public function RecuperarUsername($idLog) {
+        $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
+        
+        $consulta="SELECT USERNAME from login where ID_LOG=" . $idLog;
+        if($res = mysqli_query($mysqli,$consulta)){
+            while($fila= mysqli_fetch_row($res)){
+            $dato=$fila[0];
+            $_SESSION['uname'] = $dato;
+            }
+        }        
+    }
 
 }
