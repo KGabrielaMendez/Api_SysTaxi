@@ -1,14 +1,20 @@
-<?php include"inc/inc_head.php";?>
+<?php include"inc/inc_head.php";
+require_once '../../model/LoginModel.php';
+$usname = new LoginModel();?>
 <ul class="breadcrumb">
-<li><a href="cat_cliente.php">Inicio</a></li>
-<li class="active">Library</li>
+    <li><a href="cat_cliente.php">Listado/</li>
+     <li><a href="../../view/mainCliente.php">Inicio</a></li>
 </ul>
 <br/>
 <div class="col-sm-12 col-md-12">
 <table class="table table-bordered">
 <tr>
 <th style="text-transform: capitalize; width: 150px;">NOMBRE USUARIO</th>
-<td><?php echo $qryVResult['USERNAME']?></td>
+<td><?php
+                $id = $qryVResult['ID_LOG'];
+                $usname->RecuperarUsername($id);
+                echo $uname = $_SESSION['uname'];
+                ?></td>
 </tr>
 <tr>
 <th style="text-transform: capitalize; width: 150px;">NOMBRE</th>

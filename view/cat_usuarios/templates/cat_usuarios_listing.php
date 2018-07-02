@@ -51,8 +51,8 @@ $usname = new LoginModel();
                     <td><?php echo $result[$key]['DIRECCION_US'] ?></td>
                     <td><?php echo $result[$key]['FECHAREGISTRO_US'] ?></td>
                     <td><?php echo $result[$key]['EMAIL_US'] ?></td>
-                    <td><a href="cat_usuarios.php?option=view&ID_US=<?php echo $result[$key]['ID_US'] ?>"><i class="fa fa-eye"></i></a>&nbsp;|&nbsp;<a href="cat_usuarios.php?option=edit&ID_US=<?php echo $result[$key]['ID_US'] ?>"><i class="fa fa-pencil-square"></i></a>&nbsp;|&nbsp;<a href="cat_usuarios.php?option=delete&ID_US=<?php echo $result[$key]['ID_US'] ?>" onclick="return confirm('Are you sure you want to delete this record?');"><i class="fa fa-trash"></i></a></td>
-                </tr>
+                        <td><a href="cat_usuarios.php?option=view&ID_US=<?php echo $result[$key]['ID_US'] ?>"><i class="fa fa-eye"></i></a>&nbsp;|&nbsp;<a href="cat_usuarios.php?option=edit&ID_US=<?php echo $result[$key]['ID_US'] ?>"><i class="fa fa-pencil-square"></i></a>&nbsp;|&nbsp;<a href="cat_usuarios.php?option=delete&ID_US=<?php echo $result[$key]['ID_US'] ?>" onclick="return confirm('Are you sure you want to delete this record?');"><i class="fa fa-trash"></i></a></td>
+                    </tr>
             <?php }
             ?>
         </tbody>

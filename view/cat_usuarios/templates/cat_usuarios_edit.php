@@ -15,7 +15,8 @@ $usname = new LoginModel();
         <br/>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">USERNAME</label>
         <div class="form-group">
-            <input type="text" name="ID_LOG" class="form-control" value="<?php
+            <input type="hidden" name="ID_LOG" class="form-control" value="<?php echo $ID_LOG ?>"/>
+            <input type="text" name="" class="form-control" value="<?php
             $id = $ID_LOG;
             $usname->RecuperarUsername($id);
             echo $uname = $_SESSION['uname'];

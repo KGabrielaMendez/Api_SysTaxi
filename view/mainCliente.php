@@ -32,50 +32,53 @@ if ($_SESSION['rolUsuario'] == "2") {
                     opacity: 0.8;
                 }
 
-        </style>
-        <title></title>
-    </head>
-    <body>
-               <div id="wrapper">
-    <div id="header">   </div>
-        <div id="content">
-            <div id="leftbar">  </div>
-            <div id="rightbar"> </div>
-        </div>
-</div>
-        <table border="0" class="normal" align="center">
-            <tbody>
-                <tr style="width: 175px;">
-                    <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
-                            <?php
+            </style>
+            <title></title>
+        </head>
+        <body>
+            <div id="wrapper">
+                <div id="header">   </div>
+                <div id="content">
+                    <div id="leftbar">  </div>
+                    <div id="rightbar"> </div>
+                </div>
+            </div>
+            <table border="0" class="normal" align="center">
+                <tbody>
+                    <tr style="width: 175px;">
+                        <td style="width: 175px;">
+                            <form  action="../controller/controllerClientes.php">
+                                <?php
 //                            $username=$_SESSION['username'];
-                            ?>
-                            <input type="hidden" name="username" value="<?php echo $username;?>">
-                            <input type="hidden" value="perfil" name="opcion">
-                            <button type="submit" value="Perfil" >Perfil </button>
-                            
-                        </form></td>
-                    <td style="width: 175px;">
-                        <form  action="../controller/controllerClientes.php">
-                            <input type="hidden" value="servicios" name="opcion">
-                            <button type="submit" value="Servicios" >Servicios </button>
-                        </form></td>
-                </tr>
-                <tr style="width: 175px;">
-                    <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
-                            <input type="hidden" value="qsomos" name="opcion">
-                            <button type="submit" value="Quienes Somos">Quienes Somos</button>
-                        </form></td>
-                    <td><form  action="">
-                            <button type="submit" value="Tarifas" >TARIFAS</button>
-                        </form></td>
-                </tr>
-            </tbody>
-        </table>
-    <?php
-} else {
-    header("Location: ../login/login.php");
-    exit();
-}
-?>
+                                ?>
+                                <input type="hidden" name="username" value="<?php echo $username; ?>">
+                                <input type="hidden" value="perfil" name="opcion">
+                                <input type="image" value="Perfil" src="img/perfil.jpg" alt="Perfil" width="70%"/>
+
+                            </form>
+                        </td>
+                        <td style="width: 175px;">
+                            <form  action="../controller/controllerClientes.php">
+                                <input type="hidden" value="servicios" name="opcion">
+                                <input type="image" value="servicios" src="img/servicios.jpg" alt="Servicios" width="70%"/>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr style="width: 175px;">
+                        <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
+                                <input type="hidden" value="qsomos" name="opcion">
+                                <input type="image" value="qsomos" src="img/quien.jpg" alt="qsomos" width="110%"/>
+                            </form></td>
+                        <td><form  action="">
+                                 <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
+                            </form></td>
+                    </tr>
+                </tbody>
+            </table>
+            <?php
+        } else {
+            header("Location: ../login/login.php");
+            exit();
+        }
+        ?>
 
