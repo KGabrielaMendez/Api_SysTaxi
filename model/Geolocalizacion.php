@@ -32,8 +32,8 @@ function ViewError (error) {
 echo $x."hola";
 $long="<label id='long'></label>";
 $lat="<label id='latitud'></label>";
-echo "longitud: ".$long."si";
-echo "Latitud: ".$lat."si";
+echo "longitud: ".$long;
+echo "Latitud: ".$lat;
 $_SESSION['longitud']=$long;
 $_SESSION['latitud']=$lat;
 
@@ -42,7 +42,7 @@ $_SESSION['latitud']=$lat;
 <!--<label id="long"></label> <br/>
 <label id="latitud"></label> <br/>-->
 <a id="link" target="_blank">Enlace al mapa</a>
- 
+ Esto es una prueba
  
 </body>
 </html>
