@@ -19,6 +19,7 @@ function ViewError (error) {
 	</script>
         <body  onload="loadLocation();">
 <?php  
+$long="<label id='long'></label>";
 include"inc/inc_head.php";?>
         
 <ul class="breadcrumb">
@@ -55,13 +56,13 @@ include"inc/inc_head.php";?>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</label>
 <div class="form-group">
-<input type="text" name="COSTO_CAR" class="form-control" value="<?php echo isset($_REQUEST["COSTO_CAR"]) ? $_REQUEST["COSTO_CAR"] : ''; ?>" />
+<input type="text" name="COSTO_CAR" class="form-control" value="<?php // echo isset($_REQUEST["COSTO_CAR"]) ? $_REQUEST["COSTO_CAR"] : ''; ?>" />
 </div>-->
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD CAR</label>
 <div class="form-group">
-    
-           <label name="LATITUD_CAR" value="LATITUD_CAR" class="form-control" id='latitud'></label>
-           <input type="hidden" name="LATITUD_CAR" class="form-control" id='latitud' value="<?php echo isset($_REQUEST["LATITUD_CAR"]) ? $_REQUEST["LATITUD_CAR"] : ''; ?>"/>
+    <!--<input type="hidden" class="form-control" id='latitud' value="<?php // echo isset($_REQUEST["LATITUD_CAR"]) ? $_REQUEST["LATITUD_CAR"] : ''; ?>" />-->
+           <label name="LATITUD_CAR" class="form-control" id="latitud"></label>
+           <!--<input type="text" name="LATITUD_CAR" class="form-control" id="latitud" />-->
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD CAR</label>
 <div class="form-group">

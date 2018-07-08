@@ -26,7 +26,10 @@ function ViewError (error) {
 <body onload="loadLocation();">
      <?php 
  session_start();
+ $_SESSION['long']='<script>document.write(lon)</script>';
 
+ $x=$_SESSION['long'];
+echo $x."hola";
 $long="<label id='long'></label>";
 $lat="<label id='latitud'></label>";
 echo "longitud: ".$long;
@@ -40,6 +43,6 @@ $_SESSION['latitud']=$lat;
 <label id="latitud"></label> <br/>-->
 <a id="link" target="_blank">Enlace al mapa</a>
  Esto es una prueba
- 
+ <script type="text/javascript">document.write(lon)</script>
 </body>
 </html>

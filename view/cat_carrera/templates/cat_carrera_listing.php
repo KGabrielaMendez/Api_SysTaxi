@@ -17,9 +17,9 @@ echo $msg;
 <tr>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION CAR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</th>
+<!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN CAR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</th>-->
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION CAR</th>
@@ -32,9 +32,9 @@ foreach($result as $key => $value){?>
 <tr>
 <td><?php echo $result[$key]['ID_PEDIDO']?></td>
 <td><?php echo $result[$key]['DESCRIPCION_CAR']?></td>
-<td><?php echo $result[$key]['DISTANCIA_CAR']?></td>
-<td><?php echo $result[$key]['TIEMPOESPERAMIN_CAR']?></td>
-<td><?php echo $result[$key]['COSTO_CAR']?></td>
+<!--<td><?php // echo $result[$key]['DISTANCIA_CAR']?></td>
+<td><?php // echo $result[$key]['TIEMPOESPERAMIN_CAR']?></td>
+<td><?php // echo $result[$key]['COSTO_CAR']?></td>-->
 <td><?php echo $result[$key]['LATITUD_CAR']?></td>
 <td><?php echo $result[$key]['LONGITUD_CAR']?></td>
 <td><?php echo $result[$key]['DIRECCION_CAR']?></td>

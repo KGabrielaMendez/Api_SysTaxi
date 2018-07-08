@@ -18,10 +18,10 @@ echo $msg;
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">IDTIPOENCOM</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENC</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</th>
+<!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">PESOMAXKG ENC</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</th>-->
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ENC</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION ENC</th>
@@ -35,10 +35,10 @@ foreach($result as $key => $value){?>
 <td><?php echo $result[$key]['IDTIPOENCOM']?></td>
 <td><?php echo $result[$key]['ID_PEDIDO']?></td>
 <td><?php echo $result[$key]['DESCRIPCION_ENC']?></td>
-<td><?php echo $result[$key]['DISTANCIAMIN_ENC']?></td>
-<td><?php echo $result[$key]['TIEMPOESPERAMIN_ENC']?></td>
-<td><?php echo $result[$key]['PESOMAXKG_ENC']?></td>
-<td><?php echo $result[$key]['COSTOENC_MAX_ENC']?></td>
+<!--<td><?php // echo $result[$key]['DISTANCIAMIN_ENC']?></td>
+<td><?php // echo $result[$key]['TIEMPOESPERAMIN_ENC']?></td>
+<td><?php // echo $result[$key]['PESOMAXKG_ENC']?></td>
+<td><?php // echo $result[$key]['COSTOENC_MAX_ENC']?></td>-->
 <td><?php echo $result[$key]['LATITUD_ENC']?></td>
 <td><?php echo $result[$key]['LONGITUD_ENC']?></td>
 <td><?php echo $result[$key]['DIRECCION_ENC']?></td>

@@ -1,4 +1,25 @@
+<script type="text/javascript">
+function loadLocation () {
+	//inicializamos la funcion y definimos  el tiempo maximo ,las funciones de error y exito.
+	navigator.geolocation.getCurrentPosition(viewMap,ViewError,{timeout:1000});
+}
+//Funcion de exito
+function viewMap (position) {
+	var lon = position.coords.longitude;	//guardamos la longitud
+	var lat = position.coords.latitude;		//guardamos la latitud
+	var link = "http://maps.google.com/?ll="+lat+","+lon+"&z=14";
+	document.getElementById("long").innerHTML = lon;        //longitud
+	document.getElementById("latitud").innerHTML = lat;     //latitud
+	document.getElementById("link").href = link;
+ 
+}
+function ViewError (error) {
+	alert(error.code);
+} 
+	</script>
+        <body onload="loadLocation();">
 <?php include"inc/inc_head.php";?>
+
 <ul class="breadcrumb">
 <li><a href="cat_encomienda.php">Inicio</a></li>
 <li class="active">Library</li>
@@ -33,7 +54,7 @@
 <div class="form-group">
 <input type="text" name="DESCRIPCION_ENC" class="form-control" value="<?php echo isset($_REQUEST["DESCRIPCION_ENC"]) ? $_REQUEST["DESCRIPCION_ENC"] : ''; ?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</label>
+<!--<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</label>
 <div class="form-group">
 <input type="text" name="DISTANCIAMIN_ENC" class="form-control" value="<?php echo isset($_REQUEST["DISTANCIAMIN_ENC"]) ? $_REQUEST["DISTANCIAMIN_ENC"] : ''; ?>" />
 </div>
@@ -48,14 +69,19 @@
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</label>
 <div class="form-group">
 <input type="text" name="COSTOENC_MAX_ENC" class="form-control" value="<?php echo isset($_REQUEST["COSTOENC_MAX_ENC"]) ? $_REQUEST["COSTOENC_MAX_ENC"] : ''; ?>" />
-</div>
+</div>-->
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ENC</label>
 <div class="form-group">
-<input type="text" name="LATITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_ENC"]) ? $_REQUEST["LATITUD_ENC"] : ''; ?>" />
+<!--<input type="text" name="LATITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_ENC"]) ? $_REQUEST["LATITUD_ENC"] : ''; ?>" />-->
+    <label name="LATITUD_ENC" class="form-control" id="latitud"></label>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ENC</label>
 <div class="form-group">
-<input type="text" name="LONGITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LONGITUD_ENC"]) ? $_REQUEST["LONGITUD_ENC"] : ''; ?>" />
+<!--<input type="text" name="LONGITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LONGITUD_ENC"]) ? $_REQUEST["LONGITUD_ENC"] : ''; ?>" />-->
+    <label name="LONGITUD_ENC" class="form-control" id='long'></label></div>
+</div>
+<DIV>
+<a id="link" target="_blank" style="text-transform: capitalize; width: 150px; font-weight: bold;">MOSTRAR UBICACION EN MAPA</a>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION ENC</label>
 <div class="form-group">
@@ -65,3 +91,5 @@
 <input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
 </form></div>
 <?php include"inc/inc_footer.php"; ?>
+
+</body>
