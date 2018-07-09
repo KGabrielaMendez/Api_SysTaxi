@@ -14,13 +14,13 @@ class ModelConductores {
         //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
         $sql = "SELECT C.NOMBRE_US, C.APELLIDO_US, C.EMAIL_US, F.NUMERO_UNI, E.NOMBRE_COOP, C.FECHANAC_US, C.TELEFONO_US
-                FROM rol_user A, cat_rol B,cat_usuarios C,login D, cat_cooperativas E, cat_unidades F
+                FROM conductor A, cat_rol B,cat_usuarios C,login D, cat_cooperativas E, cat_unidades F
                 WHERE A.ID_US = C.ID_US
                 AND A.ID_UNI = F.ID_UNI
                 AND C.ID_LOG = D.ID_LOG
                 AND B.ID_ROL = D.ID_ROL
                 AND F.ID_COOP = E.ID_COOP
-                AND B.ID_ROL = 2
+                AND B.ID_ROL = 3
                 AND D.USERNAME = ?";
         $consulta = $pdo->prepare($sql);
         $consulta->execute(array($username));
