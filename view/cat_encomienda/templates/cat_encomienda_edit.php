@@ -9,19 +9,17 @@
 <?php echo $msg; ?>
 <br/>
 <br/>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDTIPOENCOM</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</label>
 <div class="form-group">
-<select name="IDTIPOENCOM" class="locationMultiple form-control">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
+<input type="text" name="ID_US" class="form-control" value="<?php echo $ID_US?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</label>
 <div class="form-group">
-<select name="ID_PEDIDO" class="locationMultiple form-control">
+<input type="text" name="IDCONDUCTOR" class="form-control" value="<?php echo $IDCONDUCTOR?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</label>
+<div class="form-group">
+<select name="TIPO_ENCOMIENDA" class="locationMultiple form-control">
 <option>1</option>
 <option>2</option>
 <option>3</option>
@@ -41,25 +39,33 @@
 <div class="form-group">
 <input type="text" name="TIEMPOESPERAMIN_ENC" class="form-control" value="<?php echo $TIEMPOESPERAMIN_ENC?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">PESOMAXKG ENC</label>
-<div class="form-group">
-<input type="text" name="PESOMAXKG_ENC" class="form-control" value="<?php echo $PESOMAXKG_ENC?>" />
-</div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</label>
 <div class="form-group">
 <input type="text" name="COSTOENC_MAX_ENC" class="form-control" value="<?php echo $COSTOENC_MAX_ENC?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ENC</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ORIG</label>
 <div class="form-group">
-<input type="text" name="LATITUD_ENC" class="form-control" value="<?php echo $LATITUD_ENC?>" />
+<input type="text" name="LATITUD_ORIG" class="form-control" value="<?php echo $LATITUD_ORIG?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ENC</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ORIG</label>
 <div class="form-group">
-<input type="text" name="LONGITUD_ENC" class="form-control" value="<?php echo $LONGITUD_ENC?>" />
+<input type="text" name="LONGITUD_ORIG" class="form-control" value="<?php echo $LONGITUD_ORIG?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD DEST</label>
+<div class="form-group">
+<input type="text" name="LATITUD_DEST" class="form-control" value="<?php echo $LATITUD_DEST?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD DEST</label>
+<div class="form-group">
+<input type="text" name="LONGITUD_DEST" class="form-control" value="<?php echo $LONGITUD_DEST?>" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION ENC</label>
 <div class="form-group">
 <input type="text" name="DIRECCION_ENC" class="form-control" value="<?php echo $DIRECCION_ENC?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA ENC</label>
+<div class="form-group">
+<input type="date" class="form-control" id="datepicker" name="FECHA_ENC"  value="<?php echo $FECHA_ENC?>" />
 </div>
 
 <input type="hidden" name="option" value="update">

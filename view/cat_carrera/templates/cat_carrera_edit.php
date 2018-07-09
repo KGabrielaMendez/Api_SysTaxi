@@ -9,32 +9,30 @@
 <?php echo $msg; ?>
 <br/>
 <br/>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</label>
 <div class="form-group">
-<select name="ID_PEDIDO" class="locationMultiple form-control">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
+<input type="text" name="IDCONDUCTOR" class="form-control" value="<?php echo $IDCONDUCTOR?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</label>
+<div class="form-group">
+<input type="text" name="ID_US" class="form-control" value="<?php echo $ID_US?>" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION CAR</label>
 <div class="form-group">
 <input type="text" name="DESCRIPCION_CAR" class="form-control" value="<?php echo $DESCRIPCION_CAR?>" />
 </div>
-<!--<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</label>
 <div class="form-group">
-<input type="text" name="DISTANCIA_CAR" class="form-control" value="<?php // echo $DISTANCIA_CAR?>" />
+<input type="text" name="DISTANCIA_CAR" class="form-control" value="<?php echo $DISTANCIA_CAR?>" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN CAR</label>
 <div class="form-group">
-<input type="text" name="TIEMPOESPERAMIN_CAR" class="form-control" value="<?php // echo $TIEMPOESPERAMIN_CAR?>" />
+<input type="text" name="TIEMPOESPERAMIN_CAR" class="form-control" value="<?php echo $TIEMPOESPERAMIN_CAR?>" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</label>
 <div class="form-group">
-<input type="text" name="COSTO_CAR" class="form-control" value="<?php // echo $COSTO_CAR?>" />
-</div>-->
+<input type="text" name="COSTO_CAR" class="form-control" value="<?php echo $COSTO_CAR?>" />
+</div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD CAR</label>
 <div class="form-group">
 <input type="text" name="LATITUD_CAR" class="form-control" value="<?php echo $LATITUD_CAR?>" />

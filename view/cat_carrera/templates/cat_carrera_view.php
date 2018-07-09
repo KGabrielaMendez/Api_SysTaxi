@@ -7,8 +7,12 @@
 <div class="col-sm-12 col-md-12">
 <table class="table table-bordered">
 <tr>
-<th style="text-transform: capitalize; width: 150px;">ID PEDIDO</th>
-<td><?php echo $qryVResult['ID_PEDIDO']?></td>
+<th style="text-transform: capitalize; width: 150px;">IDCONDUCTOR</th>
+<td><?php echo $qryVResult['IDCONDUCTOR']?></td>
+</tr>
+<tr>
+<th style="text-transform: capitalize; width: 150px;">ID US</th>
+<td><?php echo $qryVResult['ID_US']?></td>
 </tr>
 <tr>
 <th style="text-transform: capitalize; width: 150px;">DESCRIPCION CAR</th>

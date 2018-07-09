@@ -1,48 +1,95 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-	<title>geo localizacion</title>
-<script type="text/javascript">
-function loadLocation () {
-	//inicializamos la funcion y definimos  el tiempo maximo ,las funciones de error y exito.
-	navigator.geolocation.getCurrentPosition(viewMap,ViewError,{timeout:1000});
-}
-//Funcion de exito
-function viewMap (position) {
-	var lon = position.coords.longitude;	//guardamos la longitud
-	var lat = position.coords.latitude;		//guardamos la latitud
-	var link = "http://maps.google.com/?ll="+lat+","+lon+"&z=14";
-	document.getElementById("long").innerHTML = lon;        //longitud
-	document.getElementById("latitud").innerHTML = lat;     //latitud
-	document.getElementById("link").href = link;
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Obtener coordenadas de un marcador </title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 50%;
+        height: 80%;
+      }
+      #coords{width: 500px;}
+    </style>
+  </head>
+  <body >
+    <div id="map" ></div>
  
+    <input type="text" id="coords" />
+    <script>
+ 
+ 
+var marker;          //variable del marcador
+var coords = {};    //coordenadas obtenidas con la geolocalización
+ 
+//Funcion principal
+initMap = function () 
+{
+ 
+    //usamos la API para geolocalizar el usuario
+        navigator.geolocation.getCurrentPosition(
+          function (position){
+            coords =  {
+              lng: position.coords.longitude,
+              lat: position.coords.latitude
+            };
+            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+            
+           
+          },function(error){console.log(error);});
+    
 }
-function ViewError (error) {
-	alert(error.code);
-} 
-	</script>
-</head>
-<body onload="loadLocation();">
-     <?php 
- session_start();
- $_SESSION['long']='<script>document.write(lon)</script>';
-
- $x=$_SESSION['long'];
-echo $x."hola";
-$long="<label id='long'></label>";
-$lat="<label id='latitud'></label>";
-echo "longitud: ".$long;
-echo "Latitud: ".$lat;
-$_SESSION['longitud']=$long;
-$_SESSION['latitud']=$lat;
-
-         ?>
-    ------------------<br>
-<!--<label id="long"></label> <br/>
-<label id="latitud"></label> <br/>-->
-<a id="link" target="_blank">Enlace al mapa</a>
- Esto es una prueba
- <script type="text/javascript">document.write(lon)</script>
-</body>
+ 
+ 
+ 
+function setMapa (coords)
+{   
+      //Se crea una nueva instancia del objeto mapa
+      var map = new google.maps.Map(document.getElementById('map'),
+      {
+        zoom: 16,
+        center:new google.maps.LatLng(coords.lat,coords.lng),
+ 
+      });
+ 
+      //Creamos el marcador en el mapa con sus propiedades
+      //para nuestro obetivo tenemos que poner el atributo draggable en true
+      //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+      marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(coords.lat,coords.lng),
+ 
+      });
+      //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica 
+      //cuando el usuario a soltado el marcador
+      marker.addListener('click', toggleBounce);
+      
+      marker.addListener( 'dragend', function (event)
+      {
+        //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+        document.getElementById("coords").value = this.getPosition().lat()+","+ this.getPosition().lng();
+      });
+}
+ 
+//callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+ 
+// Carga de la libreria de google maps 
+ 
+    </script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&callback=initMap"></script>
+  </body>
 </html>

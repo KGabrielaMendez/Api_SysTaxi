@@ -1,25 +1,4 @@
-<script type="text/javascript">
-function loadLocation () {
-	//inicializamos la funcion y definimos  el tiempo maximo ,las funciones de error y exito.
-	navigator.geolocation.getCurrentPosition(viewMap,ViewError,{timeout:1000});
-}
-//Funcion de exito
-function viewMap (position) {
-	var lon = position.coords.longitude;	//guardamos la longitud
-	var lat = position.coords.latitude;		//guardamos la latitud
-	var link = "http://maps.google.com/?ll="+lat+","+lon+"&z=14";
-	document.getElementById("long").innerHTML = lon;        //longitud
-	document.getElementById("latitud").innerHTML = lat;     //latitud
-	document.getElementById("link").href = link;
- 
-}
-function ViewError (error) {
-	alert(error.code);
-} 
-	</script>
-        <body onload="loadLocation();">
 <?php include"inc/inc_head.php";?>
-
 <ul class="breadcrumb">
 <li><a href="cat_encomienda.php">Inicio</a></li>
 <li class="active">Library</li>
@@ -30,19 +9,17 @@ function ViewError (error) {
 <?php echo $msg; ?>
 <br/>
 <br/>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDTIPOENCOM</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</label>
 <div class="form-group">
-<select name="IDTIPOENCOM"  class="locationMultiple form-control">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
+<input type="text" name="ID_US" class="form-control" value="<?php echo isset($_REQUEST["ID_US"]) ? $_REQUEST["ID_US"] : ''; ?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID PEDIDO</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</label>
 <div class="form-group">
-<select name="ID_PEDIDO"  class="locationMultiple form-control">
+<input type="text" name="IDCONDUCTOR" class="form-control" value="<?php echo isset($_REQUEST["IDCONDUCTOR"]) ? $_REQUEST["IDCONDUCTOR"] : ''; ?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</label>
+<div class="form-group">
+<select name="TIPO_ENCOMIENDA"  class="locationMultiple form-control">
 <option>1</option>
 <option>2</option>
 <option>3</option>
@@ -54,7 +31,7 @@ function ViewError (error) {
 <div class="form-group">
 <input type="text" name="DESCRIPCION_ENC" class="form-control" value="<?php echo isset($_REQUEST["DESCRIPCION_ENC"]) ? $_REQUEST["DESCRIPCION_ENC"] : ''; ?>" />
 </div>
-<!--<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</label>
 <div class="form-group">
 <input type="text" name="DISTANCIAMIN_ENC" class="form-control" value="<?php echo isset($_REQUEST["DISTANCIAMIN_ENC"]) ? $_REQUEST["DISTANCIAMIN_ENC"] : ''; ?>" />
 </div>
@@ -62,34 +39,35 @@ function ViewError (error) {
 <div class="form-group">
 <input type="text" name="TIEMPOESPERAMIN_ENC" class="form-control" value="<?php echo isset($_REQUEST["TIEMPOESPERAMIN_ENC"]) ? $_REQUEST["TIEMPOESPERAMIN_ENC"] : ''; ?>" />
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">PESOMAXKG ENC</label>
-<div class="form-group">
-<input type="text" name="PESOMAXKG_ENC" class="form-control" value="<?php echo isset($_REQUEST["PESOMAXKG_ENC"]) ? $_REQUEST["PESOMAXKG_ENC"] : ''; ?>" />
-</div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</label>
 <div class="form-group">
 <input type="text" name="COSTOENC_MAX_ENC" class="form-control" value="<?php echo isset($_REQUEST["COSTOENC_MAX_ENC"]) ? $_REQUEST["COSTOENC_MAX_ENC"] : ''; ?>" />
-</div>-->
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ENC</label>
-<div class="form-group">
-<!--<input type="text" name="LATITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_ENC"]) ? $_REQUEST["LATITUD_ENC"] : ''; ?>" />-->
-    <label name="LATITUD_ENC" class="form-control" id="latitud"></label>
 </div>
-<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ENC</label>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ORIG</label>
 <div class="form-group">
-<!--<input type="text" name="LONGITUD_ENC" class="form-control" value="<?php echo isset($_REQUEST["LONGITUD_ENC"]) ? $_REQUEST["LONGITUD_ENC"] : ''; ?>" />-->
-    <label name="LONGITUD_ENC" class="form-control" id='long'></label></div>
+<input type="text" name="LATITUD_ORIG" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_ORIG"]) ? $_REQUEST["LATITUD_ORIG"] : ''; ?>" />
 </div>
-<DIV>
-<a id="link" target="_blank" style="text-transform: capitalize; width: 150px; font-weight: bold;">MOSTRAR UBICACION EN MAPA</a>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ORIG</label>
+<div class="form-group">
+<input type="text" name="LONGITUD_ORIG" class="form-control" value="<?php echo isset($_REQUEST["LONGITUD_ORIG"]) ? $_REQUEST["LONGITUD_ORIG"] : ''; ?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD DEST</label>
+<div class="form-group">
+<input type="text" name="LATITUD_DEST" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_DEST"]) ? $_REQUEST["LATITUD_DEST"] : ''; ?>" />
+</div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD DEST</label>
+<div class="form-group">
+<input type="text" name="LONGITUD_DEST" class="form-control" value="<?php echo isset($_REQUEST["LONGITUD_DEST"]) ? $_REQUEST["LONGITUD_DEST"] : ''; ?>" />
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION ENC</label>
 <div class="form-group">
 <input type="text" name="DIRECCION_ENC" class="form-control" value="<?php echo isset($_REQUEST["DIRECCION_ENC"]) ? $_REQUEST["DIRECCION_ENC"] : ''; ?>" />
 </div>
+<label style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA ENC</label>
+<div class="form-group">
+<input type="date" class="form-control" id="datepicker" name="FECHA_ENC" />
+</div>
 <input type="hidden" name="option" value="insert">
 <input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
 </form></div>
 <?php include"inc/inc_footer.php"; ?>
-
-</body>
