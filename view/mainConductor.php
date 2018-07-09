@@ -70,8 +70,9 @@
                             <input type="hidden" value="qsomos" name="opcion">
                             <input type="image" value="qsomos" src="img/quien.jpg" alt="qsomos" width="110%"/>
                         </form></td>
-                    <td><form  action="">
+                        <td><form  action="Tarifas.html">
                             <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
+                            
                         </form></td>
                 </tr>
             </tbody>

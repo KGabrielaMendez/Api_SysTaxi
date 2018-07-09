@@ -131,6 +131,11 @@ if ($_SESSION['rolUsuario'] == "1") {
                                             <input type="image" alt="Añadir nuevos Administradores" src="nuevoAdmin.jpg" width="70%"/>
                                         </form>
                                     </td>
+                                    <td><form  action="Tarifas.html">
+                                 <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
+                            </form></td>
+                                </tr>
+                                <tr>
                                     <td style="width: 175px;">
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="cerrarSesion" name="opcion">

@@ -10,7 +10,7 @@
 <span class="icon-bar"></span>
 </button>
 <a class="navbar-brand" href="http://cijulenlinea.ucr.ac.cr/dev-users/">
-<img src="http://placehold.it/200x50&text=LOGO" alt="LOGO"">
+<img src="http://placehold.it/200x50&text=LOGO" alt="LOGO">
 </a>
 </div>
  <!-- Top Menu Items -->

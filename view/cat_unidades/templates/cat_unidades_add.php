@@ -25,11 +25,13 @@ select.addEventListener('change',
             <select value="ID_COOP" name="ID_COOP" style="width:100%; height: 40px">
                 <?php
                 $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
-                $consulta = "SELECT NOMBRE_COOP, c.ID_COOP from cat_cooperativas c, cat_unidades u where c.ID_COOP=u.ID_COOP";
+                $consulta = "SELECT NOMBRE_COOP, ID_COOP from cat_cooperativas";
                 if ($res = mysqli_query($mysqli, $consulta)) {
                     while ($fila = mysqli_fetch_row($res)) {
+                        
                         ?>
-                        <option id="<?phpecho $fila[1];?>"><?php echo $fila[0]; ?></option>
+                        
+                        <option name="ID_COOP" value="<?phpecho $fila[1];?>"><?php echo $fila[0]; ?></option>
                         <?php
                     }
                 }
@@ -41,9 +43,9 @@ select.addEventListener('change',
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO</label>
         <div class="form-group">
-            <select value="TIPO_UNI" style="width:100%; height: 40px">
-                <option id="TAXI">TAXI</option>
-                <option id="MOTO">MOTO</option>
+            <select value="TIPO_UNI" name="TIPO_UNI" style="width:100%; height: 40px">
+                <option value="TAXI">TAXI</option>
+                <option value="MOTO">MOTO</option>
             </select>
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">MARCA</label>
