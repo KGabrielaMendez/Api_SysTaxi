@@ -4,48 +4,77 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+<?php include "inc/inc_head.php"; ?>
+<ul class="breadcrumb">
+    <li><a href="../../view/mainConductor.php">Inicio</a></li>
+</ul>
     <?php
      include_once '../../model/ModelConductores.php';
     session_start();
-    $conductor= $_SESSION['conductor'];
+//    $conductor= $_SESSION['conductor'];
         ?>
+    <h3>ENCOMIENDAS</h3>
     <body>
-        
-        
-        <table border="1">
-            <tbody>
-                <tr>
-                    <td>NOMBRES Y APELLIDOS</td>
-                    <td><?php echo $conductor->getNombre_us() ." ". $conductor->getApellido_us(); ?></td>
-                </tr>
-                <tr>
-                    <td>EMAIL</td>
-                    <td><?php echo $conductor->getEmail_us(); ?></td>
-                </tr>
-                <tr>
-                    <td>NRO UNIDAD</td>
-                    <td><?php echo $conductor->getNumero_uni(); ?></td>
-                </tr>
-                <tr>
-                    <td>COMPAÑIA</td>
-                    <td><?php echo $conductor->getNombre_coop(); ?></td>
-                </tr>
-                <tr>
-                    <td>FECHA DE NACIMIENTO</td>
-                    <td><?php echo $conductor->getFechanac_us(); ?></td>
-                </tr>                
-                <tr>
-                    <td>TELEFONO</td>
-                    <td><?php echo $conductor->getTelefono_us(); ?></td>
-                </tr>
-            </tbody>
-        </table>
+       <table border="1">
+            <tr>
+                <th>DETALLE ENCOMIENDA</th>
+                <th>NOMBRE </th>
+                <th>APELLIDO </th>
+                <th>DIRECCION ENCOMIENDA</th>
 
+            </tr>
+            <?php
+                    include_once '../../model/entidades/Pedidos.php';
+    //verificamos si existe en sesion el listado de productos:
+            if (isset($_SESSION['listado'])) {
+                $listado = unserialize($_SESSION['listado']);
+                foreach ($listado as $r) {
+                    echo "<tr>";
+                    echo "<td>" . $r->getDescripcionPedido() . "</td>";
+                                        echo "<td>" . $r->getNombre() . "</td>";
+                    echo "<td>" . $r->getApellido() . "</td>";
+
+
+                    echo "<td>" . $r->getDireccionPedido() . "</td>";
+
+                    echo "</tr>";
+                }
+            } else {
+                echo "No se han cargado datos.";
+            }
+            ?>
+        </table>
+ <h3>CARRERAS</h3>
+    <body>
+       <table border="1">
+            <tr>
+                <th>DETALLE CARRERA</th>
+                <th>NOMBRE </th>
+                <th>APELLIDO </th>
+                <th>DIRECCION CARRERA</th>
+
+            </tr>
+            <?php
+                    include_once '../../model/entidades/Pedidos.php';
+    //verificamos si existe en sesion el listado de productos:
+            if (isset($_SESSION['listadoC'])) {
+                $listado = unserialize($_SESSION['listadoC']);
+                foreach ($listado as $r) {
+                    echo "<tr>";
+                    echo "<td>" . $r->getDescripcionPedido() . "</td>";
+                                        echo "<td>" . $r->getNombre() . "</td>";
+                    echo "<td>" . $r->getApellido() . "</td>";
+
+
+                    echo "<td>" . $r->getDireccionPedido() . "</td>";
+
+                    echo "</tr>";
+                }
+            } else {
+                echo "No se han cargado datos.";
+            }
+            ?>
+        </table>
         <?php
 
         ?>
