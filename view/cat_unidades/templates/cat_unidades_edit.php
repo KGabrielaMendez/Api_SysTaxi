@@ -11,14 +11,14 @@
 <br/>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID COOP</label>
 <div class="form-group">
-<select value="ID_COOP" style="width:100%; height: 40px">
+<select value="ID_COOP" name="ID_COOP" style="width:100%; height: 40px">
                 <?php
                 $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
-                $consulta = "SELECT NOMBRE_COOP, c.ID_COOP from cat_cooperativas c, cat_unidades u where c.ID_COOP=u.ID_COOP";
+                $consulta = "SELECT NOMBRE_COOP, ID_COOP from cat_cooperativas";
                 if($res = mysqli_query($mysqli, $consulta)){
                 while($fila = mysqli_fetch_row($res)){
                 ?>
-                <option id="<?php echo $fila[1]; ?>"><?php echo $fila[0]; ?></option>
+                <option name="ID_COOP" value="<?php echo $fila[1]; ?>"><?php echo $fila[0]; ?></option>
                 
                 <?php
                 }

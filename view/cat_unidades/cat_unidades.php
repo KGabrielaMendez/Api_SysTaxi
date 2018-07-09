@@ -97,7 +97,8 @@ $validator->addValidation("ANIO_UNI", "req", "Please enter ANIO_UNI");
 $validator->addValidation("NUMERO_UNI", "req", "Please enter NUMERO_UNI");
 if($validator->ValidateForm())
 {
-$ID_COOP = isset($_REQUEST['ID_COOP']) ? addslashes($_REQUEST['ID_COOP']) : '';
+$ID_COOP = isset($_REQUEST['ID_COOP']);
+        //? addslashes($_REQUEST['ID_COOP']) : '';
 $PLACA_UNI = isset($_REQUEST['PLACA_UNI']) ? addslashes($_REQUEST['PLACA_UNI']) : '';
 $TIPO_UNI = isset($_REQUEST['TIPO_UNI']) ? addslashes($_REQUEST['TIPO_UNI']) : '';
 $MARCA_UNI = isset($_REQUEST['MARCA_UNI']) ? addslashes($_REQUEST['MARCA_UNI']) : '';
@@ -133,7 +134,7 @@ if(isset($_SESSION['msg'])) {
 $msg = $_SESSION['msg'];
 unset($_SESSION['msg']);}
 include '../library/paginator.class.php';
-$sqlL = 'SELECT co.NOMBRE_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades u, cat_cooperativas co';
+$sqlL = 'SELECT co.NOMBRE_COOP, PLACA_UNI, TIPO_UNI, MARCA_UNI, MODELO_UNI, ANIO_UNI, NUMERO_UNI, ID_UNI FROM cat_unidades u, cat_cooperativas co where u.ID_COOP=co.ID_COOP';
 $pag = new Paginator($sqlL, 10);
 $link1 = $pag->getCount('Item %d of %d - %d');
 $link2 = $pag->getLinks(5);
