@@ -40,7 +40,7 @@ if($row = mysql_fetch_array($result)){
 	}else{
             session_start();
       $_SESSION['incorrecto']= 'incorrecto';
-//		header("Location: ../login/login.php");
+		header("Location: ../login/login.php");
 		exit();
 	}
 }else{

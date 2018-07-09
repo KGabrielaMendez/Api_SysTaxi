@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-         session_start();
-         if($_SESSION['rolUsuario']=="3"){
-         $username=$_SESSION['username'];
+//         session_start();
+//         if($_SESSION['rolUsuario']=="3"){
+//         $username=$_SESSION['username'];
 ?>
 <html>
     <head>
@@ -76,11 +76,11 @@
                 </tr>
             </tbody>
             <?php
-         }
-         else{
-              header("Location: ../login/login.php");
-    exit();
-         }
+//         }
+//         else{
+//              header("Location: ../login/login.php");
+//    exit();
+//         }
             ?>
             <div id="footer">  </div> 
     </body>

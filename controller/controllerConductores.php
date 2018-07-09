@@ -14,7 +14,15 @@ switch ($opcion) {
             break;
         
         case "notificaciones":
-            header('Location: ../view/conductor/notificaciones.php');
+            //obtenemos la lista de facturas:
+        $listado = $mconductores->getEcomiendas();
+        $listadoC = $mconductores->getCarreras();
+        echo print_r($listadoC);
+        //y los guardamos en sesion:
+        $_SESSION['listado'] = serialize($listado);
+        $_SESSION['listadoC'] = serialize($listadoC);
+        //redireccionamos a la pagina index para visualizar:
+        header('Location: ../view/conductor/notificaciones.php');
             break;
        
 
