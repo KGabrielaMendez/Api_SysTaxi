@@ -102,9 +102,9 @@ button:hover {
       
       <label for="gnr"><b>Genero</b>
       <select id="gnr" name="gnr" style="width:468px;height: 40px;">
-      <option>OTRO</option>
-      <option>FEMENINO</option>
-      <option>MASCULINO</option>
+          <option value="OTRO">OTRO</option>
+          <option value="FEMENINO">FEMENINO</option>
+      <option value="MASCULINO">MASCULINO</option>
       </select>
       <br>
       </label>

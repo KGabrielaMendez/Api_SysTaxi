@@ -57,7 +57,6 @@ switch ($opcion) {
 			$telefono=$_REQUEST['telf'];
                         $genero = $_REQUEST['gnr'];
                         $direccion= $_REQUEST['dir'];
-                       
                         $fecha_reg= date('Y-m-d G:i:s');
                         
                     
@@ -72,19 +71,23 @@ switch ($opcion) {
             $_SESSION['cliente']="si";
             ?>
              <script type="text/javascript">
-                    alert("CREADO EXITOSAMENTE, POR FAVOR INICIE SESION"){
-                    <?php
-                     header('Location: ../login/login.php');
-            
-                    ?>
-                        }
+                 var m = confirm("CREACION EXITOSA, INICIE SESIÓN");
+                 if (m==true){
+                      <?php
+            //redireccionamos a una nueva pagina para visualizar:
+                 header('Location: ../login/login.php');
+             ?>
+                 }else{
+                     alert("Cancelado");
+                 }
+                    
                 </script>
 
                 <?php
             //redireccionamos a una nueva pagina para visualizar:
             }
             else{
-                 header('Location: ../login/login.php');
+                 alert("Cancelado");
             }
             
             
