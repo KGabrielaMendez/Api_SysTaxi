@@ -14,8 +14,8 @@ mysql_select_db('systaxi') or die ("Error al seleccionar la Base de datos: " . m
 $result = mysql_query("SELECT * from login where USERNAME='" . $usuario . "'");
 
 if($row = mysql_fetch_array($result)){
+                      echo print_r($row);
 	if($row['PASSWORD'] ==  $pass){
-
 		if($row['ID_ROL'] == '1'){
 		session_start();
 		$_SESSION['rolUsuario'] = '1';
@@ -25,13 +25,13 @@ if($row = mysql_fetch_array($result)){
 	else {
 		if($row['ID_ROL'] == '2'){
 		session_start();
-		$_SESSION['rolUsuario'] = "2";
+		$_SESSION['rolUsuario'] = '2';
                 $_SESSION['username']=$usuario;
 		header("Location: ../view/mainCliente.php");
 	}	else{
 		if($row['ID_ROL'] == '3'){
 		session_start();
-		$_SESSION['rolUsuario'] = "3";
+		$_SESSION['rolUsuario'] = '3';
                 $_SESSION['username']=$usuario;
 		header("Location: ../view/mainConductor.php");
 		}
@@ -40,7 +40,7 @@ if($row = mysql_fetch_array($result)){
 	}else{
             session_start();
       $_SESSION['incorrecto']= 'incorrecto';
-		header("Location: ../login/login.php");
+//		header("Location: ../login/login.php");
 		exit();
 	}
 }else{

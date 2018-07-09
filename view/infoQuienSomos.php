@@ -43,29 +43,7 @@
 
         <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
         <link rel="stylesheet" type="text/css" href="/rs-plugin/css/settings.css" media="screen" />
-
-
-        <script>
-            var dataLayer = [{
-                    'language': 'es',
-                    'page_id': 'about'
-                }];
-        </script>
-
-
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-                  })(window, document, 'script', 'dataLayer', 'GTM-KW24NMM');</script>
-        <!-- End Google Tag Manager -->
-
+  
 
         <!-- Support for HTML5 -->
         <!--[if lt IE 9]>
@@ -79,12 +57,6 @@
 
     <body>
 
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW24NMM"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-
         <div class="header-outer-container">
             <div id="topbar" class="clearfix">
                 <div class="container">
@@ -96,7 +68,7 @@
 
                             <span class="topbar-language">
                                 <div class="dropdown dropdown-flat">
-                                    <a href="mainCliente.php">Volver</a>
+                                    <a onclick="history.back()">Volver</a>
                                 </div>
                             </span>
                         </div><!-- end top menu -->
