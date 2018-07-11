@@ -25,15 +25,24 @@ switch ($opcion) {
         header('Location: ../view/conductor/notificaciones.php');
         break;
 
-    case "aceptar":
+    case "aceptarE":
         $usuname = $_SESSION['username'];
         $id = $_GET['id'];
         $idconductor = $mconductores->obtenerID($usuname);
-        $mconductores->ModificarPedido($id,$idconductor);
+        $mconductores->ModificarPedidoE($id,$idconductor);
 
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
+        break;
+    
+        case "aceptarC":
+        $usuname = $_SESSION['username'];
+        $id = $_GET['id'];
+        $idconductor = $mconductores->obtenerID($usuname);
+        $mconductores->ModificarPedidoC($id,$idconductor);
 
+        //redireccionamos a la pagina index para visualizar:
+        header('Location: ../view/conductor/transaccionFinal.php');
         break;
 
     default:

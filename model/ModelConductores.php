@@ -16,7 +16,8 @@ class ModelConductores {
         $sql = "SELECT A.ID_ENCOMIENDA, B.NOMBRE_US, B.APELLIDO_US, B.TELEFONO_US, 
                 A.DIRECCION_ENC, A.DESCRIPCION_ENC 
                 FROM cat_encomienda A, cat_usuarios B
-                WHERE A.ID_US = b.ID_US";
+                WHERE A.ID_US = b.ID_US
+                AND A.IDCONDUCTOR IS NULL";
         $resultado = $pdo->query($sql);
         //transformamos los registros en objetos de tipo Factura:
         $listado = array();
@@ -41,7 +42,8 @@ class ModelConductores {
         $sql = "SELECT A.ID_CARRERA, B.NOMBRE_US, B.APELLIDO_US, B.TELEFONO_US, 
                 A.DIRECCION_CAR, A.DESCRIPCION_CAR 
                 FROM cat_carrera A, cat_usuarios B
-                WHERE A.ID_US = b.ID_US";
+                WHERE A.ID_US = b.ID_US
+                AND A.IDCONDUCTOR IS NULL";
         $resultado = $pdo->query($sql);
         //transformamos los registros en objetos de tipo Factura:
         $listado = array();
@@ -60,9 +62,19 @@ class ModelConductores {
         return $listado;
     }
 
-    public function ModificarPedido($idencomienda,$idconductor) {
+    public function ModificarPedidoE($idencomienda,$idconductor) {
         $pdo = Database::connect();
         $sql = "Update cat_encomienda set IDCONDUCTOR = ? WHERE ID_ENCOMIENDA = ?";
+        $consulta = $pdo->prepare($sql);
+        $dato = $_SESSION['idLog'];
+        //Ejecutamos la sentencia incluyendo a los parametros:
+        $consulta->execute(array($dato,$idencomienda));
+        Database::disconnect();       
+    }
+    
+    public function ModificarPedidoC($idencomienda,$idconductor) {
+        $pdo = Database::connect();
+        $sql = "Update cat_carrera set IDCONDUCTOR = ? WHERE ID_CARRERA = ?";
         $consulta = $pdo->prepare($sql);
         $dato = $_SESSION['idLog'];
         //Ejecutamos la sentencia incluyendo a los parametros:

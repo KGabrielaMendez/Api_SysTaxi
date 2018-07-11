@@ -40,7 +40,7 @@ session_start();
                 echo "<td>" . $r->getTelefono() . "</td>";
                 echo "<td>" . $r->getDireccionPedido() . "</td>";
                 echo "<td>" . $r->getDescripcionPedido() . "</td>";
-                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptar&id=".$r->getId()."'><span class='glyphicon glyphicon-pencil'> Aceptar
+                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarE&id=".$r->getId()."'><span class='glyphicon glyphicon-pencil'> Aceptar
                         </span></a></td>";
                 echo "</tr>";
             }
@@ -68,13 +68,13 @@ session_start();
             $listado = unserialize($_SESSION['listadoC']);
             foreach ($listado as $r) {
                 echo "<tr>";
-                echo "<td>" . "</td>";
+                echo "<td>" . $r->getId(). "</td>";
                 echo "<td>" . $r->getNombre() . "</td>";
                 echo "<td>" . $r->getApellido() . "</td>";
                 echo "<td>" . $r->getTelefono() . "</td>";
                 echo "<td>" . $r->getDireccionPedido() . "</td>";
                 echo "<td>" . $r->getDescripcionPedido() . "</td>";         
-                echo "<td><a href='../controller/controllerConductores.php?opcion=aceptar'><span class='glyphicon glyphicon-pencil'> Aceptar
+                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarC&id=".$r->getId()."'><span class='glyphicon glyphicon-pencil'> Aceptar
                         </span></a></td>";
                 echo "</tr>";
             }
