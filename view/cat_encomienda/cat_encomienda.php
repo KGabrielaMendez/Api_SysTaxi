@@ -83,7 +83,7 @@ $LATITUD_DEST = isset($_REQUEST['LATITUD_DEST']) ? addslashes($_REQUEST['LATITUD
 $LONGITUD_DEST = isset($_REQUEST['LONGITUD_DEST']) ? addslashes($_REQUEST['LONGITUD_DEST']) : '';
 $DIRECCION_ENC = isset($_REQUEST['DIRECCION_ENC']) ? addslashes($_REQUEST['DIRECCION_ENC']) : '';
 $sqlI = "INSERT INTO cat_encomienda (ID_US,DESCRIPCION_ENC, DISTANCIAMIN_ENC, TIEMPOESPERAMIN_ENC, COSTOENC_MAX_ENC, LATITUD_ORIG, LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC) VALUES ('$ID_US','$DESCRIPCION_ENC', '$DISTANCIAMIN_ENC', '$TIEMPOESPERAMIN_ENC', '$COSTOENC_MAX_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG', '$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC')";
-$qryI = mysql_query($sqlI) or die('Error: ' . mysql_error());
+$qryI = mysql_query($sqlI) or die('Error ' . mysql_error());
 if($qryI)
 {
 $_SESSION['msg'] = 'Record Added Successfully!';

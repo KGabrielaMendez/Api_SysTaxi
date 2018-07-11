@@ -65,8 +65,38 @@ switch ($opt) {
         }
         header('Location: conductor.php');
         break;
+    case 'add':
+        $msg = isset($msg) ? $msg : '';
+        include 'templates/conductor_add.php';
+        break;
+    case 'insert':
+        $msg = isset($msg) ? $msg : '';
+        include '../library/formvalidator.php';
+        $validator = new FormValidator();
+        $validator->addValidation("ID_US", "req", "Please enter ID_US");
+        $validator->addValidation("ID_UNI", "req", "Please enter ID_UNI");
+        if ($validator->ValidateForm()) {
+            $ID_US = isset($_REQUEST['ID_US']) ? addslashes($_REQUEST['ID_US']) : '';
+            $ID_UNI = isset($_REQUEST['ID_UNI']) ? addslashes($_REQUEST['ID_UNI']) : '';
+            $sqlI = "INSERT INTO conductor (ID_US, ID_UNI) VALUES ('$ID_US', '$ID_UNI')";
+            $qryI = mysql_query($sqlI) or die('Error: ' . mysql_error());
+            if ($qryI) {
+                $_SESSION['msg'] = 'Record Added Successfully!';
+            } else {
+                $_SESSION['msg'] = 'Error in adding record!';
+            }
+            header('Location: conductor.php');
+            exit;
+        } else {
+            $error_hash = $validator->GetErrors();
+            foreach ($error_hash as $inpname => $inp_err) {
+                $msg = "$inp_err";
+                break;
+            }
+        }
+        include 'templates/conductor_add.php';
+        break;
 
-   
     //pagina inicial conductor
     default:
         if (isset($_SESSION['msg'])) {

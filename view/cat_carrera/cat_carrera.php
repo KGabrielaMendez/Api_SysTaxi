@@ -43,7 +43,7 @@ $ID_US = isset($_REQUEST['ID_US']) ? addslashes($_REQUEST['ID_US']) : '';
 $DESCRIPCION_CAR = isset($_REQUEST['DESCRIPCION_CAR']) ? addslashes($_REQUEST['DESCRIPCION_CAR']) : '';
 $DISTANCIA_CAR = isset($_REQUEST['DISTANCIA_CAR']) ? addslashes($_REQUEST['DISTANCIA_CAR']) : '';
 $TIEMPOESPERAMIN_CAR = isset($_REQUEST['TIEMPOESPERAMIN_CAR']) ? addslashes($_REQUEST['TIEMPOESPERAMIN_CAR']) : '';
-$COSTO_CAR = isset($_REQUEST['COSTO_CAR']) ? addslashes($_REQUEST['COSTO_CAR']) : '';
+$COSTO_CAR = rand(1,3).".".rand(0, 99);
 $LATITUD_CAR = isset($_REQUEST['LATITUD_CAR']) ? addslashes($_REQUEST['LATITUD_CAR']) : '';
 $LONGITUD_CAR = isset($_REQUEST['LONGITUD_CAR']) ? addslashes($_REQUEST['LONGITUD_CAR']) : '';
 $DIRECCION_CAR = isset($_REQUEST['DIRECCION_CAR']) ? addslashes($_REQUEST['DIRECCION_CAR']) : '';
@@ -67,17 +67,13 @@ break;
 case 'insert':
 $msg = isset($msg) ? $msg : '';
 include '../library/formvalidator.php';
-$IDCONDUCTOR = isset($_REQUEST['IDCONDUCTOR']) ? addslashes($_REQUEST['IDCONDUCTOR']) : '';
-$ID_US = isset($_REQUEST['ID_US']) ? addslashes($_REQUEST['ID_US']) : '';
+$ID_US =  $_SESSION['idUS'];
 $DESCRIPCION_CAR = isset($_REQUEST['DESCRIPCION_CAR']) ? addslashes($_REQUEST['DESCRIPCION_CAR']) : '';
-$DISTANCIA_CAR = isset($_REQUEST['DISTANCIA_CAR']) ? addslashes($_REQUEST['DISTANCIA_CAR']) : '';
-$TIEMPOESPERAMIN_CAR = isset($_REQUEST['TIEMPOESPERAMIN_CAR']) ? addslashes($_REQUEST['TIEMPOESPERAMIN_CAR']) : '';
-$COSTO_CAR = isset($_REQUEST['COSTO_CAR']) ? addslashes($_REQUEST['COSTO_CAR']) : '';
 $LATITUD_CAR = isset($_REQUEST['LATITUD_CAR']) ? addslashes($_REQUEST['LATITUD_CAR']) : '';
 $LONGITUD_CAR = isset($_REQUEST['LONGITUD_CAR']) ? addslashes($_REQUEST['LONGITUD_CAR']) : '';
 $DIRECCION_CAR = isset($_REQUEST['DIRECCION_CAR']) ? addslashes($_REQUEST['DIRECCION_CAR']) : '';
-$sqlI = "INSERT INTO cat_carrera (IDCONDUCTOR, ID_US, DESCRIPCION_CAR, DISTANCIA_CAR, TIEMPOESPERAMIN_CAR, COSTO_CAR, LATITUD_CAR, LONGITUD_CAR, DIRECCION_CAR) VALUES ('$IDCONDUCTOR', '$ID_US', '$DESCRIPCION_CAR', '$DISTANCIA_CAR', '$TIEMPOESPERAMIN_CAR', '$COSTO_CAR', '$LATITUD_CAR', '$LONGITUD_CAR', '$DIRECCION_CAR')";
-$qryI = mysql_query($sqlI) or die('Error: ' . mysql_error());
+$sqlI = "INSERT INTO cat_carrera (ID_US, DESCRIPCION_CAR,LATITUD_CAR, LONGITUD_CAR, DIRECCION_CAR) VALUES ('$ID_US', '$DESCRIPCION_CAR' ,'$LATITUD_CAR', '$LONGITUD_CAR', '$DIRECCION_CAR')";
+$qryI = mysql_query($sqlI) or die('Error: --' . mysql_error());
 if($qryI)
 {
 $_SESSION['msg'] = 'Record Added Successfully!';
