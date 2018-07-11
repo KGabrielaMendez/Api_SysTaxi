@@ -1,6 +1,8 @@
 <?php
+
 include 'init.php';
 $opt = isset($_REQUEST['option']) ? $_REQUEST['option'] : '';
+$usuname = $_SESSION['username'];
 switch($opt)
 {
 case 'view':

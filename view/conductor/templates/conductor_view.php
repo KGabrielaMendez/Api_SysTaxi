@@ -1,4 +1,6 @@
-<?php include"inc/inc_head.php"; ?>
+<?php include"inc/inc_head.php"; 
+require_once '../../model/LoginModel.php';
+$usname = new LoginModel();?>
 <ul class="breadcrumb">
     <li><a href="conductor.php">Listado</a></li>
     <li><a href="../../view/mainConductor.php">Inicio</a></li>
@@ -9,9 +11,9 @@
         <tr>
             <th style="text-transform: capitalize; width: 150px;">NOMBRE CONDUCTOR</th>
             <td><?php
-//                $id = $qryVResult['ID_LOG'];
-//                $usname->RecuperarUsername($id);
-//                echo $uname = $_SESSION['uname'];
+                $id = $qryVResult['ID_LOG'];
+                $usname->RecuperarUsername($id);
+                echo $uname = $_SESSION['uname'];
                 ?></td>
         </tr>
         <tr>

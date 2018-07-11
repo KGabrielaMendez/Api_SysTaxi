@@ -1,6 +1,7 @@
 <?php
 include 'init.php';
 $opt = isset($_REQUEST['option']) ? $_REQUEST['option'] : '';
+$usuname = $_SESSION['username'];
 switch($opt)
 {
 case 'view':
@@ -90,7 +91,11 @@ if(isset($_SESSION['msg'])) {
 $msg = $_SESSION['msg'];
 unset($_SESSION['msg']);}
 include '../library/paginator.class.php';
-$sqlL = 'SELECT IDCONDUCTOR, ID_US, DESCRIPCION_CAR, DISTANCIA_CAR, TIEMPOESPERAMIN_CAR, COSTO_CAR, LATITUD_CAR, LONGITUD_CAR, DIRECCION_CAR, ID_CARRERA FROM cat_carrera';
+$sqlL = 'SELECT IDCONDUCTOR, A.ID_US, DESCRIPCION_CAR, DISTANCIA_CAR, TIEMPOESPERAMIN_CAR, COSTO_CAR, LATITUD_CAR, '
+        . 'LONGITUD_CAR, DIRECCION_CAR, ID_CARRERA FROM cat_carrera A, cat_usuarios B, login C
+            WHERE A.ID_US = B.ID_US
+            AND B.ID_LOG = C.ID_LOG
+            AND C.USERNAME="' . $usuname . '"';
 $pag = new Paginator($sqlL, 10);
 $link1 = $pag->getCount('Item %d of %d - %d');
 $link2 = $pag->getLinks(5);

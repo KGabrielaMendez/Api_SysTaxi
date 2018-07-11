@@ -1,4 +1,6 @@
-<?php include"inc/inc_head.php"; ?>
+<?php include"inc/inc_head.php"; 
+require_once '../../model/LoginModel.php';
+$usname = new LoginModel();?>
 <ul class="breadcrumb">
     <li><a href="conductor.php">Listado</a></li>
     <li><a href="../../view/mainConductor.php">Inicio</a></li>
@@ -11,11 +13,11 @@
         <br/>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">USERNAME</label>
         <div class="form-group">
-            <input type="hidden" name="ID_LOG" class="form-control" value="<?php // echo $ID_LOG ?>"/>
+            <input type="hidden" name="ID_LOG" class="form-control" value="<?php  echo $ID_LOG ?>"/>
             <input type="text" name="" class="form-control" value="<?php
-//            $id = $ID_LOG;
-//            $usname->RecuperarUsername($id);
-//            echo $uname = $_SESSION['uname'];
+            $id = $ID_LOG;
+            $usname->RecuperarUsername($id);
+            echo $uname = $_SESSION['uname'];
             ?>" readonly="readonly"/>
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">NOMBRE</label>
@@ -32,11 +34,11 @@
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">COOPERATIVA</label>
         <div class="form-group">
-            <input type="text" name="DIRECCION_US" class="form-control" value="<?php echo $NOMBRE_COOP ?>" />
+            <input type="text" name="DIRECCION_US" class="form-control" value="<?php echo $NOMBRE_COOP ?>" disabled="true" />
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">NÚMERO DE UNIDAD</label>
         <div class="form-group">
-            <input type="text" name="CIUDAD_US" class="form-control"pattern="^[0-9_.-]*$" minlength="3" value="<?php echo $NUMERO_UNI ?>" />
+            <input type="text" name="CIUDAD_US" class="form-control"pattern="^[0-9_.-]*$" minlength="1" value="<?php echo $NUMERO_UNI ?>" disabled="true"/>
         </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">TELEFONO</label>
         <div class="form-group">
