@@ -9,6 +9,9 @@ echo $msg;
 <li class="active">Library</li>
 </ul>
 <br/>
+<meta http-equiv="refresh" content="6" />
+
+<script>setTimeout('document.location.reload()',6* 1000); </script>
 <div class="col-sm-12 col-md-12">
 <a href="cat_carrera.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>
 </a><br />
@@ -19,7 +22,6 @@ echo $msg;
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD CAR</th>
@@ -35,7 +37,6 @@ foreach($result as $key => $value){?>
 <td><?php echo $result[$key]['ID_US']?></td>
 <td><?php echo $result[$key]['DESCRIPCION_CAR']?></td>
 <td><?php echo $result[$key]['DISTANCIA_CAR']?></td>
-<td><?php echo $result[$key]['TIEMPOESPERAMIN_CAR']?></td>
 <td><?php echo $result[$key]['COSTO_CAR']?></td>
 <td><?php echo $result[$key]['LATITUD_CAR']?></td>
 <td><?php echo $result[$key]['LONGITUD_CAR']?></td>
