@@ -65,28 +65,7 @@ switch ($opt) {
         header('Location: conductor.php');
         break;
 
-    case 'notifyEnco':
-        if (isset($_SESSION['msg'])) {
-            $msg = $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }
-        include '../library/paginator.class.php';
-        $sqlL = 'SELECT B.DESCRIPCION_ENC, D.NOMBRE_US, D.APELLIDO_US, B.DIRECCION_ENC
-            FROM cat_pedidos A, cat_encomienda B, cat_usuarios D
-            WHERE A.ID_PEDIDO = B.ID_PEDIDO
-            AND   A.ID_US = D.ID_US';
-        $pag = new Paginator($sqlL, 10);
-        $link1 = $pag->getCount('Item %d of %d - %d');
-        $link2 = $pag->getLinks(5);
-        $tempSql = $pag->getQuery();
-        $qryL = mysql_query($tempSql) or die('Error: ' . mysql_error());
-        $resul = array();
-        while ($qryLResult = mysql_fetch_assoc($qryL)) {
-            $resul[] = $qryLResult;
-        }
-        include 'notificaciones.php';
-        break;
-
+   
     //pagina inicial conductor
     default:
         if (isset($_SESSION['msg'])) {

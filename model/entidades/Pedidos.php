@@ -13,12 +13,21 @@
  */
 class Pedidos {
     
+    private $id;
     private $descripcionPedido;
     private $nombre;
     private $apellido;
+    private $telefono;
     private $direccionPedido;
-    
-    function getDescripcionPedido() {
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+        function getDescripcionPedido() {
         return $this->descripcionPedido;
     }
 
@@ -28,6 +37,10 @@ class Pedidos {
 
     function getApellido() {
         return $this->apellido;
+    }
+
+    function getTelefono() {
+        return $this->telefono;
     }
 
     function getDireccionPedido() {
@@ -46,9 +59,12 @@ class Pedidos {
         $this->apellido = $apellido;
     }
 
+    function setTelefono($telefono) {
+        $this->telefono = $telefono;
+    }
+
     function setDireccionPedido($direccionPedido) {
         $this->direccionPedido = $direccionPedido;
     }
-
 
 }
