@@ -72,11 +72,17 @@ case 'insert':
 $msg = isset($msg) ? $msg : '';
 include '../library/formvalidator.php';
 $ID_US = $_SESSION['idUS'];
-$TIPO_ENCOMIENDA = isset($_REQUEST['TIPO_ENCOMIENDA']) ? addslashes($_REQUEST['TIPO_ENCOMIENDA']) : '';
+$TIPO_ENCOMIENDA = isset($_REQUEST['TIPO_ENCOMIENDA'])? addslashes($_REQUEST['DESCRIPCION_ENC']) : '';
 $DESCRIPCION_ENC = isset($_REQUEST['DESCRIPCION_ENC']) ? addslashes($_REQUEST['DESCRIPCION_ENC']) : '';
 $DISTANCIAMIN_ENC = isset($_REQUEST['DISTANCIAMIN_ENC']) ? addslashes($_REQUEST['DISTANCIAMIN_ENC']) : '';
+if($DISTANCIAMIN_ENC>=2){
+    $COSTOENC_MAX_ENC=1.5+(0.40);
+            //*$DISTANCIA_CAR);
+}else{
+     $COSTOENC_MAX_ENC="1,50";   
+}
 $TIEMPOESPERAMIN_ENC = isset($_REQUEST['TIEMPOESPERAMIN_ENC']) ? addslashes($_REQUEST['TIEMPOESPERAMIN_ENC']) : '';
-$COSTOENC_MAX_ENC = rand(1,5).".".rand(0, 99);
+//$COSTOENC_MAX_ENC = rand(1,5).".".rand(0, 99);
 $LATITUD_ORIG = isset($_REQUEST['LATITUD_ORIG']) ? addslashes($_REQUEST['LATITUD_ORIG']) : '';
 $LONGITUD_ORIG = isset($_REQUEST['LONGITUD_ORIG']) ? addslashes($_REQUEST['LONGITUD_ORIG']) : '';
 $LATITUD_DEST = isset($_REQUEST['LATITUD_DEST']) ? addslashes($_REQUEST['LATITUD_DEST']) : '';

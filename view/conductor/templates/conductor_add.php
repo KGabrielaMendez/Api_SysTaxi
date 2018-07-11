@@ -11,7 +11,20 @@
 <br/>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</label>
 <div class="form-group">
-<input type="text" name="ID_US" class="form-control" value="<?php echo isset($_REQUEST["ID_US"]) ? $_REQUEST["ID_US"] : ''; ?>" />
+ <select value="ID_COOP" name="ID_COOP" style="width:100%; height: 40px">
+                <?php
+                $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
+                $consulta = "SELECT NOMBRE_COOP, ID_COOP from cat_cooperativas";
+                if ($res = mysqli_query($mysqli, $consulta)) {
+                    while ($fila = mysqli_fetch_row($res)) {
+                        
+                        ?>
+                        
+                        <option name="ID_COOP" value="<?phpecho $fila[1];?>"><?php echo $fila[0]; ?></option>
+                        <?php
+                    }
+                }
+                ?>"  </select>
 </div>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID UNI</label>
 <div class="form-group">
