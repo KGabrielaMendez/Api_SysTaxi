@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <?php
+include"inc/inc_head.php"; 
+
 session_start();
 if ($_SESSION['rolUsuario'] == "2") {
     ?>
     <html>
         <head>
             <meta charset="UTF-8">
-
-            <style type="text/css">
-                .normal {
-                    text-align: center;
-                    width: 50%;
-                    height: 400px;
-                    border: 1px solid #000;
-                    border-collapse: collapse;
-                }
-
-
-                button {
-                    background-color: #330000;
-                    color: white;
-                    padding: 14px 20px;
-                    margin: 8px 0;
-                    border: none;
-                    cursor: pointer;
-                    width: 75%;
-                    height: 300px;
-                }
-
-                button:hover {
-                    opacity: 0.8;
-                }
-
-            </style>
+<ul class="breadcrumb">
+    <li><a href="cat_encomienda.php">Inicio</a></li>
+    <li class="active">Library</li>
+</ul>
+            
             <title></title>
         </head>
         <body>
@@ -49,7 +29,7 @@ if ($_SESSION['rolUsuario'] == "2") {
                         <td style="width: 175px;">
                             <form  action="../controller/controllerClientes.php">
                                 <?php
-//                            $username=$_SESSION['username'];
+                            $username=$_SESSION['username'];
                                 ?>
                                 <input type="hidden" name="username" value="<?php echo $username; ?>">
                                 <input type="hidden" value="perfil" name="opcion">
@@ -76,9 +56,17 @@ if ($_SESSION['rolUsuario'] == "2") {
                 </tbody>
             </table>
             <?php
+            mysql_connect('localhost', 'root', '') or die("Error al conectar " . mysql_error());
+mysql_select_db('systaxi') or die("Error al seleccionar la Base de datos: " . mysql_error());
+$consIdUs = mysql_query("SELECT ID_US from cat_usuarios u, login l where l.USERNAME='" . $username . "' and l.ID_LOG=u.ID_LOG");
+if ($rowid = mysql_fetch_array($consIdUs)) {
+    $_SESSION['idUS'] = $rowid['ID_US'];
+}
+            
         } else {
             header("Location: ../login/login.php");
             exit();
         }
+        include"inc/inc_footer.php";
         ?>
 
