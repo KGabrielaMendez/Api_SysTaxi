@@ -32,19 +32,21 @@ session_start();
         //verificamos si existe en sesion el listado de productos:
         if (isset($_SESSION['listado'])) {
             $listado = unserialize($_SESSION['listado']);
-                        foreach ($listado as $r) {
+            foreach ($listado as $r) {
                 echo "<tr>";
-                echo "<td>"  .$r->getId(). "</td>";
+                echo "<td>" . $r->getId() . "</td>";
                 echo "<td>" . $r->getNombre() . "</td>";
                 echo "<td>" . $r->getApellido() . "</td>";
                 echo "<td>" . $r->getTelefono() . "</td>";
                 echo "<td>" . $r->getDireccionPedido() . "</td>";
                 echo "<td>" . $r->getDescripcionPedido() . "</td>";
-                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarE&id=".$r->getId()."'><span class='glyphicon glyphicon-pencil'> Aceptar
+                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarE&id=" . $r->getId() . "'><span class='glyphicon glyphicon-pencil'> Aceptar
                         </span></a></td>";
                 echo "</tr>";
             }
-        } else {
+            $_SESSION['encomienda']=$r->getId();
+            $idEnc=  $_SESSION['encomienda'];
+            } else {
             echo "No se han cargado datos.";
         }
         ?>
@@ -61,29 +63,31 @@ session_start();
             <th>DETALLE CARRERA</th>
             <th>OPCIÓN</th>
         </tr>
-        <?php
-        include_once '../../model/entidades/Pedidos.php';
-        //verificamos si existe en sesion el listado de productos:
-        if (isset($_SESSION['listadoC'])) {
-            $listado = unserialize($_SESSION['listadoC']);
-            foreach ($listado as $r) {
-                echo "<tr>";
-                echo "<td>" . $r->getId(). "</td>";
-                echo "<td>" . $r->getNombre() . "</td>";
-                echo "<td>" . $r->getApellido() . "</td>";
-                echo "<td>" . $r->getTelefono() . "</td>";
-                echo "<td>" . $r->getDireccionPedido() . "</td>";
-                echo "<td>" . $r->getDescripcionPedido() . "</td>";         
-                echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarC&id=".$r->getId()."'><span class='glyphicon glyphicon-pencil'> Aceptar
+<?php
+include_once '../../model/entidades/Pedidos.php';
+//verificamos si existe en sesion el listado de productos:
+if (isset($_SESSION['listadoC'])) {
+    $listado = unserialize($_SESSION['listadoC']);
+    foreach ($listado as $r) {
+        echo "<tr>";
+        echo "<td>" . $r->getId() . "</td>";
+        echo "<td>" . $r->getNombre() . "</td>";
+        echo "<td>" . $r->getApellido() . "</td>";
+        echo "<td>" . $r->getTelefono() . "</td>";
+        echo "<td>" . $r->getDireccionPedido() . "</td>";
+        echo "<td>" . $r->getDescripcionPedido() . "</td>";
+        echo "<td><a href='../../controller/controllerConductores.php?opcion=aceptarC&id=" . $r->getId() . "'><span class='glyphicon glyphicon-pencil'> Aceptar
                         </span></a></td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "No se han cargado datos.";
-        }
-        ?>
+        echo "</tr>";
+    }
+} else {
+    echo "No se han cargado datos.";
+}
+?>
+        
     </table>
-    <?php
-    ?>
+    
+        <?php
+        ?>
 </body>
 </html>

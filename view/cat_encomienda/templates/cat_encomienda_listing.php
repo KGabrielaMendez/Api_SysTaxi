@@ -4,6 +4,7 @@ echo $msg;
 }
 ?>
 <?php include "inc/inc_head.php"; ?>
+<script>setTimeout('document.location.reload()',10000); </script>
 <ul class="breadcrumb">
     <li><a href="../../view/mainCliente.php">Inicio</a></li>
 <li class="active">Library</li>

@@ -21,6 +21,10 @@ switch ($opcion) {
             
             
             break;
+        case "cerrarSesion":
+            session_destroy();
+            header("Location: ../login/login.php");
+            break;
         
     default:
         session_destroy();

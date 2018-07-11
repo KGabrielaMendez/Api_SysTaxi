@@ -5,6 +5,7 @@ $pass = md5($_POST['psw']);
 if (empty($usuario) || empty($pass)) {
     header("Location: ../login/login.php");
     exit();
+    $_SESSION['username'] = $usuario;
 }
 
 mysql_connect('localhost', 'root', '') or die("Error al conectar " . mysql_error());

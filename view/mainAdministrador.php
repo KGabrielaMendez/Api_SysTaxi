@@ -1,81 +1,14 @@
 <!DOCTYPE html>
 <?php
-session_start();
+
+include"inc/inc_head.php";
 if ($_SESSION['rolUsuario'] == "1") {
     ?>
     <html>
         <head>
             <meta charset="UTF-8">
             <title>Admin</title>
-            <style type="text/css">
-                * {
-                    margin: 0;
-                }
-                .normal {
-                    text-align: center;
-                    width: 50%;
-                    height: 400px;
-                    border: 0px solid #000;
-                    border-collapse: collapse;
-                }
-
-
-                button {
-                    background-color: #330000;
-                    color: white;
-                    padding: 14px 20px;
-                    margin: 8px 0;
-                    border: none;
-                    cursor: pointer;
-                    width: 75%;
-                    height: 300px;
-                }
-
-                button:hover {
-                    opacity: 0.8;
-                }
-                html, body {
-                    height: 100%;
-                    overflow: hidden;
-                }
-
-                #wrapper {
-                    min-height: 100%;
-                    height: auto !important;
-                    height: 100%;
-                    margin: 0 auto -100px; 
-                }
-
-                #leftbar {
-                    float: left;
-                    width: 200px;
-                    background-color: #EAEAEA;
-                    height: 100%;
-                    position: absolute;
-                    z-index: -1;
-                }
-
-                #rightbar {
-
-                }
-
-                #footer {
-                    height: 50px;      
-                    background-color: #EAEAEA;
-                }               
-                #pos{
-                    height: 50px;
-                    position: relative;
-                }
-                #header {
-
-                    height: 100px;
-                    background-color: #EAEAEA;
-                } 
-                td, th, table{
-                    width: 20px;
-                }
-            </style>
+        
         </head>
         <body>
             <div id="wrapper">
@@ -87,10 +20,10 @@ if ($_SESSION['rolUsuario'] == "1") {
                 <div id="content">
 
                     <div id="leftbar">  </div>
-                    <center><table border="0" class="normal" align="center">
+                    <table border="0" class="normal" >
                             <tbody>
-                                <tr style="width: 175px;">
-                                    <td style="width: 175px;">
+                                <tr >
+                                    <td style="width: 250px;">
 
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="clientes" name="opcion" />
@@ -108,7 +41,7 @@ if ($_SESSION['rolUsuario'] == "1") {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 175px;">
+                                    <td style="width: 250px;">
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="unidades" name="opcion" />
                                             <input type="image" name="unidades" src="taxis.jpg" width="70%"
@@ -125,7 +58,7 @@ if ($_SESSION['rolUsuario'] == "1") {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 175px;">
+                                    <td style="width: 250px;">
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="nuevoAdmin" name="opcion" />
                                             <input type="image" alt="Añadir nuevos Administradores" src="nuevoAdmin.jpg" width="70%"/>
@@ -134,6 +67,8 @@ if ($_SESSION['rolUsuario'] == "1") {
                                     <td><form  action="Tarifas.html">
                                  <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
                             </form></td>
+                                </tr>
+                                <tr>
                                     <td style="width: 175px;">
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="cerrarSesion" name="opcion">
@@ -142,7 +77,7 @@ if ($_SESSION['rolUsuario'] == "1") {
                                     </td>
                                 </tr>
                             </tbody>
-                        </table></center>
+                        </table>
                     <div id="rightbar"> </div>
 
                 </div>

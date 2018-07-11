@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
 include"inc/inc_head.php";
-
-session_start();
 if ($_SESSION['rolUsuario'] == "2") {
     ?>
     <html>

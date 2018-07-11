@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-         session_start();
+
+include"inc/inc_head.php";
          if($_SESSION['rolUsuario']=="3"){
 //         $username=$_SESSION['username'];
 ?>

@@ -28,6 +28,7 @@ switch ($opcion) {
     case "aceptarE":
         $usuname = $_SESSION['username'];
         $id = $_GET['id'];
+         $_SESSION['encomienda']=$id;
         $idconductor = $mconductores->obtenerID($usuname);
         $mconductores->ModificarPedidoE($id,$idconductor);
 
