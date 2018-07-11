@@ -18,11 +18,11 @@ echo $msg;
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">IDCONDUCTOR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">CONDUCTOR</th>
+<!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>-->
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION CAR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</th>
+<!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA CAR</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO CAR</th>-->
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD CAR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION CAR</th>
@@ -33,11 +33,22 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
-<td><?php echo $result[$key]['IDCONDUCTOR']?></td>
-<td><?php echo $result[$key]['ID_US']?></td>
+<td><?php $vari = $result[$key]['IDCONDUCTOR'];
+ if ($vari != NULL) {
+      $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
+      $consulta = "SELECT NOMBRE_US from conductor A, cat_usuarios B WHERE A.ID_US = B.ID_US AND IDCONDUCTOR = ".$vari."";
+      if ($res = mysqli_query($mysqli, $consulta)) {
+                    while ($fila = mysqli_fetch_row($res)) {
+                        echo $fila[0];
+                    }
+      }
+ } else {
+     echo 'PENDIENTE';
+ }?></td>
+<!--<td><?php echo $result[$key]['ID_US']?></td>-->
 <td><?php echo $result[$key]['DESCRIPCION_CAR']?></td>
-<td><?php echo $result[$key]['DISTANCIA_CAR']?></td>
-<td><?php echo $result[$key]['COSTO_CAR']?></td>
+<!--<td><?php //echo $result[$key]['DISTANCIA_CAR']?></td>
+<td><?php //echo $result[$key]['COSTO_CAR']?></td>-->
 <td><?php echo $result[$key]['LATITUD_CAR']?></td>
 <td><?php echo $result[$key]['LONGITUD_CAR']?></td>
 <td><?php echo $result[$key]['DIRECCION_CAR']?></td>
