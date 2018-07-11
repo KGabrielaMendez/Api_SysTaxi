@@ -67,4 +67,4 @@ select.addEventListener('change',
         <input type="hidden" name="option" value="insert">
         <input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
     </form></div>
-<?php include"inc/inc_footer.php"; ?>
+<?php include '../inc/inc_footer.php'; ?>
