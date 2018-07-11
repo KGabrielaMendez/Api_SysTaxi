@@ -74,16 +74,16 @@ switch ($opt) {
             $COSTOENC_MAX_ENC = 1.5 + (0.40);
             //*$DISTANCIA_CAR);
         } else {
-            $COSTOENC_MAX_ENC = "1,50";
+            $COSTOENC_MAX_ENC = "2.00";
         }
-        $TIEMPOESPERAMIN_ENC = isset($_REQUEST['TIEMPOESPERAMIN_ENC']) ? addslashes($_REQUEST['TIEMPOESPERAMIN_ENC']) : '';
 //$COSTOENC_MAX_ENC = rand(1,5).".".rand(0, 99);
         $LATITUD_ORIG = isset($_REQUEST['LATITUD_ORIG']) ? addslashes($_REQUEST['LATITUD_ORIG']) : '';
         $LONGITUD_ORIG = isset($_REQUEST['LONGITUD_ORIG']) ? addslashes($_REQUEST['LONGITUD_ORIG']) : '';
         $LATITUD_DEST = isset($_REQUEST['LATITUD_DEST']) ? addslashes($_REQUEST['LATITUD_DEST']) : '';
         $LONGITUD_DEST = isset($_REQUEST['LONGITUD_DEST']) ? addslashes($_REQUEST['LONGITUD_DEST']) : '';
         $DIRECCION_ENC = isset($_REQUEST['DIRECCION_ENC']) ? addslashes($_REQUEST['DIRECCION_ENC']) : '';
-        $sqlI = "INSERT INTO cat_encomienda (ID_US,DESCRIPCION_ENC, DISTANCIAMIN_ENC, TIEMPOESPERAMIN_ENC, COSTOENC_MAX_ENC, LATITUD_ORIG, LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC) VALUES ('$ID_US','$DESCRIPCION_ENC', '$DISTANCIAMIN_ENC', '$TIEMPOESPERAMIN_ENC', '$COSTOENC_MAX_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG', '$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC')";
+        $FECHA_ENC = date('Y-m-d G:i:s');
+       $sqlI= "INSERT INTO cat_encomienda (ID_US, TIPO_ENCOMIENDA, DESCRIPCION_ENC, LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC, FECHA_ENC) VALUES ('$ID_US','$TIPO_ENCOMIENDA', '$DESCRIPCION_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG','$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC', '$FECHA_ENC')";
         $qryI = mysql_query($sqlI) or die('Error ' . mysql_error());
         if ($qryI) {
             $_SESSION['msg'] = 'Record Added Successfully!';

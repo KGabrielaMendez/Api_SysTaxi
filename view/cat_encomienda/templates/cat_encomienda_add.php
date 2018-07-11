@@ -26,15 +26,15 @@
         </div>
 
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</label>
-        
-            <select name="TIPO_ENCOMIENDA"  value="TIPO_ENCOMIENDA" style="width:100%; height: 40px">
-                <option name="TIPO_ENCOMIENDA" value="<?php echo isset($_REQUEST["TIPO_ENCOMIENDA"]) ? $_REQUEST["TIPO_ENCOMIENDA"] : ''; ?>">cajas</option>
-                <option name="TIPO_ENCOMIENDA" value="sobres">sobres</option>
-                <option name="TIPO_ENCOMIENDA" value="alimentos">alimentos</option>
-                <option name="TIPO_ENCOMIENDA" value="productos de hogar">productos de hogar</option>
-                <option name="TIPO_ENCOMIENDA" value="Otros">Otros</option>
-            </select>
-        
+
+        <select name="TIPO_ENCOMIENDA"  value="TIPO_ENCOMIENDA" style="width:100%; height: 40px">
+            <option name="TIPO_ENCOMIENDA" value="caja">cajas</option>
+            <option name="TIPO_ENCOMIENDA" value="sobres">sobres</option>
+            <option name="TIPO_ENCOMIENDA" value="alimentos">alimentos</option>
+            <option name="TIPO_ENCOMIENDA" value="productos de hogar">productos de hogar</option>
+            <option name="TIPO_ENCOMIENDA" value="Otros">Otros</option>
+        </select>
+
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENC</label>
         <div class="form-group">
             <input type="text" name="DESCRIPCION_ENC" class="form-control" value="<?php echo isset($_REQUEST["DESCRIPCION_ENC"]) ? $_REQUEST["DESCRIPCION_ENC"] : ''; ?>" />
@@ -80,7 +80,7 @@
                         }, function (error) {
                     console.log(error);
                 });
-               
+
 
             }
 
@@ -122,12 +122,13 @@
                     document.getElementById("longitud").value = this.getPosition().lng();
                     latFin = this.getPosition().lat();
                     lonFin = this.getPosition().lng();
-
+                    var punto1 = new google.maps.LatLng(latIni, lonIni);
+                    var punto2 = new google.maps.LatLng(latFin, lonFin);
+                    var distanciapuntos = google.maps.geometry.spherical.computeDistanceBetween(punto1, punto2);
+                    document.getElementById("distancia").value = distanciapuntos;
+                    alert(distanciapuntos);
                 });
-                 var punto1 = new google.maps.LatLng(latIni, lonIni);
-                var punto2 = new google.maps.LatLng(latFin, lonFin);
-                var distanciapuntos = google.maps.geometry.spherical.computeDistanceBetween(punto1, punto2);
-                document.getElementById("distancia").value = distanciapuntos;
+
             }
 
             //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
