@@ -134,8 +134,6 @@ if ($_SESSION['rolUsuario'] == "1") {
                                     <td><form  action="Tarifas.html">
                                  <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
                             </form></td>
-                                </tr>
-                                <tr>
                                     <td style="width: 175px;">
                                         <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="cerrarSesion" name="opcion">
