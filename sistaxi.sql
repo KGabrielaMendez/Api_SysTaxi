@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     01/07/2018 20:24:55                          */
+/* Created on:     09/07/2018 2:38:43                           */
 /*==============================================================*/
 
 
@@ -9,8 +9,6 @@ drop table if exists CAT_CARRERA;
 drop table if exists CAT_COOPERATIVAS;
 
 drop table if exists CAT_ENCOMIENDA;
-
-drop table if exists CAT_PEDIDOS;
 
 drop table if exists CAT_ROL;
 
@@ -22,15 +20,14 @@ drop table if exists CONDUCTOR;
 
 drop table if exists LOGIN;
 
-drop table if exists TIPO_ENCOMIENDA;
-
 /*==============================================================*/
 /* Table: CAT_CARRERA                                           */
 /*==============================================================*/
 create table CAT_CARRERA
 (
    ID_CARRERA           int not null auto_increment,
-   ID_PEDIDO            int,
+   IDCONDUCTOR          int,
+   ID_US                int,
    DESCRIPCION_CAR      varchar(1000) comment 'Puede incluir nr de casa',
    DISTANCIA_CAR        int,
    TIEMPOESPERAMIN_CAR  int,
@@ -61,8 +58,8 @@ create table CAT_COOPERATIVAS
 create table CAT_ENCOMIENDA
 (
    ID_ENCOMIENDA        int not null auto_increment,
-   IDTIPOENCOM          int,
-   ID_PEDIDO            int,
+   ID_US                int,
+   IDCONDUCTOR          int,
    DESCRIPCION_ENC      varchar(1000),
    DISTANCIAMIN_ENC     int,
    TIEMPOESPERAMIN_ENC  int,
@@ -75,18 +72,6 @@ create table CAT_ENCOMIENDA
 );
 
 alter table CAT_ENCOMIENDA comment 'PUEDE INCLUIR TAMAÑO ENCOMIENDA';
-
-/*==============================================================*/
-/* Table: CAT_PEDIDOS                                           */
-/*==============================================================*/
-create table CAT_PEDIDOS
-(
-   ID_PEDIDO            int not null auto_increment,
-   IDCONDUCTOR          int,
-   ID_US                int,
-   FECHA                datetime,
-   primary key (ID_PEDIDO)
-);
 
 /*==============================================================*/
 /* Table: CAT_ROL                                               */
@@ -156,31 +141,16 @@ create table LOGIN
    primary key (ID_LOG)
 );
 
-/*==============================================================*/
-/* Table: TIPO_ENCOMIENDA                                       */
-/*==============================================================*/
-create table TIPO_ENCOMIENDA
-(
-   IDTIPOENCOM          int not null,
-   DESCRIPCION          varchar(100),
-   primary key (IDTIPOENCOM)
-);
-
-alter table TIPO_ENCOMIENDA comment 'tabla q contiene el tipo de encomiendas';
-
-alter table CAT_CARRERA add constraint FK_PEDIDO_CARR foreign key (ID_PEDIDO)
-      references CAT_PEDIDOS (ID_PEDIDO) on delete restrict on update restrict;
-
-alter table CAT_ENCOMIENDA add constraint FK_PEDIDO_ENCOMIEN foreign key (ID_PEDIDO)
-      references CAT_PEDIDOS (ID_PEDIDO) on delete restrict on update restrict;
-
-alter table CAT_ENCOMIENDA add constraint FK_TIPOENCOMIENDA_ENCOMIEND foreign key (IDTIPOENCOM)
-      references TIPO_ENCOMIENDA (IDTIPOENCOM) on delete restrict on update restrict;
-
-alter table CAT_PEDIDOS add constraint FK_ROLUSER_PEDIDO foreign key (IDCONDUCTOR)
+alter table CAT_CARRERA add constraint FK_CONDUCTOR_CARRERA foreign key (IDCONDUCTOR)
       references CONDUCTOR (IDCONDUCTOR) on delete restrict on update restrict;
 
-alter table CAT_PEDIDOS add constraint FK_USER_PEDIDO foreign key (ID_US)
+alter table CAT_CARRERA add constraint FK_USER_CARRERA foreign key (ID_US)
+      references CAT_USUARIOS (ID_US) on delete restrict on update restrict;
+
+alter table CAT_ENCOMIENDA add constraint FK_CONDUCTOR_ENCOMIENDA foreign key (IDCONDUCTOR)
+      references CONDUCTOR (IDCONDUCTOR) on delete restrict on update restrict;
+
+alter table CAT_ENCOMIENDA add constraint FK_USER_ENCOMIENDA foreign key (ID_US)
       references CAT_USUARIOS (ID_US) on delete restrict on update restrict;
 
 alter table CAT_UNIDADES add constraint FK_COOP_UNIDAD foreign key (ID_COOP)
