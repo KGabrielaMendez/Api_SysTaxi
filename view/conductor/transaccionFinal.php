@@ -24,7 +24,7 @@ session_start();
 $id = $_SESSION['encomienda'];
 
 $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
-$consulta = 'SELECT LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, ID_ENCOMIENDA FROM cat_encomienda A, cat_usuarios B, login C
+$consulta = 'SELECT LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, ID_ENCOMIENDA, DESCRIPCION_ENC FROM cat_encomienda A, cat_usuarios B, login C
             WHERE A.ID_US = B.ID_US
             AND B.ID_LOG = C.ID_LOG
             AND A.ID_ENCOMIENDA="' . $id . '"';
@@ -37,11 +37,11 @@ if ($res = mysqli_query($mysqli, $consulta)) {
     }
 }
 ?>
-        
         <div id="map" ></div>
 
         <input type="text" id="coords" value="<?php echo $latFin.",".$lonFin?>"/>
         <script>
+                <input
 
 
             var marker;          //variable del marcador

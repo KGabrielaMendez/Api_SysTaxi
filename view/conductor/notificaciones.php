@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php include "inc/inc_head.php"; ?>
+<script>setTimeout('document.location.reload()',10000); </script>
 <ul class="breadcrumb">
     <li><a href="../../view/mainConductor.php">Inicio</a></li>
 </ul>
@@ -15,9 +16,60 @@ session_start();
 //$username = $_SESSION['username'];
 ?>
 <h3>ENCOMIENDAS</h3>
+   <style>
+            body{
+                font-family: ‘Open Sans’, sans-serif;
+            }
+            table {
+                width: 80%;
+                border-collapse: collapse;
+            }
+            table, td, th {
+                border-bottom: 8px solid #F1F1F1;
+            }
+
+            th{
+                text-align: left;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 5px;
+            }
+            .header-text{
+                height: auto;
+                padding: 15px;
+                background-color:#5A9EA6;
+                color: white;
+                border: 2px solid #F1F1F1;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            .container
+            {
+                padding: 100px;
+            }
+
+            .table{
+                padding: 25px;
+                background-color: #F1F1F1;
+            }
+
+            td
+            {
+                background-color: white;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 5px;
+            }
+            a {
+                font-size: 20px;
+                color: #C8C8C8;
+            }
+
+        </style>
 <body>
     <!--<a href="../../controller/"-->
-    <table border="1">
+    <table >
         <tr>
             <th>ID</th>           
             <th>NOMBRE </th>
@@ -44,8 +96,6 @@ session_start();
                         </span></a></td>";
                 echo "</tr>";
             }
-            $_SESSION['encomienda']=$r->getId();
-            $idEnc=  $_SESSION['encomienda'];
             } else {
             echo "No se han cargado datos.";
         }
@@ -53,7 +103,7 @@ session_start();
     </table>
     <h3>CARRERAS</h3>
 <body>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>           
             <th>NOMBRE </th>

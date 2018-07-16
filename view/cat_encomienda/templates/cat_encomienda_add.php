@@ -39,10 +39,7 @@
         <div class="form-group">
             <input type="text" name="DESCRIPCION_ENC" class="form-control" value="<?php echo isset($_REQUEST["DESCRIPCION_ENC"]) ? $_REQUEST["DESCRIPCION_ENC"] : ''; ?>" />
         </div>
-        <label style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA APROXIMADA</label>
-        <div class="form-group">
-            <input type="text" name="DISTANCIAMIN_ENC" id="distancia" class="form-control" value="<?php echo isset($_REQUEST["DISTANCIAMIN_ENC"]) ? $_REQUEST["DISTANCIAMIN_ENC"] : ''; ?>" />
-        </div>
+       
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ORIGEN</label>
         <div class="form-group" contenteditable="false">
             <input type="text" readonly name="LATITUD_ORIG" id="latIni" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_ORIG"]) ? $_REQUEST["LATITUD_ORIG"] : ''; ?>" />
