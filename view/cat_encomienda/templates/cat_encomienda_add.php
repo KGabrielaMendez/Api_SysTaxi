@@ -162,9 +162,8 @@
                     }
 
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '<br>' + place.geometry.location);
-                    var pos = marker, position;
+
                     infowindow.open(map, marker);
-                    distancia(la, lo);
                 });
 
                 // Estaece un event en un radio button para cambiar el tipo de filtro en lugares
@@ -230,84 +229,42 @@
 
         <script>
             function distancia(la, lo) {
+                var API_KEY="AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A";
                 var origen = "{lat: " + latIni + " , lng: " + lonIni + " }";
                 var destino = "{lat: " + la + " , lng: " + lo + " }";
                 var dist = "l";
-                alert(la);
-                var service = new google.maps.DistanceMatrixService();
-                var bounds = new google.maps.LatLngBounds;
-                var markersArray = [];
+                var distanciaURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + latIni + "," + lonIni + "&destinations=" + la + "," + lo + "&key=" + API_KEY;
 
-                var destinationIcon = 'https://chart.googleapis.com/chart?' +
-                        'chst=d_map_pin_letter&chld=D|FF0000|000000';
-                var originIcon = 'https://chart.googleapis.com/chart?' +
-                        'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+                var request = new XMLHttpRequest();
 
-                var geocoder = new google.maps.Geocoder;
-                service.getDistanceMatrix({
-
-                    origins: [origen],
-                    destinations: [destino],
-                    travelMode: 'DRIVING',
-                    unitSystem: google.maps.UnitSystem.METRIC,
-                    avoidHighways: false,
-                    avoidTolls: false
-
-                }, function (response, status) {
-                    if (status !== 'OK') {
-                        alert('Error was: ' + status);
-                    } else {
-
-                        var originList = response.originAddresses;
-                        var destinationList = response.destinationAddresses;
-                        var outputDiv = document.getElementById('output');
-                        outputDiv.innerHTML = '';
-                        deleteMarkers(markersArray);
- alert("dist");
-                        var showGeocodedAddressOnMap = function (asDestination) {
-                            var icon = asDestination ? destinationIcon : originIcon;
-                           
-                        };
-
-                        var km = [];
-                       
-                        for (var i = 0; i < originList.length; i++) {
-                            var results = response.rows[i].elements;
-                            geocoder.geocode({'address': originList[i]},
-                                    showGeocodedAddressOnMap(false));
-
-                            for (var j = 0; j < results.length; j++) {
-                                geocoder.geocode({'address': destinationList[j]},
-                                        showGeocodedAddressOnMap(true));
-                                // outputDiv.innerHTML += 'distancia: ' + results[j].distance.text+"<br>" ;
-
-                                if(dist==""){
-                		dist +=results[j].distance.text;
-                                alert("por quisi");
-           		}else{
-           			dist +="|"+results[j].distance.text;
-                                alert(results[j].distance.text);
-           		}
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4 && request.state == 200) { //200 significa que la petición a Google fue correcta
+                        var respuesta = JSON.parse(request.responseText);
+                        if (respuesta) {
+                            var distancia = respuesta.rows[0].elements[0].distance.text;
+                            if (distancia) {                                
+                                document.getElementById("span_distancia").innerText = distancia;
+                            } else {
+                                console.log("Error al obtener el valor de la distancia");
                             }
-
+                        } else {
+                            console.log("Error al convertir la respuesta obtenida de Google");
                         }
-                        document.getElementById("dist").value = dist;
-                        alert("lin293");
+                    } else {
+                        console.log("Error al pedir la distancia entre dos puntos a Google");
                     }
-                });
-                alert(dist);
-                function deleteMarkers(markersArray) {
-                    for (var i = 0; i < markersArray.length; i++) {
-                        markersArray[i].setMap(null);
-                    }
-                    markersArray = [];
                 }
+                request.open('GET', distanciaURL, true);
+                request.send();
             }
+
 
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&sensor=false&signed_in=true&libraries=places&callback=initMap" async defer></script>
-
+ <div>
+    	Distancia entre los puntos: <span id="span_distancia"></span>
+    </div>
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD DESTINO</label>
         <div class="form-group" contenteditable="false">
             <input type="text" readonly name="LATITUD_DEST" id="destinolat" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_DEST"]) ? $_REQUEST["LATITUD_DEST"] : ''; ?>" />

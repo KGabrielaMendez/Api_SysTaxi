@@ -4,7 +4,7 @@ echo $msg;
 }
 ?>
 <?php include "inc/inc_head.php"; ?>
-<script>setTimeout('document.location.reload()',10000); </script>
+
 <ul class="breadcrumb">
     <li><a href="../../view/mainCliente.php">Inicio</a></li>
 <li class="active">Library</li>
@@ -20,9 +20,9 @@ echo $msg;
 --><th style="text-transform: capitalize; width: 150px; font-weight: bold;">CONDUCTOR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENCOMIENDA</th>
-<!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIAMIN ENC</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPOESPERAMIN ENC</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTOENC MAX ENC</th>-->
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA EN KM</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIEMPO ESPERA APROXIMADO en min</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">COSTO APROXIMADO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD ORIGEN</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD ORIGEN</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD DESTINO</th>
@@ -51,9 +51,9 @@ foreach($result as $key => $value){?>
  }?></td>
 <td><?php echo $result[$key]['TIPO_ENCOMIENDA']?></td>
 <td><?php echo $result[$key]['DESCRIPCION_ENC']?></td>
-<!--<td><?php //echo $result[$key]['DISTANCIAMIN_ENC']?></td>
-<td><?php //echo $result[$key]['TIEMPOESPERAMIN_ENC']?></td>
-<td><?php //echo $result[$key]['COSTOENC_MAX_ENC']?></td>-->
+<td><?php echo $result[$key]['DISTANCIAMIN_ENC']?></td>
+<td><?php echo $result[$key]['TIEMPOESPERAMIN_ENC']?></td>
+<td><?php echo $result[$key]['COSTOENC_MAX_ENC']?></td>
 <td><?php echo $result[$key]['LATITUD_ORIG']?></td>
 <td><?php echo $result[$key]['LONGITUD_ORIG']?></td>
 <td><?php echo $result[$key]['LATITUD_DEST']?></td>

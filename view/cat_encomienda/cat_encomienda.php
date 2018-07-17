@@ -69,47 +69,36 @@ switch ($opt) {
         $ID_US = $_SESSION['idUS'];
         $TIPO_ENCOMIENDA = isset($_REQUEST['TIPO_ENCOMIENDA']) ? addslashes($_REQUEST['DESCRIPCION_ENC']) : '';
         $DESCRIPCION_ENC = isset($_REQUEST['DESCRIPCION_ENC']) ? addslashes($_REQUEST['DESCRIPCION_ENC']) : '';
-        $DISTANCIAMIN_ENC = isset($_REQUEST['DISTANCIAMIN_ENC']) ? addslashes($_REQUEST['DISTANCIAMIN_ENC']) : '';
-        if ($DISTANCIAMIN_ENC >= 2) {
-            $COSTOENC_MAX_ENC = 1.5 + (0.40);
-            //*$DISTANCIA_CAR);
-        } else {
-            $COSTOENC_MAX_ENC = "2.00";
-        }
-//$COSTOENC_MAX_ENC = rand(1,5).".".rand(0, 99);
         $LATITUD_ORIG = isset($_REQUEST['LATITUD_ORIG']) ? addslashes($_REQUEST['LATITUD_ORIG']) : '';
         $LONGITUD_ORIG = isset($_REQUEST['LONGITUD_ORIG']) ? addslashes($_REQUEST['LONGITUD_ORIG']) : '';
         $LATITUD_DEST = isset($_REQUEST['LATITUD_DEST']) ? addslashes($_REQUEST['LATITUD_DEST']) : '';
-        $uno=array('(',')');
-        $dos=array('');
-        $latlngdes= str_replace($uno, $dos, $LATITUD_DEST);
-        $latlng= explode(",", $latlngdes);
-        ?>
-        <script>
-            var latlng= <?php echo $LATITUD_DEST; ?>
-            function distancia() {
-                var latini=<?php echo $LATITUD_ORIG ; ?>
-                var lngini=<?php echo $LONGITUD_ORIG ; ?>
-                var latdes=<?php echo $latlng[0]; ?>
-                var lngdes=<?php echo $latlng[1]; ?>
-                var punto1 = new google.maps.LatLng(latini, lngini);
-                var punto2 = new google.maps.LatLng(latdes, lngdes);
-                var distanciapuntos = google.maps.geometry.spherical.computeDistanceBetween(punto1, punto2);
-                document.getElementById("distancia").value = distanciapuntos;
-            }
-
-        </script>
-        <?php
-        $distanciapuntos="distanciapuntos";
-        $LATITUD_DEST = $latlng[0]; 
-        $LONGITUD_DEST = $latlng[1]; 
-        ?> 
-        <input type="text" id="distancia" name="DISTANCIAMIN" value=""
-            <?php
+        $LONGITUD_DEST = isset($_REQUEST['LONGITUD_DEST']) ? addslashes($_REQUEST['LONGITUD_DEST']) : ''; 
+    $direccionInicio = $LATITUD_ORIG.",".$LONGITUD_ORIG;
+    $direccionFin = $LATITUD_DEST.",".$LONGITUD_DEST;
+    $urlApi = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$direccionInicio."&destinations=".$direccionFin."&key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A";
+    $result = file_get_contents($urlApi);
+    $data = json_decode($result, true);
+    $millas =  $data['rows'][0]['elements'][0]['distance']['text'];
+    $millasKm = round(($millas * 1.60934),2);
+    $distancia = $data['rows'][0]['elements'][0]['duration']['text'];
+    ?>
+    Direccion de inicio: <?php echo $direccionInicio; ?><br>
+    Direccion de fin: <?php echo $direccionFin; ?><br>
+    Distancia entre los dos puntos: <?php echo $millasKm." Km";?><br>
+    Tiempo entre los dos puntos: <?php echo $distancia;
+       $DISTANCIAMIN_ENC = $millasKm;
+       $TIEMPOESPERAMIN_ENC=$distancia;
+        if ($DISTANCIAMIN_ENC >= 3) {
+            $COSTOENC_MAX_ENC = 1.5 + (0.40*$millasKm);
+            //*$DISTANCIA_CAR);
+        } else {
+            $COSTOENC_MAX_ENC = 2.00;
+        }
+//$COSTOENC_MAX_ENC = rand(1,5).".".rand(0, 99);
         echo "distanciapuntos=$distanciapuntos";
         $DIRECCION_ENC = isset($_REQUEST['DIRECCION_ENC']) ? addslashes($_REQUEST['DIRECCION_ENC']) : '';
         $FECHA_ENC = date('Y-m-d G:i:s');
-        $sqlI = "INSERT INTO cat_encomienda (ID_US, TIPO_ENCOMIENDA, DESCRIPCION_ENC, DISTANCIAMIN_ENC,LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC, FECHA_ENC) VALUES ('$ID_US','$TIPO_ENCOMIENDA', '$DESCRIPCION_ENC','$DISTANCIAMIN_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG','$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC', '$FECHA_ENC')";
+        $sqlI = "INSERT INTO cat_encomienda (ID_US, TIPO_ENCOMIENDA, DESCRIPCION_ENC, DISTANCIAMIN_ENC,COSTOENC_MAX_ENC,TIEMPOESPERAMIN_ENC,LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC, FECHA_ENC) VALUES ('$ID_US','$TIPO_ENCOMIENDA', '$DESCRIPCION_ENC','$DISTANCIAMIN_ENC','$COSTOENC_MAX_ENC','$TIEMPOESPERAMIN_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG','$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC', '$FECHA_ENC')";
         $qryI = mysql_query($sqlI) or die('Error ' . mysql_error());
         if ($qryI) {
             $_SESSION['msg'] = 'Record Added Successfully!';
