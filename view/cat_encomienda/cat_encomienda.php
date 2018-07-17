@@ -80,10 +80,36 @@ switch ($opt) {
         $LATITUD_ORIG = isset($_REQUEST['LATITUD_ORIG']) ? addslashes($_REQUEST['LATITUD_ORIG']) : '';
         $LONGITUD_ORIG = isset($_REQUEST['LONGITUD_ORIG']) ? addslashes($_REQUEST['LONGITUD_ORIG']) : '';
         $LATITUD_DEST = isset($_REQUEST['LATITUD_DEST']) ? addslashes($_REQUEST['LATITUD_DEST']) : '';
-        $LONGITUD_DEST = isset($_REQUEST['LONGITUD_DEST']) ? addslashes($_REQUEST['LONGITUD_DEST']) : '';
+        $uno=array('(',')');
+        $dos=array('');
+        $latlngdes= str_replace($uno, $dos, $LATITUD_DEST);
+        $latlng= explode(",", $latlngdes);
+        ?>
+        <script>
+            var latlng= <?php echo $LATITUD_DEST; ?>
+            function distancia() {
+                var latini=<?php echo $LATITUD_ORIG ; ?>
+                var lngini=<?php echo $LONGITUD_ORIG ; ?>
+                var latdes=<?php echo $latlng[0]; ?>
+                var lngdes=<?php echo $latlng[1]; ?>
+                var punto1 = new google.maps.LatLng(latini, lngini);
+                var punto2 = new google.maps.LatLng(latdes, lngdes);
+                var distanciapuntos = google.maps.geometry.spherical.computeDistanceBetween(punto1, punto2);
+                document.getElementById("distancia").value = distanciapuntos;
+            }
+
+        </script>
+        <?php
+        $distanciapuntos="distanciapuntos";
+        $LATITUD_DEST = $latlng[0]; 
+        $LONGITUD_DEST = $latlng[1]; 
+        ?> 
+        <input type="text" id="distancia" name="DISTANCIAMIN" value=""
+            <?php
+        echo "distanciapuntos=$distanciapuntos";
         $DIRECCION_ENC = isset($_REQUEST['DIRECCION_ENC']) ? addslashes($_REQUEST['DIRECCION_ENC']) : '';
         $FECHA_ENC = date('Y-m-d G:i:s');
-       $sqlI= "INSERT INTO cat_encomienda (ID_US, TIPO_ENCOMIENDA, DESCRIPCION_ENC, LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC, FECHA_ENC) VALUES ('$ID_US','$TIPO_ENCOMIENDA', '$DESCRIPCION_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG','$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC', '$FECHA_ENC')";
+        $sqlI = "INSERT INTO cat_encomienda (ID_US, TIPO_ENCOMIENDA, DESCRIPCION_ENC, DISTANCIAMIN_ENC,LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, DIRECCION_ENC, FECHA_ENC) VALUES ('$ID_US','$TIPO_ENCOMIENDA', '$DESCRIPCION_ENC','$DISTANCIAMIN_ENC', '$LATITUD_ORIG', '$LONGITUD_ORIG','$LATITUD_DEST', '$LONGITUD_DEST', '$DIRECCION_ENC', '$FECHA_ENC')";
         $qryI = mysql_query($sqlI) or die('Error ' . mysql_error());
         if ($qryI) {
             $_SESSION['msg'] = 'Record Added Successfully!';
