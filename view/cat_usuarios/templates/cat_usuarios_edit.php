@@ -1,12 +1,8 @@
 <?php
-include"inc/inc_head.php";
+include"../inc/inc_head.php";
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();
 ?>
-<ul class="breadcrumb">
-    <li><a href="cat_usuarios.php">Listado/a></li>
-     <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-</ul>
 <br/>
 <div class="col-sm-12 col-md-12">
     <form name="frmUpdate" id="frmUpdate" action="" method="post" enctype="multipart/form-data">
@@ -60,7 +56,8 @@ $usname = new LoginModel();
         </div>
 
         <input type="hidden" name="option" value="update">
-        <input type="submit" name="btnUpdate" class="btn btn-primary" value="Actualizar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restaurar">
+        <input type="submit" name="btnUpdate" class="btn btn-primary" value="Actualizar" />&nbsp;
+        <a  href='cat_usuarios.php' class="btn btn-danger" value="Cancelar">Cancelar</a>
     </form></div>
 
 

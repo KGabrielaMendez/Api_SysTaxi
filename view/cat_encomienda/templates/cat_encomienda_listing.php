@@ -34,6 +34,11 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/master
 <td><?php $vari = $result[$key]['IDCONDUCTOR'];
  if ($vari != NULL) {
       $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');

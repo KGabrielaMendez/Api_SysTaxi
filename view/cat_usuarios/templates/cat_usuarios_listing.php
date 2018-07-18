@@ -2,17 +2,12 @@
 if (isset($msg)) {
     echo $msg;
 }
-?>
+?><?php include "../inc/inc_head.php"; ?>
 <?php
-include "inc/inc_head.php";
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();
 ?>
-<ul class="breadcrumb">
-    <li><a href="cat_usuarios.php">Listado</a></li>
-    <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-    <!--<li class="active">Library</li>-->
-</ul>
+
 <br/>
 <div class="col-sm-12 col-md-12">
     <h1>LISTADO CLIENTES</h1>

@@ -26,14 +26,17 @@ echo $msg;
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">LONGITUD DESTINO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DIRECCION ENCOMIENDA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA ENCOMIENDA</th>
-<th style="width: 128px;">ACCIÓN</th>
+
 </tr>
 </thead>
 <tbody>
 <?php
 foreach($result as $key => $value){?>
 <tr>
-<td><?php echo $result[$key]['ID_US']?></td>
+<td><?php echo $result[$key]['NOMBRE_US']
+        
+        
+        ?></td>
 <td><?php $vari = $result[$key]['IDCONDUCTOR'];
  if ($vari != NULL) {
       $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
@@ -57,7 +60,6 @@ foreach($result as $key => $value){?>
 <td><?php echo $result[$key]['LONGITUD_DEST']?></td>
 <td><?php echo $result[$key]['DIRECCION_ENC']?></td>
 <td><?php echo $result[$key]['FECHA_ENC']?></td>
-<td><a href="cat_encomienda.php?option=view&ID_ENCOMIENDA=<?php echo $result[$key]['ID_ENCOMIENDA']?>"><i class="fa fa-eye"></i></a>&nbsp;|&nbsp;<a href="cat_encomienda.php?option=edit&ID_ENCOMIENDA=<?php echo $result[$key]['ID_ENCOMIENDA']?>"><i class="fa fa-pencil-square"></i></a>&nbsp;|&nbsp;<a href="cat_encomienda.php?option=delete&ID_ENCOMIENDA=<?php echo $result[$key]['ID_ENCOMIENDA']?>" onclick="return confirm('Are you sure you want to delete this record?');"><i class="fa fa-trash"></i></a></td>
 </tr>
 <?php
 }?>

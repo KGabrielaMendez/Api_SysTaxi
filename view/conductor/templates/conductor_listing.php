@@ -3,11 +3,8 @@ if (isset($msg)) {
     echo $msg;
 }
 ?>
-<?php include "inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-    <li><a href="conductor.php">Listado</a></li>
-    <li><a href="../../view/mainConductor.php">Inicio</a></li>
-</ul>
+<?php include "../inc/inc_head.php"; ?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
     <a href="conductor.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>

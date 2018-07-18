@@ -1,12 +1,8 @@
 <?php
-include"inc/inc_head.php";
+include"../inc/inc_head.php";
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();
 ?>
-<ul class="breadcrumb">
-    <li><a href="cat_usuarios.php">Listado</a></li>
-     <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-</ul>
 <br/>
 <div class="col-sm-12 col-md-12">
     <table class="table table-bordered">
@@ -59,5 +55,6 @@ $usname = new LoginModel();
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../library/bootstrap-3/js/bootstrap.min.js"></script>
+    <a  href='cat_usuarios.php' class="btn btn-danger" value="Cancelar">Atras</a>
 </body>
 </html>
