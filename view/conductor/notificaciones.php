@@ -4,14 +4,11 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php include "inc/inc_head.php"; ?>
+<?php include "../inc/inc_head.php"?>
 <script>setTimeout('document.location.reload()',10000); </script>
-<ul class="breadcrumb">
-    <li><a href="../../view/mainConductor.php">Inicio</a></li>
-</ul>
+
 <?php
 include_once '../../model/ModelConductores.php';
-session_start();
 $mconductores = new ModelConductores();
 $listado = $mconductores->getEcomiendas();       
         $listadoC = $mconductores->getCarreras();
@@ -144,7 +141,7 @@ if (isset($_SESSION['listadoC'])) {
 ?>
         
     </table>
-    
+    <?php include "./inc/inc_footer.php"; ?>
         <?php
         ?>
 </body>

@@ -190,7 +190,6 @@ switch ($opt) {
                 AND D.ID_UNI = E.ID_UNI
                 AND E.ID_COOP = F.ID_COOP
                 AND A.ID_ROL = 3
->>>>>>> origin/master
                 AND C.USERNAME="' . $usuname . '"';
         }
         $pag = new Paginator($sqlL, 10);

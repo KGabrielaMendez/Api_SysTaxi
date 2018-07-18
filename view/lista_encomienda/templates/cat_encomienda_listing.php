@@ -12,7 +12,8 @@ echo $msg;
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ESTADO</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">USUARIO</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">CONDUCTOR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENCOMIENDA</th>
@@ -32,6 +33,7 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
+    <td><?php echo $result[$key]['ESTADO']?></td>
 <td><?php echo $result[$key]['NOMBRE_US']
         
         
@@ -63,6 +65,6 @@ foreach($result as $key => $value){?>
 <?php
 }?>
 </tbody>
-</table><br />
+</table><br /><?php include "inc/inc_footer.php"; ?>
 </div>
-<?php include "inc/inc_footer.php"; ?>
+

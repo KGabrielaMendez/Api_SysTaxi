@@ -3,6 +3,7 @@ $usuario = $_POST['uname'];
 $pass = md5($_POST['psw']);
 
 if (empty($usuario) || empty($pass)) {
+    
     header("Location: ../login/login.php");
     exit();
    
@@ -68,7 +69,10 @@ if ($row = mysql_fetch_array($result)) {
             if (m == true) {
         <?php
 //redireccionamos a una nueva pagina para visualizar:
-        header('Location: ../view/Tarifas.html');
+        $incorrecto="El usuario o la contraseña es incorrecta";
+        $_SESSION['smsincorrecto']=$incorrecto;
+        header("Location: ../login/login.php");
+        
         ?>
             } else {
                 alert("Cancelado");

@@ -1,14 +1,13 @@
-<?php
-if (isset($msg)) {
-    echo $msg;
-}
-?>
+
 <?php include "../inc/inc_head.php"; ?>
 
 <h1>CONDUCTORES</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
-    <a href="conductor.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>
+    <?php if($_SESSION['rolUsuario']!=3){ 
+        echo'
+    <a href="conductor.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>';
+     } ?>
     </a><br />
     <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
         <thead>

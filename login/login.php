@@ -83,8 +83,15 @@ if (isset($_SESSION['incorrecto'])) {
 
                         <label for="psw"><b>Contraseña</b></label>
                         <input type="password" placeholder="Ingrese su contraseña" name="psw" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" required>
+                         <p style="color:red">
+                            <?php
+                        if(isset($_SESSION['smsincorrecto'])){
+                            echo $_SESSION['smsincorrecto'];
+                        }
+                        ?>
+                         </p>
                         <b> </b><span class="psw"><a href="../login/confirmacion.php">Olvidó su contraseña</a></span>  
-
+                       
                         <button type="submit">Iniciar Sesión</button>
 
                     </div>

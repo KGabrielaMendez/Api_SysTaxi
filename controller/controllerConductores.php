@@ -46,7 +46,22 @@ switch ($opcion) {
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
         break;
-
+    
+    //CASI FUNCIONA EL FINALIZADO
+case "fin":
+     $idconductor = $mconductores->obtenerID($usuname);
+    $id = $_SESSION['encomienda'];
+    
+    $finEn="FINALIZADO";
+        $_SESSION['fin']=$finEn;
+        $sqlU = "UPDATE cat_encomienda SET ESTADO= 'FINALIZADO' WHERE ID_ENCOMIENDA= '$id'";
+$qryU = mysql_query($sqlU) or die('Error: ' . mysql_error());
+if($qryU)
+{
+$_SESSION['msg'] = 'Record Updated Successfully!';
+}
+        header('Location: http://localhost:8080/AppsI_SysTaxi/view/mainConductor.php');
+        break;
        default:
         header('Location:../view/mainConductor.php');
 }

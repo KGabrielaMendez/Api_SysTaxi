@@ -41,7 +41,6 @@ if ($res = mysqli_query($mysqli, $consulta)) {
 
         <input type="text" id="coords" value="<?php echo $latFin.",".$lonFin?>"/>
         <script>
-                <input
 
 
             var marker;          //variable del marcador
@@ -114,7 +113,8 @@ if ($res = mysqli_query($mysqli, $consulta)) {
         </script>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&callback=initMap"></script>
-        <form action="../mainConductor.php">
+        <form action="http://localhost:8080/AppsI_SysTaxi/controller/controllerConductores.php?opcion=fin">
+            
             <input type="submit" name="Finalizar Encomienda" value="Finalizar Encomienda">
         </form>
     </body>

@@ -3,12 +3,8 @@ if(isset($msg)) {
 echo $msg;
 }
 ?>
-<?php include "inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-<li><a href="cat_cooperativas.php">Listado</a></li>
-<li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-
-</ul>
+<?php include "../inc/inc_head.php" ; ?>
+ <h1>COOPERATIVAS</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
 <a href="cat_cooperativas.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>
@@ -16,11 +12,11 @@ echo $msg;
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">NOMBRE COOP</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">CIUDAD COOP</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">PAIS COOP</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">NUNIDADES COOP</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHAREGISTRO COOP</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">NOMBRE</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">CIUDAD</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">PAIS </th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">N° UNIDADES</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">FECHA DE REGISTRO</th>
 <th style="width: 128px;">Accion</th>
 </tr>
 </thead>

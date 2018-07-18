@@ -1,4 +1,4 @@
-<?php include "../inc/inc_head.php"; ; 
+<?php include "../inc/inc_head.php" ; 
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();?>
 <h1>EDITAR CONDUCTOR </h1>
