@@ -23,7 +23,7 @@
             <select value="ID_US" name="ID_US" style="width:100%; height: 40px">
                 <?php
                 $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
-                $consulta = "SELECT NOMBRE_US, ID_US from cat_usuarios";
+                $consulta = "SELECT u.NOMBRE_US, u.ID_US, l.ID_ROL from cat_usuarios u, login l WHERE u.ID_LOG=l.ID_LOG and l.ID_ROL=3";
                 if ($res = mysqli_query($mysqli, $consulta)) {
                     while ($fila = mysqli_fetch_row($res)) {
                         

@@ -105,14 +105,14 @@ switch ($opt) {
         }
 
         include '../library/paginator.class.php';
-        $sqlL = 'SELECT B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
-                FROM cat_rol A,cat_usuarios B,login C, conductor D, cat_unidades E, cat_cooperativas F
-                WHERE C.ID_ROL = A.ID_ROL
-                AND B.ID_LOG = C.ID_LOG
-                AND D.ID_US = B.ID_US
-                AND D.ID_UNI = E.ID_UNI
-                AND E.ID_COOP = F.ID_COOP
-                AND A.ID_ROL = 3
+        $sqlL = 'SELECT B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US, B.FECHANAC_US 
+            FROM cat_rol A,cat_usuarios B,login C, conductor D, cat_unidades E, cat_cooperativas F 
+            WHERE A.ID_ROL = C.ID_ROL 
+            AND B.ID_LOG = C.ID_LOG 
+            AND D.ID_US = B.ID_US 
+            AND D.ID_UNI = E.ID_UNI 
+            AND E.ID_COOP = F.ID_COOP 
+            AND C.ID_ROL = 3
                 AND C.USERNAME="' . $usuname . '"';
         $pag = new Paginator($sqlL, 10);
         $link1 = $pag->getCount('Item %d of %d - %d');
