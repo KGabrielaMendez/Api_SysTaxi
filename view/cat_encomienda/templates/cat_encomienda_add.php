@@ -31,11 +31,8 @@
         width: 300px;
     }
 </style>
-<?php include"inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-    <li><a href="cat_encomienda.php">Inicio</a></li>
-    <li class="active">Library</li>
-</ul>
+<?php include "../inc/inc_head.php"; ?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
     <form name="frmAdd" id="frmAdd" action="" class="form-group" method="post" enctype="multipart/form-data">
@@ -262,9 +259,7 @@
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&sensor=false&signed_in=true&libraries=places&callback=initMap" async defer></script>
- <div>
-    	Distancia entre los puntos: <span id="span_distancia"></span>
-    </div>
+
         <label style="text-transform: capitalize; width: 150px; font-weight: bold;">LATITUD DESTINO</label>
         <div class="form-group" contenteditable="false">
             <input type="text" readonly name="LATITUD_DEST" id="destinolat" class="form-control" value="<?php echo isset($_REQUEST["LATITUD_DEST"]) ? $_REQUEST["LATITUD_DEST"] : ''; ?>" />

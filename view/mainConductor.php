@@ -2,7 +2,8 @@
 <?php
 
 include"inc/inc_head.php";
-         if($_SESSION['rolUsuario']=="3"){
+
+//         if($_SESSION['rolUsuario']=="3"){
 //         $username=$_SESSION['username'];
 ?>
 <html>
@@ -78,11 +79,11 @@ include"inc/inc_head.php";
                 </tr>
             </tbody>
             <?php
-         }
-         else{
-              header("Location: ../login/login.php");
-    exit();
-         }
+//         }
+//         else{
+//              header("Location: ../login/login.php");
+//    exit();
+//         }
             ?>
             <div id="footer">  </div> 
     </body>

@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <?php
 include"inc/inc_head.php";
-if ($_SESSION['rolUsuario'] == "2") {
-    ?>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-        <ul class="breadcrumb">
-            <li><a href="cat_encomienda.php">Inicio</a></li>
-            <li class="active">Library</li>
-        </ul>
+//if ($_SESSION['rolUsuario'] == "2") {
+?>
 
+<html>
+    <head>
+        <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
@@ -42,6 +38,7 @@ if ($_SESSION['rolUsuario'] == "2") {
                         </form>
                     </td>
                 </tr>
+                
                 <tr style="width: 175px;">
                     <td style="width: 175px;"><form  action="../controller/controllerClientes.php">
                             <input type="hidden" value="qsomos" name="opcion">
@@ -50,6 +47,14 @@ if ($_SESSION['rolUsuario'] == "2") {
                     <td><form  action="Tarifas.html">
                             <input type="image" value="tarifas" src="img/tarifas.jpg" alt="tarifas" width="70%"/>
                         </form></td>
+                </tr>
+                <tr>
+                    <td style="width: 175px;">
+                        <form  action="../controller/controllerAdministrador.php">
+                            <input type="hidden" value="cerrarSesion" name="opcion">
+                            <input type=image alt="cerrar Sesion" src="salir.jpg" width="70%"/>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -61,10 +66,10 @@ if ($_SESSION['rolUsuario'] == "2") {
             $_SESSION['idUS'] = $rowid['ID_US'];
         }
         echo $_SESSION['idUS'];
-    } else {
-        header("Location: ../login/login.php");
-        exit();
-    }
-    include"inc/inc_footer.php";
-    ?>
+//    } else {
+//        header("Location: ../login/login.php");
+//        exit();
+//    }
+        include"inc/inc_footer.php";
+        ?>
 

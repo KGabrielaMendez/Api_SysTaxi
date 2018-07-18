@@ -3,11 +3,8 @@ if(isset($msg)) {
 echo $msg;
 }
 ?>
-<?php include "inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-<li><a href="../../view/mainCliente.php">Inicio</a></li>
-<li class="active">Library</li>
-</ul>
+<?php include"../inc/inc_head.php";?>
+
 <br/>
 <meta http-equiv="refresh" content="6" />
 
