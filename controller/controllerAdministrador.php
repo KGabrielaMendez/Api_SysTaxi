@@ -31,7 +31,7 @@ switch ($opcion) {
         header("Location: ../login/login.php");
         break;
     
-    case "listaEncomienda":
+    case "ListaEncomienda":
         header('Location: ../view/lista_encomienda/cat_encomienda.php');
         break;
 
