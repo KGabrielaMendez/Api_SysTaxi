@@ -1,4 +1,5 @@
 <?php
+
 require_once '../model/ModelConductores.php';
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
@@ -15,7 +16,7 @@ switch ($opcion) {
 
     case "notificaciones":
         //obtenemos la lista de facturas:
-        $listado = $mconductores->getEcomiendas();       
+        $listado = $mconductores->getEcomiendas();
         $listadoC = $mconductores->getCarreras();
         echo print_r($listadoC);
         //y los guardamos en sesion:
@@ -28,24 +29,24 @@ switch ($opcion) {
     case "aceptarE":
         $usuname = $_SESSION['username'];
         $id = $_GET['id'];
-         $_SESSION['encomienda']=$id;
+        $_SESSION['encomienda'] = $id;
         $idconductor = $mconductores->obtenerID($usuname);
-        $mconductores->ModificarPedidoE($id,$idconductor);
+        $mconductores->ModificarPedidoE($id, $idconductor);
 
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
         break;
-    
-        case "aceptarC":
+
+    case "aceptarC":
         $usuname = $_SESSION['username'];
         $id = $_GET['id'];
         $idconductor = $mconductores->obtenerID($usuname);
-        $mconductores->ModificarPedidoC($id,$idconductor);
+        $mconductores->ModificarPedidoC($id, $idconductor);
 
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
         break;
 
-    default:
+       default:
         header('Location:../view/mainConductor.php');
 }
