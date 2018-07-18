@@ -1,8 +1,5 @@
-<?php include"inc/inc_head.php";?>
-<ul class="breadcrumb">
-<li><a href="cat_usuarios.php">Listado</a></li>
- <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-</ul>
+<?php include "../inc/inc_head.php"; ?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmAdd" id="frmAdd" action="" class="form-group" method="post" enctype="multipart/form-data">
@@ -50,6 +47,7 @@
 <input type="text" name="EMAIL_US" class="form-control" value="<?php echo isset($_REQUEST["EMAIL_US"]) ? $_REQUEST["EMAIL_US"] : ''; ?>" />
 </div>
 <input type="hidden" name="option" value="insert">
-<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
+<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;
+    <a  href='cat_usuarios.php' class="btn btn-danger" value="Cancelar">Cancelar</a>
 </form></div>
 <?php include"inc/inc_footer.php"; ?>

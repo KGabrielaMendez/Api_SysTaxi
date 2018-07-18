@@ -52,7 +52,7 @@ include"inc/inc_head.php";
                     <td style="width: 175px;">
                         <form  action="../controller/controllerConductores.php">
                             <?php
-//                            $username=$_SESSION['username'];
+                            $username=$_SESSION['username'];
                             ?>
                             <input type="hidden" name="username" value="<?php echo $username; ?>">
                             <input type="hidden" value="perfil" name="opcion">

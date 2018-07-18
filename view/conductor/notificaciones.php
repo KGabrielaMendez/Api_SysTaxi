@@ -12,6 +12,14 @@ and open the template in the editor.
 <?php
 include_once '../../model/ModelConductores.php';
 session_start();
+$mconductores = new ModelConductores();
+$listado = $mconductores->getEcomiendas();       
+        $listadoC = $mconductores->getCarreras();
+
+        //y los guardamos en sesion:
+        $_SESSION['listado'] = serialize($listado);
+        $_SESSION['listadoC'] = serialize($listadoC);
+        
 //    $conductor= $_SESSION['conductor'];
 //$username = $_SESSION['username'];
 ?>

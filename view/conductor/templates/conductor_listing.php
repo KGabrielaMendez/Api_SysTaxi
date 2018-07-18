@@ -39,6 +39,7 @@ if (isset($msg)) {
                     <td><?php echo $result[$key]['TELEFONO_US'] ?></td>           
                     <td><?php echo $result[$key]['FECHANAC_US'] ?></td>
                     <!--<td><a href="conductor.php?option=view&IDCONDUCTOR=<?php //echo $result[$key]['IDCONDUCTOR'] ?>"><i class="fa fa-eye"></i></a>&nbsp;|&nbsp;<a href="conductor.php?option=edit&IDCONDUCTOR=<?php //echo $result[$key]['IDCONDUCTOR'] ?>"><i class="fa fa-pencil-square"></i></a>&nbsp;|&nbsp;<a href="conductor.php?option=delete&IDCONDUCTOR=<?php //echo $result[$key]['IDCONDUCTOR'] ?>" onclick="return confirm('Are you sure you want to delete this record?');"><i class="fa fa-trash"></i></a></td>-->
+                    
                     <td><a href="conductor.php?option=view&ID_US=<?php echo $result[$key]['ID_US'] ?>"><i class="fa fa-eye"></i></a>&nbsp;|&nbsp;<a href="conductor.php?option=edit&ID_US=<?php echo $result[$key]['ID_US']?>"><i class="fa fa-pencil-square"></i></a>&nbsp;</td>
                 </tr>
             <?php }

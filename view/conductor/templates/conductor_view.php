@@ -11,9 +11,13 @@ $usname = new LoginModel();?>
         <tr>
             <th style="text-transform: capitalize; width: 150px;">NOMBRE CONDUCTOR</th>
             <td><?php
-                $id = $qryVResult['ID_LOG'];
+//                $id = $qryVResult['ID_LOG'];
+                if(empty($qryVResult['ID_LOG'])){
+                    print_r($qryVResult['USERNAME']);
+                }else{
+                   $id = $qryVResult['ID_LOG']; 
                 $usname->RecuperarUsername($id);
-                echo $uname = $_SESSION['uname'];
+                echo $uname = $_SESSION['uname'];}
                 ?></td>
         </tr>
         <tr>

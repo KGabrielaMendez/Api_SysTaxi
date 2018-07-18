@@ -97,4 +97,33 @@ class ModelConductores {
             }
          }
     }
+    
+    public function obtenerIDOriginal($username) {
+        $mysqli = new mysqli('localhost', 'root', '', 'systaxi');
+        $consulta="SELECT A.ID_LOG
+            FROM login A, cat_usuarios B
+            WHERE A.ID_LOG = B.ID_LOG
+            AND B.ID_US='" . $username . "'";
+         if($res = mysqli_query($mysqli,$consulta)){
+            while($fila= mysqli_fetch_row($res)){
+            $dato=$fila[0];
+            $_SESSION['idLog'] = $dato;
+            }
+         }
+    }
+    
+    public function insertarConductor($iduser, $idauto) {
+        $pdo = Database::connect();
+        $sql = "INSERT INTO `conductor`(`ID_US`,`ID_UNI`) VALUES (?,?)";
+        $consulta = $pdo->prepare($sql);
+        //Ejecutamos y pasamos los parametros:
+        try {
+            $consulta->execute(array($iduser, $idauto));
+                  
+        } catch (PDOException $e) {
+            Database::disconnect();
+            throw new Exception($e->getMessage());
+        }
+        Database::disconnect();
+    }
 }
