@@ -54,17 +54,16 @@ switch ($opt) {
          }
          print_r($dato);
         if($dato==1){
-         $sqlE = 'SELECT B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
+         $sqlE = 'SELECT C.ID_LOG, B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
                 FROM cat_rol A,cat_usuarios B,login C, conductor D, cat_unidades E, cat_cooperativas F
                 WHERE C.ID_ROL = A.ID_ROL
                 AND B.ID_LOG = C.ID_LOG
                 AND D.ID_US = B.ID_US
                 AND D.ID_UNI = E.ID_UNI
                 AND E.ID_COOP = F.ID_COOP
-                AND A.ID_ROL = 3
-                AND B.ID_US="' . $id . '"';    
+                AND A.ID_ROL = 3';    
         }else{
-        $sqlE = 'SELECT B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
+        $sqlE = 'SELECT C.ID_LOG, B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
                 FROM cat_rol A,cat_usuarios B,login C, conductor D, cat_unidades E, cat_cooperativas F
                 WHERE C.ID_ROL = A.ID_ROL
                 AND B.ID_LOG = C.ID_LOG
