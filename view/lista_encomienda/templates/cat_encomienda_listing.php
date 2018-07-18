@@ -8,8 +8,7 @@ echo $msg;
 
 <br/>
 <div class="col-sm-12 col-md-12">
-<a href="cat_encomienda.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>
-</a><br />
+
 <br/><table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 <thead>
 <tr>

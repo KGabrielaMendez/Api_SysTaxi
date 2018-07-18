@@ -1,8 +1,5 @@
-<?php include"inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-    <li><a href="login.php">Inicio</a></li>
-    <li class="active">Library</li>
-</ul>
+<?php include "../inc/inc_head.php"; ?>
+<h1>ROLES DE USUARIO</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
     <table class="table table-bordered">
@@ -28,5 +25,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../library/bootstrap-3/js/bootstrap.min.js"></script>
+<a href='login.php' class="btn btn-danger" >Atrás</a>
 </body>
 </html>

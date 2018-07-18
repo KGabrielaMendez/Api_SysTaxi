@@ -1,14 +1,12 @@
-<?php include"inc/inc_head.php";?>
-<ul class="breadcrumb">
-<li><a href="cat_unidades.php">Listado</a></li>
- <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-</ul>
+<?php include "../inc/inc_head.php"?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmUpdate" id="frmUpdate" action="" method="post" enctype="multipart/form-data">
 <?php echo $msg; ?>
 <br/>
 <br/>
+<h1>EDITAR UNIDADES</h1>
 <label style="text-transform: capitalize; width: 150px; font-weight: bold;">ID COOP</label>
 <div class="form-group">
 <select value="ID_COOP" name="ID_COOP" style="width:100%; height: 40px">
@@ -51,7 +49,8 @@
 </div>
 
 <input type="hidden" name="option" value="update">
-<input type="submit" name="btnUpdate" class="btn btn-primary" value="Actualizar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restaurar">
+<input type="submit" name="btnUpdate" class="btn btn-primary" value="Actualizar" />&nbsp;
+<a href='cat_unidades.php' class="btn btn-danger" >Cancelar</a>
 </form></div>
 
 

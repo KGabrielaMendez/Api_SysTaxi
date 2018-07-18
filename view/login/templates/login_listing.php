@@ -3,11 +3,8 @@ if (isset($msg)) {
     echo $msg;
 }
 ?>
-<?php include "inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-    <li><a href="login.php">Inicio</a></li>
-    <li class="active">Library</li>
-</ul>
+<?php include "../inc/inc_head.php" ?>
+<h1>ROLES DE USUARIO</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
 
