@@ -3,6 +3,7 @@ include"../inc/inc_head.php";
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();
 ?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
     <table class="table table-bordered">
@@ -14,7 +15,7 @@ $usname = new LoginModel();
                 echo $uname = $_SESSION['uname'];
                 ?></td>
         </tr>
-        
+        <h1>DETALLES DE USUARIO <?php echo $qryVResult['NOMBRE_US'] ?></h1>
         <tr>
             <th style="text-transform: capitalize; width: 150px;">NOMBRE US</th>
             <td><?php echo $qryVResult['NOMBRE_US'] ?></td>

@@ -3,11 +3,8 @@ if(isset($msg)) {
 echo $msg;
 }
 ?>
-<?php include "inc/inc_head.php"; ?>
-<ul class="breadcrumb">
-<li><a href="cat_unidades.php">Listado</a></li>
- <li><a href="../../view/mainAdministrador.php">Inicio</a></li>
-</ul>
+<?php include "../inc/inc_head.php"?>
+<h1>LISTADO DE UNIDADES</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
 <a href="cat_unidades.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>
@@ -16,12 +13,12 @@ echo $msg;
 <thead>
 <tr>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">COOPERATIVA</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">PLACA UNI</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO UNI</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">MARCA UNI</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">MODELO UNI</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ANIO UNI</th>
-<th style="text-transform: capitalize; width: 150px; font-weight: bold;">NUMERO UNI</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">PLACA</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO </th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">MARCA</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">MODELO</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">AÑO</th>
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">NUMERO</th>
 <th style="width: 128px;">Accion</th>
 </tr>
 </thead>
@@ -43,4 +40,5 @@ foreach($result as $key => $value){?>
 </tbody>
 </table><br />
 </div>
+
 <?php include "inc/inc_footer.php"; ?>

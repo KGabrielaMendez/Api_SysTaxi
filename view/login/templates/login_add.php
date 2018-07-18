@@ -1,8 +1,5 @@
-<?php include"inc/inc_head.php";?>
-<ul class="breadcrumb">
-<li><a href="login.php">Inicio</a></li>
-<li class="active">Library</li>
-</ul>
+<?phpinclude "../inc/inc_head.php";?>
+<h1>ROLES DE USUARIO</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmAdd" id="frmAdd" action="" class="form-group" method="post" enctype="multipart/form-data">
@@ -22,6 +19,7 @@
 <input type="text" name="PASSWORD" class="form-control" value="<?php echo isset($_REQUEST["PASSWORD"]) ? $_REQUEST["PASSWORD"] : ''; ?>" />
 </div>
 <input type="hidden" name="option" value="insert">
-<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
+<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;
+<a href='login.php' class="btn btn-danger" >Cancelar</a>
 </form></div>
 <?php include"inc/inc_footer.php"; ?>

@@ -5,6 +5,7 @@ if (isset($msg)) {
 ?>
 <?php include "../inc/inc_head.php"; ?>
 
+<h1>CONDUCTORES</h1>
 <br/>
 <div class="col-sm-12 col-md-12">
     <a href="conductor.php?option=add" class="btn btn-success">Agregar Registro <i class="fa fa-plus"></i>

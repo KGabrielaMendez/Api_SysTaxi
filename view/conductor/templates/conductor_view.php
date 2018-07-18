@@ -1,11 +1,9 @@
-<?php include"inc/inc_head.php"; 
+<?php include "../inc/inc_head.php"; 
 require_once '../../model/LoginModel.php';
 $usname = new LoginModel();?>
-<ul class="breadcrumb">
-    <li><a href="conductor.php">Listado</a></li>
-    <li><a href="../../view/mainConductor.php">Inicio</a></li>
-</ul>
+
 <br/>
+<h1>CONDUCTORES</h1>
 <div class="col-sm-12 col-md-12">
     <table class="table table-bordered">
         <tr>
@@ -17,7 +15,7 @@ $usname = new LoginModel();?>
                 }else{
                    $id = $qryVResult['ID_LOG']; 
                 $usname->RecuperarUsername($id);
-                echo $uname = $_SESSION['uname'];}
+                $uname = $_SESSION['uname'];}
                 ?></td>
         </tr>
         <tr>
@@ -55,5 +53,6 @@ $usname = new LoginModel();?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../library/bootstrap-3/js/bootstrap.min.js"></script>
+    <a  href='conductor.php' class="btn btn-danger" value="Cancelar">Atras</a>
 </body>
 </html>
