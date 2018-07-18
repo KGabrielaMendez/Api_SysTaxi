@@ -1,8 +1,5 @@
-<?php include"inc/inc_head.php";?>
-<ul class="breadcrumb">
-<li><a href="cat_carrera.php">Inicio</a></li>
-<li class="active">Library</li>
-</ul>
+<?php include"../inc/inc_head.php";?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmAdd" id="frmAdd" action="" class="form-group" method="post" enctype="multipart/form-data">
@@ -113,6 +110,7 @@
 <input type="text" name="DIRECCION_CAR" class="form-control" value="<?php echo isset($_REQUEST["DIRECCION_CAR"]) ? $_REQUEST["DIRECCION_CAR"] : ''; ?>" />
 </div>
 <input type="hidden" name="option" value="insert">
-<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;<input type="reset" class="btn btn-danger" value="Restablecer">
+<input type="submit" name="btnAdd" class="btn btn-primary" value="Registrar" />&nbsp;
+<a href="cat_carrera.php" class="btn btn-danger" value="Cancelar">Cancelar</a>
 </form></div>
-<?php include"inc/inc_footer.php"; ?>
+<?php // include"inc/inc_footer.php"; ?>

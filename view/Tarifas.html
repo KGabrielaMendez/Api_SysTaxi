@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Table Example 3</title>
@@ -58,29 +60,81 @@
 
         </style>
     </head>
+    <?php
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}?>
+<html>
+    <head>
+        <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #F9D93D;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+    color: white;
+}
+</style>
+    </head>
+        <?php
+$user=$_SESSION['username'];
+?>
+<ul id="menu">
+    <li><a href="http://localhost:8080/AppsI_SysTaxi/controller/controllerMenu.php?opcion=menuPrincipal">Menú Principal</a></li>
+    <li>
+        <a href="http://localhost:8080/AppsI_SysTaxi/view/Tarifas.html">Tarifas</a>
+        
+    </li>
+    <li><a href="http://localhost:8080/AppsI_SysTaxi/view/infoQuienSomos.php">Quienes Somos</a></li>
+    <li><a href="http://localhost:8080/AppsI_SysTaxi/controller/controllerMenu.php?opcion=cerrarSesion">Cerrar Sesión</a></li>
+     <li style="float:right"><a class="active" href="">Usuario <?php echo $user ?></a></li>
+</ul>
     <body>
         <div class="container">
             <div class="header-text">
                 TARIFAS
             </div>
             <div class="table">
-                <table cellpadding="0" cellspacing="0">
+                <table cellpadding="0" cellspacing="0" contenteditable="false">
                     <thead>
                         <tr>
-                            <th>Valor mínimo de carrera</th>
+                            <th>Valor mínimo de carrera de 6:00 am a 8:00 pm</th>
                             <td> 1,25</td>
-                        <!--<td><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
-                    </tr>
-
-                        <tr>
-                            <th>Valor mínimo de carrera</th>
-                            <td> 1,25</td>
+                            <!--<td><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
+                        </tr>
+                          <tr>
+                            <th>Valor mínimo de carrera a partir de las 8:00 pm a 5:59 am</th>
+                            <td> 1,50</td>
+                            <!--<td><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
                         </tr>
                         <tr>
-                            <th>Valor mínimo de carrera</th>
-                            <td> 1,25</td>
+                            <th>Valor por kilometro de 6:00 am a 8:00 pm</th>
+                            <td> 0,40</td>
                         </tr>
-
+                        <tr>
+                            <th>Valor por kilometro a partir de 8:00 pm a 5:59 am</th>
+                            <td> 0,50</td>
+                        </tr>
+                       
+<?php include"inc/inc_head.php";?>
                 </table>
             </div>
         </div>

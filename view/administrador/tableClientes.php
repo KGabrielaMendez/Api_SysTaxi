@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php include"../inc/inc_head.php";?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -23,7 +24,6 @@ and open the template in the editor.
                     <th>ELIMINAR</th>
                 </tr>
                 <?php
-                session_start();
                 include_once '../../model/ModelAdmin.php';
                 //verificamos si existe en sesion el listado de productos:
                 if (isset($_SESSION['listado'])) {

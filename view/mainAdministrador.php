@@ -2,7 +2,7 @@
 <?php
 
 include"inc/inc_head.php";
-if ($_SESSION['rolUsuario'] == "1") {
+//if ($_SESSION['rolUsuario'] == "1") {
     ?>
     <html>
         <head>
@@ -71,6 +71,12 @@ if ($_SESSION['rolUsuario'] == "1") {
                                 <tr>
                                     <td style="width: 175px;">
                                         <form  action="../controller/controllerAdministrador.php">
+                                            <input type="hidden" value="ListaEncomienda" name="opcion">
+                                            <input type=image alt="Lista Encomienda" src="img/listaEncomienda.jpg" width="70%"/>
+                                        </form>
+                                    </td>
+                                    <td style="width: 175px;">
+                                        <form  action="../controller/controllerAdministrador.php">
                                             <input type="hidden" value="cerrarSesion" name="opcion">
                                             <input type=image alt="cerrar Sesion" src="salir.jpg" width="70%"/>
                                         </form>
@@ -89,8 +95,8 @@ if ($_SESSION['rolUsuario'] == "1") {
         </body>
     </html>
     <?php
-} else {
-    header("Location: ../login/login.php");
-    exit();
-}
+//} else {
+ //   header("Location: ../login/login.php");
+   // exit();
+//}
 ?>

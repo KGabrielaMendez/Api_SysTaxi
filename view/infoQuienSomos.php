@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "inc/inc_head.php"; ?>
 <html>
 
     <head>
@@ -58,23 +59,7 @@
     <body>
 
         <div class="header-outer-container">
-            <div id="topbar" class="clearfix">
-                <div class="container">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs">
-
-                    </div><!-- end columns -->
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="topmenu">
-
-                            <span class="topbar-language">
-                                <div class="dropdown dropdown-flat">
-                                    <a onclick="history.back()">Volver</a>
-                                </div>
-                            </span>
-                        </div><!-- end top menu -->
-                    </div><!-- end columns -->
-                </div><!-- end container -->
-            </div>
+            
             <header id="header-style-1">
                 <div class="container">
                     <nav class="navbar yamm navbar-default">
@@ -94,7 +79,7 @@
                         <div id="navbar-collapse-1" class="navbar-collapse collapse navbar-right">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="tarifa ">TARIFAS</a>
+                                    <a href="Tarifas.html ">TARIFAS</a>
                                 </li>
                             </ul>
                             <!-- end navbar-nav -->

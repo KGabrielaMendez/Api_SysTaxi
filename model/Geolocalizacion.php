@@ -17,30 +17,7 @@
         </style>
     </head>
     <body >
-        <?php
-session_start();
-$id = $_SESSION['encomienda'];
-echo $id;
-$mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
-$consulta = 'SELECT LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, ID_ENCOMIENDA FROM cat_encomienda A, cat_usuarios B, login C
-            WHERE A.ID_US = B.ID_US
-            AND B.ID_LOG = C.ID_LOG
-            AND A.ID_ENCOMIENDA="' . $id . '"';
-if ($res = mysqli_query($mysqli, $consulta)) {
-    while ($fila = mysqli_fetch_row($res)) {
-        $latIni = $fila[0];
-        $lonIni = $fila[1];
-        $latFin = $fila[2];
-        $lonFin = $fila[3];
-        echo $lonFin."--".$latFin;
-        ?>
-
-
-        <?php
-    }
-}
-?>
-        
+       
         <div id="map" ></div>
 
         <input type="text" id="coords" />

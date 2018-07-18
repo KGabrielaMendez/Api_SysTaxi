@@ -5,7 +5,7 @@ $pass = md5($_POST['psw']);
 if (empty($usuario) || empty($pass)) {
     header("Location: ../login/login.php");
     exit();
-//    $_SESSION['username'] = $usuario;
+   
 }
 
 mysql_connect('localhost', 'root', '') or die("Error al conectar " . mysql_error());
@@ -15,6 +15,7 @@ $result = mysql_query("SELECT * from login where USERNAME='" . $usuario . "'");
 $consIdUs = mysql_query("SELECT ID_US from cat_usuarios u, login l where l.USERNAME='" . $usuario . "' and l.ID_LOG=u.ID_LOG");
 if ($rowid = mysql_fetch_array($consIdUs)) {
     $_SESSION['idUS'] = $rowid['ID_US'];
+    $_SESSION['idUS'] = $rowid['EMAIL_US'];
 }
 if ($row = mysql_fetch_array($result)) {
     
@@ -23,6 +24,9 @@ if ($row = mysql_fetch_array($result)) {
             session_start();
             $_SESSION['rolUsuario'] = '1';
             $_SESSION['username'] = $usuario;
+            if ($rowid = mysql_fetch_array($consIdUs)) {
+    $_SESSION['idUS'] = $rowid['ID_US'];
+            }
             header("Location: ../view/mainAdministrador.php");
         } else {
             if ($row['ID_ROL'] == '2') {

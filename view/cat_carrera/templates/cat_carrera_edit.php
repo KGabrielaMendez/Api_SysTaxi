@@ -1,8 +1,5 @@
-<?php include"inc/inc_head.php";?>
-<ul class="breadcrumb">
-<li><a href="cat_carrera.php">Inicio</a></li>
-<li class="active">Library</li>
-</ul>
+<?php include"../inc/inc_head.php";?>
+
 <br/>
 <div class="col-sm-12 col-md-12">
 <form name="frmUpdate" id="frmUpdate" action="" method="post" enctype="multipart/form-data">
