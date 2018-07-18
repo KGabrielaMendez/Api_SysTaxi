@@ -14,7 +14,8 @@ echo $msg;
 <thead>
 <tr>
 <!--<th style="text-transform: capitalize; width: 150px; font-weight: bold;">ID US</th>
---><th style="text-transform: capitalize; width: 150px; font-weight: bold;">CONDUCTOR</th>
+-->
+<th style="text-transform: capitalize; width: 150px; font-weight: bold;">CONDUCTOR</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">TIPO ENCOMIENDA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DESCRIPCION ENCOMIENDA</th>
 <th style="text-transform: capitalize; width: 150px; font-weight: bold;">DISTANCIA EN KM</th>
@@ -33,8 +34,11 @@ echo $msg;
 <?php
 foreach($result as $key => $value){?>
 <tr>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 <td><?php $vari = $result[$key]['IDCONDUCTOR'];
  if ($vari != NULL) {
       $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');

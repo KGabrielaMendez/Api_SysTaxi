@@ -173,7 +173,6 @@ switch ($opt) {
             $dato=$fila[0];
             }
          }
-         print_r($dato);
         if($dato==1){
          $sqlL = 'SELECT B.ID_US, C.USERNAME, B.NOMBRE_US, B.APELLIDO_US, B.EMAIL_US, F.NOMBRE_COOP, E.NUMERO_UNI, B.TELEFONO_US,	B.FECHANAC_US
                 FROM cat_rol A,cat_usuarios B,login C, conductor D, cat_unidades E, cat_cooperativas F
