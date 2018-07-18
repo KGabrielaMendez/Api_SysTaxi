@@ -42,7 +42,6 @@ switch ($opcion) {
         $id = $_GET['id'];
         $idconductor = $mconductores->obtenerID($usuname);
         $mconductores->ModificarPedidoC($id, $idconductor);
-
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
         break;
