@@ -21,6 +21,7 @@
         <h1>EL DESTINO DE LA ENCOMIENDA ES:</h1>
         <?php
         session_start();
+        echo $_SESSION['idestado'];
         $id = $_SESSION['encomienda'];
         $mysqli = mysqli_connect('localhost', 'root', '', 'systaxi');
         $consulta = 'SELECT LATITUD_ORIG,LONGITUD_ORIG, LATITUD_DEST, LONGITUD_DEST, ID_ENCOMIENDA, DESCRIPCION_ENC FROM cat_encomienda A, cat_usuarios B, login C
@@ -114,22 +115,11 @@ function setMapa(coords)
 
 </script>
 
-<<<<<<< HEAD
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&callback=initMap"></script>
         <form action="http://localhost:8080/AppsI_SysTaxi/controller/controllerConductores.php?opcion=fin">
             
+            <input type="hidden" name="opcion" value="fin">
             <input type="submit" name="Finalizar Encomienda" value="Finalizar Encomienda">
         </form>
     </body>
 </html>
-=======
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDttBbx4Y6SReV1zxWgmCbvR_hQkja-15A&callback=initMap"></script>
-            <form action="../mainConductor.php">
-                <input type="submit" name="Finalizar Encomienda" value="Finalizar Encomienda">
-            </form>
-            <form action="../mainConductor.php">
-                <input type="submit" name="" value="Cancelar Encomienda">
-            </form>
-        </body>
-    </html>
->>>>>>> origin/master

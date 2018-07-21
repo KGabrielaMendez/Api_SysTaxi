@@ -29,6 +29,8 @@ switch ($opcion) {
     case "aceptarE":
         $usuname = $_SESSION['username'];
         $id = $_GET['id'];
+
+        $_SESSION['idestado'] = $id;
         $_SESSION['encomienda'] = $id;
         $idconductor = $mconductores->obtenerID($usuname);
         $mconductores->ModificarPedidoE($id, $idconductor);
@@ -45,22 +47,16 @@ switch ($opcion) {
         //redireccionamos a la pagina index para visualizar:
         header('Location: ../view/conductor/transaccionFinal.php');
         break;
-    
+
     //CASI FUNCIONA EL FINALIZADO
-case "fin":
-     $idconductor = $mconductores->obtenerID($usuname);
-    $id = $_SESSION['encomienda'];
-    
-    $finEn="FINALIZADO";
-        $_SESSION['fin']=$finEn;
-        $sqlU = "UPDATE cat_encomienda SET ESTADO= 'FINALIZADO' WHERE ID_ENCOMIENDA= '$id'";
-$qryU = mysql_query($sqlU) or die('Error: ' . mysql_error());
-if($qryU)
-{
-$_SESSION['msg'] = 'Record Updated Successfully!';
-}
+    case "fin":
+
+        $id = $_SESSION['idestado'];
+        $finEn = "FINALIZADO";
+        $mconductores->ModificarEstado($id, $finEn);
+
         header('Location: http://localhost:8080/AppsI_SysTaxi/view/mainConductor.php');
         break;
-       default:
+    default:
         header('Location:../view/mainConductor.php');
 }

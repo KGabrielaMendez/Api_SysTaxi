@@ -64,11 +64,20 @@ class ModelConductores {
 
     public function ModificarPedidoE($idencomienda,$idconductor) {
         $pdo = Database::connect();
-        $sql = "Update cat_encomienda set IDCONDUCTOR = ? WHERE ID_ENCOMIENDA = ?";
+        $sql = "Update cat_encomienda set IDCONDUCTOR = ? ,ESTADO=? WHERE ID_ENCOMIENDA = ?";
         $consulta = $pdo->prepare($sql);
         $dato = $_SESSION['idLog'];
         //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array($dato,$idencomienda));
+        $consulta->execute(array($dato,"EN CURSO",$idencomienda));
+        Database::disconnect();       
+    }
+    public function ModificarEstado($idencomienda,$estado) {
+        $pdo = Database::connect();
+        $sql = "Update cat_encomienda set ESTADO=? WHERE ID_ENCOMIENDA = ?";
+        $consulta = $pdo->prepare($sql);
+        $dato = $_SESSION['idLog'];
+        //Ejecutamos la sentencia incluyendo a los parametros:
+        $consulta->execute(array($estado,$idencomienda));
         Database::disconnect();       
     }
     
